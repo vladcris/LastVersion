@@ -1,0 +1,8 @@
+<div class="section-container">
+    <h2>Feedbacks</h2>
+    <div class="card-deck servers">
+        <div *ngFor="let feedback of feedbacks">
+            <app-feedback [feedbackInput] = "feedback"></app-feedback>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="card mb-3 block-status" [ngStyle] = "{'background-color': color }">
+    <div class="card-header">
+        {{ feedbackInput.name }}
+    </div>
+    <div class="card-body">
+        {{ feedbackInput.isOnline }}
+    </div>
+    <button (click) = "toggleStatus(feedbackInput.isOnline)" 
+            class="btn btn-primary"
+            >{{buttonText}}</button>
+</div>
