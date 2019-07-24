@@ -5,9 +5,12 @@ import { SectionAdduserComponent } from './sections/section-adduser/section-addu
 import { SectionAllComponent } from './sections/section-all/section-all.component';
 import { SectionFeedbacksComponent } from './sections/section-feedbacks/section-feedbacks.component';
 import { ViewfeedbackComponent } from './sections/viewfeedback/viewfeedback.component';
+
 import { ViewstartComponent } from './sections/viewfeedback/viewstart/viewstart.component';
 import { FeedbackDetailComponent } from './sections/viewfeedback/feedback-detail/feedback-detail.component';
 import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.component';
+
+
 
 const appRoutes: Routes = [
    { path: 'adduser', component: SectionAdduserComponent },
@@ -18,6 +21,9 @@ const appRoutes: Routes = [
       {path: ':id', component: FeedbackDetailComponent}
    ]},
    {path: 'give-feedback', component: GiveFeebackComponent},
+
+   { path: 'view', component: ViewfeedbackComponent},
+
  // { path: 'import', component: SectionAdduserComponent }, 
     
     {path: '', redirectTo: '/all', pathMatch: 'full'}

@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FeedbackV1",
-    "\\FeedbackV1\\ClientApp\\src",
-    "\\FeedbackV1\\ClientApp\\src\\app",
-    "\\FeedbackV1\\ClientApp\\src\\app\\sections",
-    "\\FeedbackV1\\ClientApp\\src\\app\\sections\\viewfeedback"
+    "\\FeedbackV1"
   ],
+  "SelectedNode": "\\FeedbackV1.sln",
   "PreviewInSolutionExplorer": false
 }

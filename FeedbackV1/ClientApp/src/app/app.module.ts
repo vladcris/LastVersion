@@ -17,6 +17,9 @@ import { FeedbackItemComponent } from './sections/viewfeedback/feedback-list/fee
 import { ViewstartComponent } from './sections/viewfeedback/viewstart/viewstart.component';
 import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,9 @@ import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.compo
     ViewstartComponent,
     GiveFeebackComponent,
     
-   
+  
+    FeedbackItemComponent
+
     
     
   
@@ -41,8 +46,10 @@ import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-  
+    FormsModule,
+
+    AppRoutingModule
+
     
   ],
   providers: [],
