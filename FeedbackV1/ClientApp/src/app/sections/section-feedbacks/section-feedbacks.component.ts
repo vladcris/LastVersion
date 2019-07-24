@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {Feedback} from '../../shared/feedback';
 
 const SAMPLE_SERVERS = [
-  {id: 1, name:'dev1', isOnline: true},
-  {id: 2, name:'dev2', isOnline: false},
-  {id: 3, name:'dev3', isOnline: true},
-  {id: 4, name:'dev4', isOnline: false},
-  {id: 1, name:'dev1', isOnline: true},
-  {id: 2, name:'dev2', isOnline: false},
-  {id: 3, name:'dev3', isOnline: true},
-  {id: 4, name:'dev4', isOnline: false}
+  {name: 'robert', date:'dev1', request: true},
+  {name: 'safd', date:'dev1', request: false},
+  {name: 'sfas', date:'dev1', request: true},
+  {name: 'sfa', date:'dev1', request: true},
+  {name: 'SFASD', date:'dev1', request: false},
+  {name: 'SADFA', date:'dev1', request: true},
+  
 ]
 
 @Component({

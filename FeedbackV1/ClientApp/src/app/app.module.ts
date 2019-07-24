@@ -9,6 +9,10 @@ import { SectionFeedbacksComponent } from './sections/section-feedbacks/section-
 import { SectionAdduserComponent } from './sections/section-adduser/section-adduser.component';
 import { ViewfeedbackComponent } from './sections/viewfeedback/viewfeedback.component';
 import { FeedbackComponent } from './sections/section-feedbacks/feedback/feedback.component';
+import { AppRoutingModule } from './app-routing.module';
+import { FeedbackListComponent } from './sections/viewfeedback/feedback-list/feedback-list.component';
+import { FeedbackDetailComponent } from './sections/viewfeedback/feedback-detail/feedback-detail.component';
+import { FeedbackItemComponent } from './sections/viewfeedback/feedback-list/feedback-item/feedback-item.component';
 
 
 @NgModule({
@@ -20,13 +24,18 @@ import { FeedbackComponent } from './sections/section-feedbacks/feedback/feedbac
     SectionFeedbacksComponent,
     SectionAdduserComponent,
     ViewfeedbackComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    FeedbackListComponent,
+    FeedbackDetailComponent,
+    FeedbackItemComponent
     
     
   
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
