@@ -1,11 +1,21 @@
 .block-status{
-    width: 200px;
+    width: 300px;
     height: 200px;
     font-size: 1.3em;
     text-align: center;
     margin: 20px;
 }
 
+
+.block-status1{
+    width: 300px;
+    height: 200px;
+    font-size: 1.3em;
+    text-align: center;
+    margin: 20px;
+    border-color: red;
+    border-width: 3px;
+}
 
 .status {
     display: block;

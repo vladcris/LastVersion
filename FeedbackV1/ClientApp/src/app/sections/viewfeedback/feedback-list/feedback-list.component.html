@@ -1,0 +1,21 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary">Search</button>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="list-group">
+            <app-feedback-item 
+                *ngFor="let feedbackEl of feedbacks; let i= index"
+                [feedback] = "feedbackEl"
+                [index]="i"
+                >
+            </app-feedback-item>
+        </div>
+    </div>
+</div>
+

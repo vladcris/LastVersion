@@ -11,28 +11,12 @@ export class FeedbackComponent implements OnInit {
   @Input() feedbackInput : Feedback;
   constructor() { }
 
-  color: string;
-  buttonText: string;
+ 
 
   ngOnInit() {
-    this.setFeedbackStatus(this.feedbackInput.isOnline);
+    
   }
 
-  setFeedbackStatus(isOnline: boolean){
-    if(isOnline){
-      this.feedbackInput.isOnline = true;
-      this.color  = '#66BB6A';
-      this.buttonText = 'Inspect';
-    }else{
-      this.feedbackInput.isOnline = false;
-      this.color = '#FF6B6B';
-      this.buttonText = 'Give';
-    }
-  }
-
-  toggleStatus(onlineStatus: boolean) {
-    this.setFeedbackStatus(!onlineStatus);
-  }
   
 
 }

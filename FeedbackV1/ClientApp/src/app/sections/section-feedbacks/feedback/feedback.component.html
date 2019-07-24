@@ -1,11 +1,19 @@
-<div class="card mb-3 block-status" [ngStyle] = "{'background-color': color }">
-    <div class="card-header">
-        {{ feedbackInput.name }}
-    </div>
+<div *ngIf = "feedbackInput.request" class="card block-status ">
+    
     <div class="card-body">
-        {{ feedbackInput.isOnline }}
+        <h5 class="card-title">To: {{feedbackInput.name}}</h5>
+        <p class="card-text">Date: {{feedbackInput.date}}</p>
+        <p class="card-text">Tip: {{feedbackInput.request}}</p>
+        <button class="btn-primary" >Inspect</button>
     </div>
-    <button (click) = "toggleStatus(feedbackInput.isOnline)" 
-            class="btn btn-primary"
-            >{{buttonText}}</button>
 </div>
+
+<div  *ngIf = "!feedbackInput.request" class="card block-status1 ">
+    
+        <div class="card-body">
+            <h5 class="card-title">From: {{feedbackInput.name}}</h5>
+            <p class="card-text">Date: {{feedbackInput.date}}</p>
+            <p class="card-text">Tip: {{feedbackInput.request}}</p>
+            <button class="btn-primary" routerLink="/give-feedback" >Give</button>
+        </div>
+    </div>
