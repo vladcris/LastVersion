@@ -1,1 +1,30 @@
-<p>section-all works!</p>
+<div class="card">
+
+        <table class="table table-hover table-inverse ">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">dep_id</th>
+                    <th scope="col">id</th>
+                    <th scope="col">email</th>
+                    <th scope="col">manager_id</th>
+                    <th scope="col">name</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employeeInput of employees; let i=index">
+  
+                                    <th scope="row">{{i}}</th> 
+                                    <td>{{employeeInput.DEP_ID}}</td>
+                                    <td>{{employeeInput.ID}}</td>
+                                    <td>{{employeeInput.Email}}</td>
+                                    <td>{{employeeInput.Manager_Id}}</td>
+                                    <td>{{employeeInput.Name}}</td>
+                                    <td><a routerLink="/give-feedback">Give</a></td>
+                       
+                    </tr>
+                </tbody>
+              </table>
+
+</div>

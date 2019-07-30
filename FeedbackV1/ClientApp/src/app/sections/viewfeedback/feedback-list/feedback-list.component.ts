@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../feedback.module';
 import { FeedbackService } from '../feedback.service';
 

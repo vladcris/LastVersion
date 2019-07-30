@@ -1,19 +1,19 @@
-<div *ngIf = "feedbackInput.request" class="card block-status ">
+<div *ngIf = "feedbackInput.Pending" class="card block-status ">
     
-    <div class="card-body">
-        <h5 class="card-title">To: {{feedbackInput.name}}</h5>
-        <p class="card-text">Date: {{feedbackInput.date}}</p>
-        <p class="card-text">Tip: {{feedbackInput.request}}</p>
+    <div class="card-body" >
+        <h5 class="card-title">To: {{feedbackInput.ID_reciver}}</h5>
+        <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
+        <p class="card-text">Tip: {{feedbackInput.Pending}}</p>
         <button class="btn-primary" >Inspect</button>
     </div>
 </div>
 
-<div  *ngIf = "!feedbackInput.request" class="card block-status1 ">
+<div  *ngIf = "!feedbackInput.Pending" class="card block-status1 ">
     
-        <div class="card-body">
-            <h5 class="card-title">From: {{feedbackInput.name}}</h5>
-            <p class="card-text">Date: {{feedbackInput.date}}</p>
-            <p class="card-text">Tip: {{feedbackInput.request}}</p>
+        <div class="card-body" >
+            <h5 class="card-title" >From: {{feedbackInput.ID_Manager}}</h5>
+            <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
+            <p class="card-text">Tip: {{feedbackInput.Pending}}</p>
             <button class="btn-primary" routerLink="/give-feedback" >Give</button>
         </div>
     </div>

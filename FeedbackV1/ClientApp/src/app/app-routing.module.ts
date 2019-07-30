@@ -5,17 +5,19 @@ import { SectionAdduserComponent } from './sections/section-adduser/section-addu
 import { SectionAllComponent } from './sections/section-all/section-all.component';
 import { SectionFeedbacksComponent } from './sections/section-feedbacks/section-feedbacks.component';
 import { ViewfeedbackComponent } from './sections/viewfeedback/viewfeedback.component';
-
 import { ViewstartComponent } from './sections/viewfeedback/viewstart/viewstart.component';
 import { FeedbackDetailComponent } from './sections/viewfeedback/feedback-detail/feedback-detail.component';
 import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 const appRoutes: Routes = [
    { path: 'adduser', component: SectionAdduserComponent },
-   { path: 'all', component: SectionAllComponent }, 
-   { path: 'feedback', component: SectionFeedbacksComponent }, 
+   { path: 'all', component: SectionAllComponent },
+   { path: 'feedback', component: SectionFeedbacksComponent, children: [
+      {path: ':angajatid', component: SectionFeedbacksComponent}
+   ] },
    { path: 'view', component: ViewfeedbackComponent, children: [
       { path: '', component: ViewstartComponent},
       {path: ':id', component: FeedbackDetailComponent}
@@ -23,11 +25,11 @@ const appRoutes: Routes = [
    {path: 'give-feedback', component: GiveFeebackComponent},
 
    { path: 'view', component: ViewfeedbackComponent},
+   {path: 'login', component: LoginComponent},
 
- // { path: 'import', component: SectionAdduserComponent }, 
-    
-    {path: '', redirectTo: '/all', pathMatch: 'full'}
-    
+ // { path: 'import', component: SectionAdduserComponent },
+    {path: '', redirectTo: '/login', pathMatch: 'full'}
+
 ];
 
 @NgModule({
@@ -35,6 +37,6 @@ const appRoutes: Routes = [
 
     exports: [RouterModule]
 })
-export class AppRoutingModule{
+export class AppRoutingModule {
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output} from '@angular/core';
+import { ValueComponent } from './value/value.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+@Output() value;
+
+
+loginBoolean = this.value;
+
 }
