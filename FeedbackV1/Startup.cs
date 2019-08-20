@@ -1,3 +1,8 @@
+using AutoMapper;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using FeedbackV1.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FeedbackV1.Data;
 
 namespace FeedbackV1
 {
@@ -27,10 +33,27 @@ namespace FeedbackV1
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+        services.AddAutoMapper();
+        services.AddTransient<Seed>();
+        
+        services.AddScoped<IAuthRepository, TableStorageRepository>();
+         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+         .AddJwtBearer(options => {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                ValidateIssuer = false,
+                ValidateAudience = false
+
+            };
+        });
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment())
             {
@@ -46,6 +69,8 @@ namespace FeedbackV1
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseAuthentication();
+            //seeder.SeedUsers();
 
             app.UseMvc(routes =>
             {

@@ -11,5 +11,8 @@ export class SectionAdduserComponent implements OnInit {
 
   ngOnInit() {
   }
+  onSubmit() {
+    
+  }
 
 }

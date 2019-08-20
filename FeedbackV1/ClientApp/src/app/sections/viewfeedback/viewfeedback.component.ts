@@ -14,12 +14,12 @@ export class ViewfeedbackComponent implements OnInit {
   constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit() {
-    this.feedbackService.feedbackSelected
-    .subscribe(
-    (feedback: Feedback) => {
-      this.feedbackSelected = feedback;
-  }
-    );
+  //   this.feedbackService.feedbackSelected
+  //   .subscribe(
+  //   (feedback: Feedback) => {
+  //     this.feedbackSelected = feedback;
+  // }
+  //   );
 
 }
 

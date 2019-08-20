@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +10,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   model: any = {};
-  value = true;
-  constructor() { }
+  constructor(private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  login() {
-    if (this.model) {
-      console.log('true');
-    }
+  onSubmit(form: NgForm) {
+    // console.log(form.value);
+    this.authService.login(form.value).subscribe(next => {
+      console.log('succesfull');
+    }, error => {
+      console.log('failed');
+    });
+    form.reset();
   }
 
-  onPush() {
-    this.value = false;
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
+  }
+
+
 }

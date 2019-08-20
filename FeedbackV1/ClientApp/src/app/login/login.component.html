@@ -1,18 +1,55 @@
-<div class="card">
+<!-- <div class="card">
     <div class="text-center">
-        <form #loginForm="ngForm" (ngSubmit)="login()" class="form-signin">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form-signin">
             <img class="mb-4" src="" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <label for="inputEmail" class="sr-only">Email address</label>
             <input  type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required [(ngModel)]="model.email" >
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password"  id="inputPassword" class="form-control" placeholder="Password" name="password" required [(ngModel)]="model.password">
+            <input type="password" class="form-control" placeholder="Password" name="password" required [(ngModel)]="model.password">
             <div class="checkbox mb-3">
-                    <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                    </label>
+                    <label><input type="checkbox" value="remember-me"> Remember me</label>
             </div>
-            <button [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block" type="submit" (click)="onPush()">Sign in</button>
+            <button [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block" type="submit"  (click)="onPush() ">Sign in</button>
         </form>
     </div>
-</div>
+</div> -->
+
+
+<div class="container">
+    <div class="row">
+            <div class="col-lg-12 align-centre">
+                    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" 
+                                   id="email" 
+                                   class="form-control" 
+                                   ngModel
+                                   name="email"
+                                   required
+                                   email
+                                   > 
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" 
+                                   id="password" 
+                                   class="form-control"
+                                   name="password"
+                                   ngModel
+                                   required
+                                   minlength="6"
+                                   >
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" 
+                                    type="submit"
+                                    [disabled]="!authForm.valid"
+                                    >Login </button>
+                        </div>
+            
+                    </form>
+                </div>
+            </div>
+    </div>

@@ -9,3 +9,7 @@
     background-color: #F67D2A;
     color:#fff;
 }
+
+.dropdown-toggle,.dropdown-item{
+    cursor: pointer;
+}

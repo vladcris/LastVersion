@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
+import { AuthGuard } from './_guards/auth.guard';
 
 import { SectionAdduserComponent } from './sections/section-adduser/section-adduser.component';
 import { SectionAllComponent } from './sections/section-all/section-all.component';
@@ -8,27 +9,42 @@ import { ViewfeedbackComponent } from './sections/viewfeedback/viewfeedback.comp
 import { ViewstartComponent } from './sections/viewfeedback/viewstart/viewstart.component';
 import { FeedbackDetailComponent } from './sections/viewfeedback/feedback-detail/feedback-detail.component';
 import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.component';
+import {RequestComponent} from './sections/request/request.component';
+import { ImportComponent } from './sections/import/import.component';
+import {MyfeedbackDetailComponent} from 'src/app/sections/section-feedbacks/myfeedback-detail/myfeedback-detail.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { GiveComponent } from './sections/section-all/give/give.component';
+import { UserDetailResolver } from './_resolvers/user-detail.resolver';
+
 
 
 
 const appRoutes: Routes = [
-   { path: 'adduser', component: SectionAdduserComponent },
-   { path: 'all', component: SectionAllComponent },
-   { path: 'feedback', component: SectionFeedbacksComponent, children: [
-      {path: ':angajatid', component: SectionFeedbacksComponent}
-   ] },
-   { path: 'view', component: ViewfeedbackComponent, children: [
-      { path: '', component: ViewstartComponent},
-      {path: ':id', component: FeedbackDetailComponent}
-   ]},
-   {path: 'give-feedback', component: GiveFeebackComponent},
+   { path: '', component: HomeComponent},
+   {
+      path: '',
+      runGuardsAndResolvers: 'always',
+      canActivate: [AuthGuard],
+      children: [
+         { path: 'all', component: SectionAllComponent},
+         {path: 'all/:id', component: GiveComponent, resolve: {
+            user: UserDetailResolver
+         }},
+         { path: 'feedbacks', component: SectionFeedbacksComponent},
+         { path: 'feedbacks/:feeD_ID', component: MyfeedbackDetailComponent},
+         { path: 'adduser', component: SectionAdduserComponent},
+         { path: 'login', component: LoginComponent },
+         { path: 'view', component: ViewfeedbackComponent, children: [
+            { path: '', component: ViewstartComponent},
+            { path: ':id', component: FeedbackDetailComponent}
+         ]},
+         { path: 'give-feedback/:feeD_ID', component: GiveFeebackComponent},
+         { path: 'import', component: ImportComponent},
 
-   { path: 'view', component: ViewfeedbackComponent},
-   {path: 'login', component: LoginComponent},
-
- // { path: 'import', component: SectionAdduserComponent },
-    {path: '', redirectTo: '/login', pathMatch: 'full'}
+      ]
+   },
+   { path: '**', redirectTo: '', pathMatch: 'full'}
 
 ];
 

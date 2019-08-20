@@ -1,0 +1,122 @@
+[
+    {
+      "Dep_Id": 1,
+      "Id": "3a5df8b7-4edc-4628-bffc-0706aa35ce71",
+      "name": "Liz Hensley",
+      "email": "lizhensley@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 2,
+      "Id": "cb3aea72-d095-4965-9bce-8ff51476246c",
+      "name": "Hanson Solomon",
+      "email": "hansonsolomon@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 3,
+      "Id": "0597bc3a-42d2-4fc3-931b-a7accd152ec1",
+      "name": "Le Franks",
+      "email": "lefranks@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 3,
+      "Id": "98dfd09c-fb3a-4b79-bca1-928229a80649",
+      "name": "Doris Whitfield",
+      "email": "doriswhitfield@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 2,
+      "Id": "dd9aa4cd-1c43-4f85-956e-a9903f7b5676",
+      "name": "Miles Daugherty",
+      "email": "milesdaugherty@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 1,
+      "Id": "809527a9-628a-4518-94c2-aa55f06de7f6",
+      "name": "Potter Powell",
+      "email": "potterpowell@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 2,
+      "Id": "f0738e33-9ff2-4053-9635-d61860716229",
+      "name": "Bettye Guerrero",
+      "email": "bettyeguerrero@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 1,
+      "Id": "07bb0c51-75d3-4277-b85b-104fa3f28915",
+      "name": "Davis Bradley",
+      "email": "davisbradley@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 3,
+      "Id": "f6d506a6-e06f-40f8-9f10-da4cfa856d2d",
+      "name": "Samantha Cooper",
+      "email": "samanthacooper@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 1,
+      "Id": "9564d5f0-1d70-4eb5-8de0-ff487b33215a",
+      "name": "Roach Bowman",
+      "email": "roachbowman@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 3,
+      "Id": "082ddd1f-b1dc-4647-a833-d723a2216431",
+      "name": "Chandra Young",
+      "email": "chandrayoung@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 3,
+      "Id": "bc03993a-2d1c-458d-9c1c-33344c922faa",
+      "name": "Hartman Hayes",
+      "email": "hartmanhayes@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 1,
+      "Id": "5ae62e66-5c21-4d07-b6f2-79fc6f82e488",
+      "name": "Tabitha Whitley",
+      "email": "tabithawhitley@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 2,
+      "Id": "fb22f16d-57a5-49bb-a5f5-a45476a7a1e5",
+      "name": "Erin Galloway",
+      "email": "eringalloway@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    },
+    {
+      "Dep_Id": 1,
+      "Id": "9cd746ad-1ee1-4281-bdbf-2b1897a86580",
+      "name": "Knight Osborn",
+      "email": "knightosborn@soprano.com",
+      "manager_id": 2,
+      "password": "password"
+    }
+  ]

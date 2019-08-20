@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+// import {map} from 'rxjs/add/operator';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmployeesService {
-employees: any;
+
 
 constructor(private http: HttpClient) { }
 
 getValues() {
-  this.http.get('http://localhost:5000/api/employees').subscribe(response => {
-    this.employees = response;
-  }, error => {
-    console.log(error);
-  });
-}
+   return this.http.get('http://localhost:5000/api/employees');
+  }
 
 }
+
+

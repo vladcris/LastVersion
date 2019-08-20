@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Feedback } from '../feedback.module';
-import { FeedbackService } from '../feedback.service';
+import { FeedbacksService } from 'src/app/_services/feedbacks.service';
+import { Feedback } from 'src/app/_models/feedback.model';
 
 @Component({
   selector: 'app-feedback-list',
@@ -9,12 +9,19 @@ import { FeedbackService } from '../feedback.service';
 })
 export class FeedbackListComponent implements OnInit {
   feedbacks: Feedback[];
-  constructor(private feedbackService: FeedbackService) { }
+  constructor(private feedbackService: FeedbacksService) { }
+
+
 
   ngOnInit() {
-    this.feedbacks = this.feedbackService.getFeedbacks();
+    this.loadFeedbacks();
   }
 
-
+  loadFeedbacks() {
+    this.feedbackService.getFeedbacks().subscribe((res: Feedback[]) => {
+      this.feedbacks = res;
+     // console.log(this.feedbacks);
+    });
+  }
 
 }

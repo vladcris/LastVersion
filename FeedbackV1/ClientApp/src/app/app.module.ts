@@ -2,11 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {LoginService} from 'src/app/_services/login.service';
 import {EmployeesService} from './/_services/employees.service';
-
-
+import { AuthService } from './_services/auth.service';
+import { AlertifyService } from './_services/alertify.service';
+import { BsDropdownModule } from 'ngx-bootstrap';
 import { FeedbackService } from './sections/viewfeedback/feedback.service';
+import { UserService } from './_services/user.service';
+import { JwtModule } from '@auth0/angular-jwt';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -22,10 +25,25 @@ import { FeedbackItemComponent } from './sections/viewfeedback/feedback-list/fee
 import { ViewstartComponent } from './sections/viewfeedback/viewstart/viewstart.component';
 import { GiveFeebackComponent } from './sections/give-feeback/give-feeback.component';
 import { LoginComponent } from './login/login.component';
-import { ValueComponent } from './value/value.component';
+import {RequestComponent} from './sections/request/request.component';
+import { ImportComponent } from './sections/import/import.component';
+import { MyfeedbackDetailComponent } from './sections/section-feedbacks/myfeedback-detail/myfeedback-detail.component';
+import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { UserComponent } from './sections/section-all/user/user.component';
+import { GiveComponent } from './sections/section-all/give/give.component';
+import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 
 
 
+
+
+
+
+
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 
 
@@ -46,19 +64,39 @@ import { ValueComponent } from './value/value.component';
       GiveFeebackComponent,
       FeedbackItemComponent,
       LoginComponent,
-      ValueComponent
+      RequestComponent,
+      ImportComponent,
+      MyfeedbackDetailComponent,
+      HomeComponent,
+      UserComponent,
+      GiveComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FormsModule,
       AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+      BsDropdownModule.forRoot(),
+      JwtModule.forRoot({
+         config: {
+            // tslint:disable-next-line:object-literal-shorthand
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:5000'],
+            blacklistedRoutes: ['localhost:5000/api/auth']
+
+         }
+      })
+
    ],
    providers: [
       FeedbackService,
-      LoginService,
-      EmployeesService
+      EmployeesService,
+      AuthService,
+      AlertifyService,
+      AuthGuard,
+      UserService,
+      UserDetailResolver
    ],
    bootstrap: [
       AppComponent

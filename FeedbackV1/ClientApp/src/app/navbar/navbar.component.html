@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-md navbar-dark nav-color">
+<!-- <nav class="navbar fixed-top navbar-md navbar-dark nav-color">
        
     <span class="navbar-brand mb-0 h1">ORTEC FeedbackApp</span>
    
@@ -10,6 +10,47 @@
             </li>
             <li class="nav-item mr-3 ">
                 <button class=" btn button-style">Logout</button>
+            </li> 
+           
+                <form > 
+                    <input class="form-control" type="email" name="email"
+                            placeholder="email" required [(ngModel)]="model.email">       
+               
+                    <input type="password" name="password" class="form-control"
+                            placeholder="password" required [(ngModel)]="model.password">
+                </form>
             </li>
         </ul>
- </nav> 
+ </nav>  -->
+
+ <nav class="navbar navbar-expand-md fixed-top nav-color">
+      <span class="navbar-brand ml-5">ORTEC FeedbackApp</span>
+
+      <ul class="navbar-nav mr-auto">
+        <li *ngIf="loggedIn()" class="nav-item">
+            <a class="nav-link">Home</a>
+        </li>
+      </ul>
+
+      <div  *ngIf="loggedIn()" class="dropdown" dropdown>
+        <a class="dropdown-toggle text-light mr-5" dropdownToggle >
+          Welcome {{authService.decodedToken.unique_name}}
+        </a>
+      
+        <div class="dropdown-menu mt-3" *dropdownMenu>
+          <a class="dropdown-item" [routerLink]="['/feedbacks']"  > <i class="fa fa-user"></i> My Feedbacks</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" (click)="logout()"> <i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+      </div>
+
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-inline mr-5 my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="email" name="email"
+                placeholder="Email" required [(ngModel)]="model.email">
+        <input class="form-control mr-sm-2" type="password" name="password" 
+                placeholder="Password" required [(ngModel)]="model.password">
+        <button [disabled]="!loginForm.valid" class="btn button-style" type="submit">Login</button>
+      </form>
+    
+  </nav>
+ 

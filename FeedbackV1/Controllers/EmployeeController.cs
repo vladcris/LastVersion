@@ -1,5 +1,8 @@
+using AutoMapper;
+using FeedbackV1.Dtos;
 using FeedbackV1.Models;
 using FeedbackV1.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,31 +10,59 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace FeedbackV1.Controllers
-{
+{     
+    [Authorize]
     [Route("api/[controller]")]
+    [ApiController]
     public class EmployeesController : ControllerBase
     {
+
+        private readonly IMapper _mapper;
+        
+        public EmployeesController(IMapper mapper)
+        {
+              _mapper = mapper;
+        }
+        
         [HttpGet]
-        public async Task<List<Employees>> GetEmployees()
+        public async Task<IActionResult> GetEmployees()
         {
             var repo = new TableStorageRepository();
             var cards = await repo.GetAllEntities();
+
+            var employeesToReturn = _mapper.Map<IEnumerable<EmployeeListDto>>(cards);
             if (!cards.Any())
-                return null;
-            return cards;
+                return NotFound();
+            return Ok(employeesToReturn);
         }
 
         
+        // [Route("{id}")]
+        // [HttpGet]
+        // public async Task<List<Employees>> GetEmployeesById(string id)
+        // {
+        //     var repo = new TableStorageRepository();
+        //     var cards = await repo.GetEntityById(id);
+        //     if (!cards.Any())
+        //         return null;
+        //     return cards;
+        // }
+
+
         [Route("{id}")]
         [HttpGet]
-        public async Task<List<Employees>> GetEmployeesById(string id)
+    
+         public async Task<IActionResult> GetEmployees2(string id)
         {
             var repo = new TableStorageRepository();
-            var cards = await repo.GetEntityById(id);
+            var cards = await repo.GetAllEntities2(id);
+
+            var employeeToReturn = _mapper.Map<IEnumerable<EmployeeListDto>>(cards); 
             if (!cards.Any())
-                return null;
-            return cards;
+                return NotFound();
+            return Ok(employeeToReturn);
         }
+
         // [HttpPost]
         // public async Task<Employees> PostAccessCards(Employees card)
         // {

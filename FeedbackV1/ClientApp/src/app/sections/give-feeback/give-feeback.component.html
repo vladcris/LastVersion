@@ -1,155 +1,111 @@
-<div class="row">
-    <div class="col-md-2">
-
-    </div>
-   
+<div  class="row">
+    <div class="col-md-2"></div>
     <div class="col-md-6">
         <div class="card mt-2">
         <div class="card-body">
-        <form>
+        <form #requestForm="ngForm" (ngSubmit)="submitRequest()">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="name">To: </label>
+                        <label >To: {{feedback?.iD_receiver}} </label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label  >Requested by: {{feedback?.iD_manager}} </label>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                    <div class="col-md-12">
+                            <div class="form-group">
+                                    <label for="">Punctuality</label>
+                                    <div class="radio" *ngFor="let item of punct">
+                                        <label>
+                                                <input 
+                                                type="radio"
+                                                name="punctuality"
+                                                [value]="item"
+                                                [(ngModel)]="feedback.punctuality"
+                                                required
+                                                > 
+                                                {{item}}
+                                        </label>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                        <label for="">Productivity</label>
+                                        <div class="radio" *ngFor="let item of punct">
+                                            <label>
+                                                    <input 
+                                                    type="radio"
+                                                    name="productivity"
+                                                    [value]="item"
+                                                    [(ngModel)]="feedback.productivity"
+                                                    required
+                                                    > 
+                                                    {{item}}
+                                            </label>
+                                        </div>
+                                </div>
+                        </div>
+                </div>          
+                 <div class="row">
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                                <label for="">Workquality</label>
+                                                <div class="radio" *ngFor="let item of punct">
+                                                    <label>
+                                                            <input 
+                                                            type="radio"
+                                                            name="workQuality"
+                                                            [value]="item"
+                                                            [(ngModel)]="feedback.workQuality"
+                                                            required
+                                                            > 
+                                                            {{item}}
+                                                    </label>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
+                <div class="row">
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                                 <label for="">Commskills</label>
+                                                 <div class="radio" *ngFor="let item of punct">
+                                                        <label>
+                                                                <input 
+                                                                type="radio"
+                                                                name="commSkills"
+                                                                [value]="item "
+                                                                [(ngModel)]="feedback.commSkills"
+                                                                required
+                                                                > 
+                                                                {{item}}
+                                                        </label>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
             <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="comments">Punctuality</label>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="punct1" name="punctuality">
-                                    <label class="form-check-label" for="punct1">
-                                      Default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio"  id="punct2" name="punctuality">
-                                    <label class="form-check-label" for="punct2">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="punct3" name="punctuality">
-                                    <label class="form-check-label" for="punct3">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio"id="punct4" name="punctuality">
-                                    <label class="form-check-label" for="punct4">
-                                      Second default radio
-                                    </label>
-                            </div>
+                            <label >Comments</label>
+                            <textarea name="comments"  rows="4" class="form-control" [(ngModel)]="feedback.comments" >{{feedback?.comments}}</textarea>
                         </div>
                     </div>
             </div>
             <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="comments">Productivity</label>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="prod1" name="productivity">
-                                    <label class="form-check-label radio-inline" for="prod1">
-                                      Default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="prod22" name="productivity">
-                                    <label class="form-check-label radio-inline" for="exampleRadiosv2">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="prod3" name="productivity">
-                                    <label class="form-check-label" for="prod3">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="prod4" name="productivity">
-                                    <label class="form-check-label" for="prod4">
-                                      Second default radio
-                                    </label>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="comments">CommSkills</label>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="CommSkills" id="comm1">
-                                    <label class="form-check-label" for="comm1">
-                                      Default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="CommSkills" id="comm2">
-                                    <label class="form-check-label" for="comm2">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="CommSkills" id="comm3" >
-                                    <label class="form-check-label" for="comm3">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="CommSkills" id="comm4" >
-                                    <label class="form-check-label" for="comm4">
-                                      Second default radio
-                                    </label>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="comments">WorkQuality</label>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="WorkQuality" id="work1" >
-                                    <label class="form-check-label" for="work1">
-                                      Default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="WorkQuality" id="work2" >
-                                    <label class="form-check-label" for="work2">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="WorkQuality" id="work3" >
-                                    <label class="form-check-label" for="work3">
-                                      Second default radio
-                                    </label>
-                            </div>
-                            <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="WorkQuality" id="work4">
-                                    <label class="form-check-label" for="work4">
-                                      Second default radio
-                                    </label>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="comments">Comments</label>
-                            <textarea type="text" name="" id="comments" cols="30" rows="4" class="form-control"></textarea>
-                        </div>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary mr-5">Submit</button>
-                        <button type="button" class="btn btn-danger ">Cancel</button>
+                        <button [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
+                        <button  type="button" class="btn btn-danger ">Cancel</button>
                     </div>
             </div>
         </form>
@@ -160,3 +116,4 @@
 
     </div>
 </div>
+

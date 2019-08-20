@@ -3,9 +3,14 @@
     <div class="card-deck servers">
         <div *ngFor="let feedback of feedbacks">
             <app-feedback 
-            [feedbackInput] = "feedback"
-            
+            [feedbackInput] = "feedback"  
             >
+            <button type="button" 
+                    class="btn btn-primary" 
+            >
+              </button>
+              
+
         </app-feedback>
         </div>
     </div>

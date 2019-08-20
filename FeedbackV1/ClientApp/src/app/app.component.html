@@ -1,21 +1,28 @@
- <app-login *ngIf="value"></app-login>
-
-<div *ngIf="!loginBoolean">
-        <app-navbar id="navbar"></app-navbar>
-        <div class="container-fluid">
-        <div class="row" id="mainContent">
+        <app-navbar></app-navbar>
+        <div class="container">
+            <app-home *ngIf="!loggedIn()"></app-home>
+        </div>
+        
+        <div *ngIf="loggedIn()" class="container-fluid">
+        <div  class="row" id="mainContent">
             <app-sidebar 
                 class="col-sm-2 col-md-2 d-none d-sm-block sidebar "
                 id="Sidebar">
             </app-sidebar>
             <div class="col-sm-10 ml-sm-auto col-md-10  pt-3 " id="dashboard">
             <!-- <app-section-adduser></app-section-adduser> -->
-            <router-outlet></router-outlet>
-            <app-value></app-value>    
+            <router-outlet ></router-outlet>
             </div>
         </div> 
     </div>
-</div>
 
-
+    <!-- <div *ngIf="!loginMode" class="login" >
+            <div class="row">
+                    <div class="col-lg-4 col-md-4"></div>
+                    <div class="col-lg-4 col-md-4">
+                        <app-login loginPushed="onLoginPushed()" ></app-login>
+                    </div>
+                    <div class="col-lg-4 col-md-4"></div>
+            </div>
+            </div> -->
 

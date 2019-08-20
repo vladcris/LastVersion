@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Feedback } from '../feedback.module';
+import { Feedback } from 'src/app/_models/feedback.model';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FeedbackService } from '../feedback.service';
+import { FeedbacksService } from 'src/app/_services/feedbacks.service';
 
 @Component({
   selector: 'app-feedback-detail',
@@ -13,17 +13,19 @@ export class FeedbackDetailComponent implements OnInit {
 feedback: Feedback;
 id: number;
 
-  constructor( private feedbackService: FeedbackService,
-    private route: ActivatedRoute) { }
+  constructor( private feedbackService: FeedbacksService,
+               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params
-    .subscribe(
-      (params: Params) => {
-        this.id = +params['id'];
-        this.feedback = this.feedbackService.getFeedback(this.id);
-      }
-    );
+    this.loadFeedback();
+  }
+
+  loadFeedback() {
+    this.feedbackService.getFeedback(this.route.snapshot.params['id'])
+    .subscribe((feedback: Feedback) => {
+      this.feedback = feedback;
+      console.log(this.feedback);
+    });
   }
 
 }

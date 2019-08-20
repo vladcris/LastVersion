@@ -1,20 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from 'src/app/shared/employee.model';
-import { EmployeeService } from 'src/app/shared/employee.service';
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/_models/user';
+import { UserService } from 'src/app/_services/user.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-section-all',
   templateUrl: './section-all.component.html',
   styleUrls: ['./section-all.component.css'],
-  providers: [EmployeeService]
 })
 export class SectionAllComponent implements OnInit {
-  employees: Employee[];
+ users: User[];
 
-  constructor(private employeeService: EmployeeService) { }
+ constructor(private http: HttpClient,
+             private userService: UserService,
+             private alertify: AlertifyService) { }
 
-  ngOnInit() {
-    this.employees = this.employeeService.getEmployees();
-  }
+ ngOnInit() {
+    this.loadUsers();
+ }
+
+ loadUsers() {
+  this.userService.getUsers().subscribe((response: User[]) => {
+    this.users = response;
+  }, error => {
+    this.alertify.error(error);
+  });
+
+ }
+
 
 }

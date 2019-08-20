@@ -1,19 +1,27 @@
-<div *ngIf = "feedbackInput.Pending" class="card block-status ">
-    
+<div *ngIf = "!feedbackInput.pending" class="card block-status ">
     <div class="card-body" >
-        <h5 class="card-title">To: {{feedbackInput.ID_reciver}}</h5>
+        <h5 class="card-title">To: {{feedbackInput.id}}</h5>
         <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
-        <p class="card-text">Tip: {{feedbackInput.Pending}}</p>
-        <button class="btn-primary" >Inspect</button>
+        <p class="card-text">Tip: {{feedbackInput.pending}}</p>
+        <button class="btn-primary card-text" [routerLink]="['/feedbacks/', feedbackInput.feeD_ID]" >Inspect</button>
     </div>
 </div>
 
-<div  *ngIf = "!feedbackInput.Pending" class="card block-status1 ">
-    
+<div  *ngIf = "feedbackInput.pending" class="card block-status1 ">
         <div class="card-body" >
-            <h5 class="card-title" >From: {{feedbackInput.ID_Manager}}</h5>
-            <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
-            <p class="card-text">Tip: {{feedbackInput.Pending}}</p>
-            <button class="btn-primary" routerLink="/give-feedback" >Give</button>
+            <h5 class="card-title" >Requested by: {{feedbackInput.iD_manager}}</h5>
+            <p class="card-text">To: {{feedbackInput.iD_receiver}}</p> 
+            <!-- <p class="card-text">Date: {{feedbackInput.timestamp}}</p>  -->
+            <!-- <p class="card-text">Tip: {{feedbackInput.comments}}</p> -->
+            <p class="card-text">Tip: {{feedbackInput.pending}}</p>
+            <button class="btn-primary card-text" [routerLink]="['/give-feedback/', feedbackInput.feeD_ID]" >Give</button>
         </div>
-    </div>
+</div>
+
+
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
+       -->
+      <!-- Modal -->
+   

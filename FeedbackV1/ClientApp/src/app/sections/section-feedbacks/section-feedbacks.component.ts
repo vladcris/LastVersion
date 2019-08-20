@@ -1,34 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import {Feedback} from  '../viewfeedback/feedback.module'
-import { FeedbackService } from '../viewfeedback/feedback.service';
-
-// const SAMPLE_SERVERS = [
-//   {name: 'robert', date:'dev1', request: true},
-//   {name: 'safd', date:'dev1', request: false},
-//   {name: 'sfas', date:'dev1', request: true},
-//   {name: 'sfa', date:'dev1', request: true},
-//   {name: 'SFASD', date:'dev1', request: false},
-//   {name: 'SADFA', date:'dev1', request: true},
-  
-// ]
+import {HttpClient} from '@angular/common/http';
+import { Feedback} from 'src/app/_models/feedback.model';
+import { FeedbacksService } from 'src/app/_services/feedbacks.service';
 
 
-
-@Component({
+@Component ({
   selector: 'app-section-feedbacks',
   templateUrl: './section-feedbacks.component.html',
   styleUrls: ['./section-feedbacks.component.css'],
-  providers:[FeedbackService]
+  // providers: [FeedbackService]
 })
 export class SectionFeedbacksComponent implements OnInit {
+  employees: any;
   feedbacks: Feedback[];
+  constructor(private http: HttpClient, private feedbackService: FeedbacksService ) { }
 
-
-  // feedbacks: Feedback[] = SAMPLE_SERVERS;
-  constructor(private feedbackService: FeedbackService) { }
   ngOnInit() {
-    this.feedbacks = this.feedbackService.getFeedbacks();
-    
+  this.loadFeedbacks();
   }
+
+  loadFeedbacks() {
+    this.feedbackService.getFeedbacks().subscribe((feedbacks: Feedback[]) => {
+      this.feedbacks = feedbacks;
+      console.log(this.feedbacks);
+    });
+
+  }
+
+
+  // getValues() {
+  //   this.http.get('http://localhost:5000/api/Feedbacks').subscribe(response => {
+  //     this.employees = response;
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
 }
