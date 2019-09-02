@@ -1,19 +1,20 @@
 <div *ngIf = "!feedbackInput.pending" class="card block-status ">
     <div class="card-body" >
-        <h5 class="card-title">To: {{feedbackInput.id}}</h5>
+        <h5 class="card-title">For: {{feedbackInput.iD_receiver}}</h5>
         <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
-        <p class="card-text">Tip: {{feedbackInput.pending}}</p>
-        <button class="btn-primary card-text" [routerLink]="['/feedbacks/', feedbackInput.feeD_ID]" >Inspect</button>
+        <p class="card-text">{{feedbackInput.timestamp | date: 'medium'}}</p>
+        <button class="btn-primary card-text" [routerLink]="['/feedbacks/', feedbackInput.feeD_ID]" >Go to</button>
     </div>
 </div>
 
 <div  *ngIf = "feedbackInput.pending" class="card block-status1 ">
         <div class="card-body" >
             <h5 class="card-title" >Requested by: {{feedbackInput.iD_manager}}</h5>
-            <p class="card-text">To: {{feedbackInput.iD_receiver}}</p> 
+            <p class="card-text">For: {{feedbackInput.iD_receiver}}</p> 
             <!-- <p class="card-text">Date: {{feedbackInput.timestamp}}</p>  -->
             <!-- <p class="card-text">Tip: {{feedbackInput.comments}}</p> -->
-            <p class="card-text">Tip: {{feedbackInput.pending}}</p>
+            <!-- <p class="card-text">Tip: {{feedbackInput.pending}}</p> -->
+            <p class="card-text">{{feedbackInput.timestamp | date: 'medium'}}</p>
             <button class="btn-primary card-text" [routerLink]="['/give-feedback/', feedbackInput.feeD_ID]" >Give</button>
         </div>
 </div>

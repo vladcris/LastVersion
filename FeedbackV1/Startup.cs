@@ -26,10 +26,10 @@ namespace FeedbackV1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
+        services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
@@ -37,8 +37,8 @@ namespace FeedbackV1
         services.AddAutoMapper();
         services.AddTransient<Seed>();
         
-        services.AddScoped<IAuthRepository, TableStorageRepository>();
-         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        services.AddTransient<IAuthRepository, TableStorageRepository>();
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          .AddJwtBearer(options => {
             options.TokenValidationParameters = new TokenValidationParameters
             {
@@ -84,9 +84,9 @@ namespace FeedbackV1
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
                 // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                spa.Options.SourcePath = "ClientApp";
+            spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
+            if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }

@@ -1,4 +1,16 @@
-<div  class="row">
+<div class="row">
+        <div class="col-sm-8">
+                <div *ngIf="!feedback.pending">
+                        <div class="alert alert-info">
+                                <p><strong>Information: </strong>You have already completed that request!</p>
+                        </div>
+                        <hr>
+                        <button class="btn btn-primary" [routerLink]="['/feedbacks']" >Back</button>
+                </div>
+        </div>
+</div>
+
+<div *ngIf="feedback.pending" class="row">
     <div class="col-md-2"></div>
     <div class="col-md-6">
         <div class="card mt-2">
@@ -20,12 +32,12 @@
                     <div class="col-md-12">
                             <div class="form-group">
                                     <label for="">Punctuality</label>
-                                    <div class="radio" *ngFor="let item of punct">
+                                    <div class="radio" *ngFor="let item of punct; let i=index">
                                         <label>
                                                 <input 
                                                 type="radio"
                                                 name="punctuality"
-                                                [value]="item"
+                                                [value]="i+1"
                                                 [(ngModel)]="feedback.punctuality"
                                                 required
                                                 > 
@@ -39,12 +51,12 @@
                         <div class="col-md-12">
                                 <div class="form-group">
                                         <label for="">Productivity</label>
-                                        <div class="radio" *ngFor="let item of punct">
+                                        <div class="radio" *ngFor="let item of punct; let i=index">
                                             <label>
                                                     <input 
                                                     type="radio"
                                                     name="productivity"
-                                                    [value]="item"
+                                                    [value]="i+1"
                                                     [(ngModel)]="feedback.productivity"
                                                     required
                                                     > 
@@ -58,12 +70,12 @@
                                 <div class="col-md-12">
                                         <div class="form-group">
                                                 <label for="">Workquality</label>
-                                                <div class="radio" *ngFor="let item of punct">
+                                                <div class="radio" *ngFor="let item of punct; let i=index">
                                                     <label>
                                                             <input 
                                                             type="radio"
                                                             name="workQuality"
-                                                            [value]="item"
+                                                            [value]="i+1"
                                                             [(ngModel)]="feedback.workQuality"
                                                             required
                                                             > 
@@ -78,12 +90,12 @@
                                 <div class="col-md-12">
                                         <div class="form-group">
                                                  <label for="">Commskills</label>
-                                                 <div class="radio" *ngFor="let item of punct">
+                                                 <div class="radio" *ngFor="let item of punct; let i=index">
                                                         <label>
                                                                 <input 
                                                                 type="radio"
                                                                 name="commSkills"
-                                                                [value]="item "
+                                                                [value]="i+1"
                                                                 [(ngModel)]="feedback.commSkills"
                                                                 required
                                                                 > 
@@ -104,8 +116,8 @@
             </div>
             <div class="row">
                     <div class="col-md-12">
-                        <button [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
-                        <button  type="button" class="btn btn-danger ">Cancel</button>
+                        <button  [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
+                        <button  type="button" class="btn btn-danger " [routerLink]="['/feedbacks']" >Cancel</button>
                     </div>
             </div>
         </form>

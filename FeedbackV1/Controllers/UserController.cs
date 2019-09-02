@@ -36,7 +36,7 @@ namespace FeedbackV1.Controllers
             return Ok(usersToReturn);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(string id)
         {
             var repo = new TableStorageRepository();
@@ -47,6 +47,31 @@ namespace FeedbackV1.Controllers
             return Ok(userToReturn);
 
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(string id, UpdateUserDto  requestUpdate)
+        {   
+            //TableStorageRepository test = new TableStorageRepository();
+            var repo = new TableStorageRepository();
+            var cards = await repo.GetUser(id);
+            _mapper.Map(requestUpdate, cards);
+            await repo.PostEntityUser(cards);
+            
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var repo = new TableStorageRepository();
+            var cards = await repo.GetUser(id);
+
+            await repo.DeleteUser(cards);
+
+            return Ok();
+        }
+
     }
 
 

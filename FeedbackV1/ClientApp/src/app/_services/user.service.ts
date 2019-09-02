@@ -22,4 +22,16 @@ getUser(id): Observable<User> {
   return this.http.get<User>(this.baseUrl + 'user/' + id);
 }
 
+getDepartments() {
+  return this.http.get(this.baseUrl + 'departament');
+}
+
+updateRequest(id: string, user: User) {
+  return this.http.put(this.baseUrl + 'user/' + id, user);
+}
+
+deleteUser(id: string) {
+  return this.http.delete(this.baseUrl + 'user/' + id);
+}
+
 }

@@ -1,16 +1,24 @@
 
 <div class="row">
     <div class="col-md-12">
-        <button class="btn btn-primary">Search</button>
+        <form>
+            <div class="form-group">
+                    <label for="employee"> <strong>Please select an employee!</strong> </label>
+                    <select class="form-control" id="employee" (change)="onChange()" [(ngModel)]="user.user" name="user">
+                        <option value=""></option>
+                        <option *ngFor="let user of users" value="{{user.id}}">{{ user.name }}</option>
+                    </select>
+                </div>   
+        </form>
         <hr>
     </div>
 </div>
 
-<div class="row">
+<div *ngIf="loadFeed" class="row">
     <div class="col-md-12">
         <div class="list-group">
             <app-feedback-item 
-                *ngFor="let feedbackEl of feedbacks; let i= index"
+                *ngFor="let feedbackEl of userFeedbacks; let i= index"
                 [feedback] = "feedbackEl"
                 >
             </app-feedback-item>

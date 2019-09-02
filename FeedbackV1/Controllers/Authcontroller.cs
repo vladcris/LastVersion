@@ -23,12 +23,15 @@ namespace FeedbackV1.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        private readonly IMapper _mapper;
+
+        public AuthController(IAuthRepository repo, IConfiguration config, IMapper mapper)
         {
 
             _config = config;
             _repo = repo;
-
+             _mapper = mapper;
+            
         }
 
         [AllowAnonymous]
@@ -43,21 +46,20 @@ namespace FeedbackV1.Controllers
               if(await _repo.UserExists(userForRegisterDto.Email))
                  return BadRequest("Email already exists!");
             
-            var userToCreate = new User
-            {
-                Email = userForRegisterDto.Email
-                
-            };
+            var userToCreate = _mapper.Map<User>(userForRegisterDto);
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
-            return StatusCode(201);
+            var userToReturn = _mapper.Map<UserDto>(createdUser);
+
+
+            return CreatedAtRoute("GetUser", new {controller = "User", id = createdUser.Id}, userToReturn);
         }
 
         [AllowAnonymous]
         [HttpPost("login")]
 
-        public async Task<IActionResult> Login(UserForRegisterDto userForRegisterDto)
+        public async Task<IActionResult> Login(UserForLoginDto userForRegisterDto)
         {
             var userFromRepo = await _repo.Login(userForRegisterDto.Email, userForRegisterDto.Password);
 

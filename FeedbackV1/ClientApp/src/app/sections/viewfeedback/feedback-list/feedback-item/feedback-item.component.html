@@ -1,12 +1,28 @@
 
 
-<a
+<a  
+    *ngIf="!feedback.pending"
     style="cursor: pointer"
     [routerLink]="[feedback.feeD_ID]"
     routerLinkActive = "active"
     class="list-group-item list-group-item-action">
-    <h6>From:{{ feedback.id }}</h6>
     <h6 >To: {{ feedback.iD_receiver }}</h6>
+    <h6>Requestd By:{{ feedback.iD_manager }}</h6>
+    
+
+</a>
+
+
+<a  
+    *ngIf="feedback.pending"
+    style="cursor: pointer"
+    [routerLink]="[feedback.feeD_ID]"
+    routerLinkActive = "active"
+    class="list-group-item list-group-item-action">
+    <h6>Status: <strong>Not Completed!</strong></h6>
+    <h6 >To: {{ feedback.iD_receiver }}</h6>
+    <h6>Requestd By:{{ feedback.iD_manager }}</h6>
+    
 
 </a>
 

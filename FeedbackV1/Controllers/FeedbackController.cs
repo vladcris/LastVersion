@@ -28,8 +28,9 @@ namespace FeedbackV1.Controllers
         public async Task<IActionResult> GetFeedbacks()
         {
             var repo = new TableStorageRepository();
-            var ID = (User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            var cards = await repo.GetAllEntities1(ID);
+            // var ID = (User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            // var cards = await repo.GetAllEntities1(ID);
+            var cards = await repo.GetAllEntities1();
             var feedbacksToReturn = _mapper.Map<IEnumerable<FeedbackListDto>>(cards);
             if (!feedbacksToReturn.Any())
                 return null;
@@ -43,25 +44,51 @@ namespace FeedbackV1.Controllers
         {
             var repo = new TableStorageRepository();
             var cards = await repo.GetFeedById(id);
-
             var feedbackToReturn = _mapper.Map<FeedbackListDto>(cards);
+            // if (!cards.Any())
+            //     return NotFound();
+            return Ok(feedbackToReturn);
+        }
 
+
+
+        [Route("{id}/{feed}")]
+        [HttpGet]
+        public async Task<IActionResult> GetFeedbackByFeed(string id, string feed)
+        {
+            var repo = new TableStorageRepository();
+            var cards = await repo.GetFeedByFeed(id, feed);
+            var feedbackToReturn = _mapper.Map<FeedbackListDto>(cards);
             // if (!cards.Any())
             //     return NotFound();
             return Ok(feedbackToReturn);
         }
 
         [HttpPut("{id}")]
-        
-        public async Task<IActionResult> UpdateRequest(string id, RequestSendDto  requestUpdate)
+        public async Task<IActionResult> UpdateRequest(string id, RequestSendDto  updateRequest)
         {   
             //TableStorageRepository test = new TableStorageRepository();
             var repo = new TableStorageRepository();
             var cards = await repo.GetFeedById(id);
-            _mapper.Map(requestUpdate, cards);
-            await repo.PostEntity(cards);
+            _mapper.Map(updateRequest, cards);
+            await repo.PostEntityFeedback(cards);
             
             return Ok();
+        }
+
+
+        [HttpPost()]
+        public async Task<IActionResult> GiveFeedback(GiveFeedbackDto giveFeedbackDto)
+        {
+            //validate
+            var repo = new TableStorageRepository();
+
+            var userToCreate = _mapper.Map<Feedbacks>(giveFeedbackDto);
+
+            var createdUser = await repo.GiveFeedback(userToCreate);
+
+            return Ok(createdUser);
+            
         }
 
         

@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {EmployeesService} from './/_services/employees.service';
 import { AuthService } from './_services/auth.service';
 import { AlertifyService } from './_services/alertify.service';
-import { BsDropdownModule } from 'ngx-bootstrap';
-import { FeedbackService } from './sections/viewfeedback/feedback.service';
+import { BsDropdownModule, ModalModule, ProgressbarModule, RatingModule } from 'ngx-bootstrap';
 import { UserService } from './_services/user.service';
 import { JwtModule } from '@auth0/angular-jwt';
 
@@ -30,9 +29,9 @@ import { ImportComponent } from './sections/import/import.component';
 import { MyfeedbackDetailComponent } from './sections/section-feedbacks/myfeedback-detail/myfeedback-detail.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { UserComponent } from './sections/section-all/user/user.component';
 import { GiveComponent } from './sections/section-all/give/give.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
+import { UpdateUserComponent } from './sections/section-all/update-user/update-user.component';
 
 
 
@@ -68,29 +67,32 @@ export function tokenGetter() {
       ImportComponent,
       MyfeedbackDetailComponent,
       HomeComponent,
-      UserComponent,
-      GiveComponent
+      GiveComponent,
+      UpdateUserComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
+      ReactiveFormsModule,
       FormsModule,
       AppRoutingModule,
       HttpClientModule,
       BsDropdownModule.forRoot(),
+      ModalModule.forRoot(),
+      ProgressbarModule.forRoot(),
+      RatingModule.forRoot(),
       JwtModule.forRoot({
          config: {
             // tslint:disable-next-line:object-literal-shorthand
             tokenGetter: tokenGetter,
-            whitelistedDomains: ['localhost:44365'],
-            blacklistedRoutes: ['localhost:44365/api/auth']
+          whitelistedDomains: ['localhost:5000'],
+          blacklistedRoutes: ['localhost:5000/api/auth']
 
          }
       })
 
    ],
    providers: [
-      FeedbackService,
       EmployeesService,
       AuthService,
       AlertifyService,

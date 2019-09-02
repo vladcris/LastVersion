@@ -1,7 +1,8 @@
 <div class="section-container">
     <h2>Feedbacks</h2>
+    <!-- <button class="btn btn-primary" (click)="myfeedbacks()">Load</button> -->
     <div class="card-deck servers">
-        <div *ngFor="let feedback of feedbacks">
+        <div *ngFor="let feedback of myFeedbacks">
             <app-feedback 
             [feedbackInput] = "feedback"  
             >
@@ -12,6 +13,8 @@
               
 
         </app-feedback>
+        
         </div>
+
     </div>
 </div>

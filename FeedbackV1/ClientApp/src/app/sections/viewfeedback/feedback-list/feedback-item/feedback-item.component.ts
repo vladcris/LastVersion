@@ -1,5 +1,6 @@
+
 import { Component, OnInit, Input } from '@angular/core';
-import { Feedback } from '../../feedback.module';
+import { Feedback } from 'src/app/_models/feedback.model';
 
 
 

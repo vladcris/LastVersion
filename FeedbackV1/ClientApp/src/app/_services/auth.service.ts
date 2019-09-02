@@ -30,6 +30,10 @@ login(form: any) {
 
 }
 
+  register(form: any) {
+    return this.http.post(this.baseUrl + 'auth/register', form);
+  }
+
 loggedIn() {
   const token = localStorage.getItem('token');
   return !this.jwtHelper.isTokenExpired(token);

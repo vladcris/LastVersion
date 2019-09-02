@@ -21,10 +21,10 @@ export class NavbarComponent implements OnInit {
 
   login(form: NgForm) {
     this.authService.login(this.model).subscribe(next => {
-      this.alertify.success('registration succesful');
+      this.alertify.success('Registration succesful!');
     },
     error => {
-      this.alertify.error(error);
+      this.alertify.error('Registration failed!');
     }, () => {
       this.router.navigate(['/all']);
     }

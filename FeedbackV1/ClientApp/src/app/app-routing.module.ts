@@ -1,3 +1,4 @@
+import { FeedbackListComponent } from './sections/viewfeedback/feedback-list/feedback-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 import { AuthGuard } from './_guards/auth.guard';
@@ -16,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GiveComponent } from './sections/section-all/give/give.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
+import { UpdateUserComponent } from './sections/section-all/update-user/update-user.component';
 
 
 
@@ -28,15 +30,18 @@ const appRoutes: Routes = [
       canActivate: [AuthGuard],
       children: [
          { path: 'all', component: SectionAllComponent},
+         { path: 'all/update/:id', component: UpdateUserComponent},
          {path: 'all/:id', component: GiveComponent, resolve: {
             user: UserDetailResolver
          }},
          { path: 'feedbacks', component: SectionFeedbacksComponent},
+         { path: 'request/:id', component: RequestComponent},
          { path: 'feedbacks/:feeD_ID', component: MyfeedbackDetailComponent},
          { path: 'adduser', component: SectionAdduserComponent},
          { path: 'login', component: LoginComponent },
          { path: 'view', component: ViewfeedbackComponent, children: [
             { path: '', component: ViewstartComponent},
+           // { path: ':id', component: FeedbackListComponent},
             { path: ':id', component: FeedbackDetailComponent}
          ]},
          { path: 'give-feedback/:feeD_ID', component: GiveFeebackComponent},

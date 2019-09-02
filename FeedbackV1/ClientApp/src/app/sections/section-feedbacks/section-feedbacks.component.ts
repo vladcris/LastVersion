@@ -1,3 +1,4 @@
+import { AuthService } from './../../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Feedback} from 'src/app/_models/feedback.model';
@@ -12,19 +13,28 @@ import { FeedbacksService } from 'src/app/_services/feedbacks.service';
 })
 export class SectionFeedbacksComponent implements OnInit {
   employees: any;
-  feedbacks: Feedback[];
-  constructor(private http: HttpClient, private feedbackService: FeedbacksService ) { }
+  feedbacks: any[];
+  myFeedbacks: any = {};
+  constructor(private http: HttpClient,
+              private feedbackService: FeedbacksService,
+              private auth: AuthService ) { }
 
   ngOnInit() {
-  this.loadFeedbacks();
+    this.loadFeedbacks();
   }
 
   loadFeedbacks() {
-    this.feedbackService.getFeedbacks().subscribe((feedbacks: Feedback[]) => {
+    this.feedbackService.getFeedbacks().subscribe(feedbacks => {
       this.feedbacks = feedbacks;
-      console.log(this.feedbacks);
+      this.myfeedbacks();
+    //  console.log(this.feedbacks);
     });
+  }
 
+  myfeedbacks() {
+    this.myFeedbacks = this.feedbacks.filter(m => m.id === this.auth.decodedToken.nameid);
+  //  console.log(this.myFeedbacks);
+    console.log(this.auth.decodedToken.nameid);
   }
 
 

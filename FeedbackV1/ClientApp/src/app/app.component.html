@@ -1,8 +1,10 @@
         <app-navbar></app-navbar>
-        <div class="container">
+        <!-- <div class="container">
             <app-home *ngIf="!loggedIn()"></app-home>
-        </div>
+        </div> -->
         
+        
+
         <div *ngIf="loggedIn()" class="container-fluid">
         <div  class="row" id="mainContent">
             <app-sidebar 
@@ -16,6 +18,18 @@
         </div> 
     </div>
 
+
+       <div *ngIf="!loggedIn()" class="login">
+           <div class="container ">
+                    <div class="jumbotron mt-5">
+                    <div class="container">
+                      <h1 class="display-4">Welcome!</h1>
+                      <p class="lead">You have to login to use this site!</p>
+                    </div>
+                  </div>
+           </div>
+
+        </div>
     <!-- <div *ngIf="!loginMode" class="login" >
             <div class="row">
                     <div class="col-lg-4 col-md-4"></div>

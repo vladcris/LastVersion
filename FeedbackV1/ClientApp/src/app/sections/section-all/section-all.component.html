@@ -24,12 +24,16 @@
 
                           <!-- <app-user [user]="user" [i]="i"></app-user> -->
                           <td scope="row">{{i+1}}</td> 
-                          <td>{{user.deP_ID}}</td>
+                          <td>{{departamente[user.deP_ID]}}</td>
                           <td>{{user.name}}</td>
                           <td>{{user.email}}</td>
                           <td>{{user.manager_ID}}</td>
+                          <td><a (click)="onDelete(user.id)">Delete</a></td>
+                          <td><a [routerLink]="['/request/', user.id]">Request</a></td>
+                          <td><a [routerLink]="['/all/update/', user.id]">Update</a></td>
+                          <!-- <td><a (click)="openModal(template, user.id)">Give</a></td> -->
                           <td><a [routerLink]="['/all/', user.id]"  >Give</a></td>
-                          <td><a routerLink="/import">Request</a></td>
+                          <!-- <td><a routerLink="/import">Request</a></td> -->
                       </tr>
                   </tbody>
                 </table>
@@ -41,4 +45,43 @@
 
   </div>
 
+
+
 </div>
+
+<!-- <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Give Feedback</h4>
+    </div>
+    <div class="modal-body">
+
+      <form [formGroup]="giveFeedbackForm" (ngSubmit)="onSend()">
+        <div class="form-group">
+          <label for="punct">Punctuality</label>
+          <input id="punct" type="text" class="form-control" 
+                            formControlName="punctuality"
+                            [ngClass]="{'is-invalid': giveFeedbackForm.get('punctuality').errors && giveFeedbackForm.get('punctuality').touched}">    
+          <div class="invalid-feedback">Please set a value</div>
+        </div>
+        <div class="form-group">
+          <label for="id">UserId</label>
+          <input type="text" id="id" name="id" formControlName="id" [(ngModel)]=" user.id ">
+        </div>
+
+        <div class="form-group">
+            <label for="comments">Aditional notes</label>
+            <textarea class="form-control" 
+                      id="comments" 
+                      rows="4"
+                      formControlName="comments"
+                      ></textarea>
+          </div>
+          <p>form value: {{giveFeedbackForm.value | json}}</p>
+         <p>form status: {{giveFeedbackForm.status | json}}</p>
+          <button type="submit" class=" btn btn-success">Send</button>
+      </form >
+    </div>
+    <div class="modal-footer ">
+        <button type="button" class="btn btn-warning" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template> -->

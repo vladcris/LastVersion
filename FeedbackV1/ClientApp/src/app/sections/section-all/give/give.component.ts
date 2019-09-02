@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { FeedbacksService } from 'src/app/_services/feedbacks.service';
+
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
+import { Feedback } from '../../viewfeedback/feedback.module';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-give',
@@ -11,8 +15,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GiveComponent implements OnInit {
   user: User;
+  feedback: any = {
+    id: '',
+    feed_id: '',
+    id_receiver: '',
+    punctuality: '',
+    productivity: '',
+    commskills: '',
+    workquality: '',
+    comments: ''
+  };
+  punct = ['Bad', 'Decent', 'Good', 'Very Good'];
   constructor(private userService: UserService,
+              private feedbackService: FeedbacksService,
               private alertify: AlertifyService,
+              private authService: AuthService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -22,13 +39,17 @@ export class GiveComponent implements OnInit {
     });
   }
 
-  // loadUser() {
-  //   // tslint:disable-next-line:no-string-literal
-  //   this.userService.getUser(this.route.snapshot.params['id']).subscribe((user: User) => {
-  //     this.user = user;
-  //     console.log(this.user);
-  //   }, error => {
-  //     this.alertify.error(error);
-  //   });
-  // }
+  submitRequest() {
+    this.feedback.id = this.authService.decodedToken.nameid;
+    this.feedback.feed_id = '';
+    this.feedback.id_receiver = this.user.id;
+    this.feedbackService.giveFeedback(this.feedback).subscribe(() => {
+      this.alertify.success('Feedback Sent!');
+    }, error => {
+        this.alertify.error('error');
+      });
+    console.log(this.feedback);
+  }
+
+
 }

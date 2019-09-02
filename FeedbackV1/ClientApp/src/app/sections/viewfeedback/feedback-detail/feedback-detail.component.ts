@@ -13,6 +13,10 @@ export class FeedbackDetailComponent implements OnInit {
 feedback: Feedback;
 id: number;
 
+adjectives = ['bad', 'decent', 'good', 'very good'];
+max = 4;
+isReadonly = true;
+
   constructor( private feedbackService: FeedbacksService,
                private route: ActivatedRoute) { }
 
@@ -21,6 +25,7 @@ id: number;
   }
 
   loadFeedback() {
+    // tslint:disable-next-line:no-string-literal
     this.feedbackService.getFeedback(this.route.snapshot.params['id'])
     .subscribe((feedback: Feedback) => {
       this.feedback = feedback;
