@@ -44,7 +44,7 @@ export class FeedbackListComponent implements OnInit {
   }
 
   onChange() {
-    this.userFeedbacks = this.feedbacks.filter(m => m.id === this.user.user);
+    this.userFeedbacks = this.feedbacks.filter(m => m.iD_receiver === this.user.user);
     this.loadFeed = true;
     this.route.navigate(['/view/']);
     console.log(this.userFeedbacks);

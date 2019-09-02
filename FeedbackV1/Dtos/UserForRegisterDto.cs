@@ -16,6 +16,7 @@ namespace FeedbackV1.Dtos
         public string Dep_Id { get; set; }
         
         public string Id { get; set; }
+        public string Role { get; set; }
 
         [Required]
         public string Name { get; set; }

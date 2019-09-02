@@ -1,122 +1,137 @@
 [
-    {
-      "Dep_Id": 1,
-      "Id": "3a5df8b7-4edc-4628-bffc-0706aa35ce71",
-      "name": "Liz Hensley",
-      "email": "lizhensley@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 2,
-      "Id": "cb3aea72-d095-4965-9bce-8ff51476246c",
-      "name": "Hanson Solomon",
-      "email": "hansonsolomon@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 3,
-      "Id": "0597bc3a-42d2-4fc3-931b-a7accd152ec1",
-      "name": "Le Franks",
-      "email": "lefranks@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 3,
-      "Id": "98dfd09c-fb3a-4b79-bca1-928229a80649",
-      "name": "Doris Whitfield",
-      "email": "doriswhitfield@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 2,
-      "Id": "dd9aa4cd-1c43-4f85-956e-a9903f7b5676",
-      "name": "Miles Daugherty",
-      "email": "milesdaugherty@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 1,
-      "Id": "809527a9-628a-4518-94c2-aa55f06de7f6",
-      "name": "Potter Powell",
-      "email": "potterpowell@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 2,
-      "Id": "f0738e33-9ff2-4053-9635-d61860716229",
-      "name": "Bettye Guerrero",
-      "email": "bettyeguerrero@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 1,
-      "Id": "07bb0c51-75d3-4277-b85b-104fa3f28915",
-      "name": "Davis Bradley",
-      "email": "davisbradley@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 3,
-      "Id": "f6d506a6-e06f-40f8-9f10-da4cfa856d2d",
-      "name": "Samantha Cooper",
-      "email": "samanthacooper@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 1,
-      "Id": "9564d5f0-1d70-4eb5-8de0-ff487b33215a",
-      "name": "Roach Bowman",
-      "email": "roachbowman@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 3,
-      "Id": "082ddd1f-b1dc-4647-a833-d723a2216431",
-      "name": "Chandra Young",
-      "email": "chandrayoung@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 3,
-      "Id": "bc03993a-2d1c-458d-9c1c-33344c922faa",
-      "name": "Hartman Hayes",
-      "email": "hartmanhayes@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 1,
-      "Id": "5ae62e66-5c21-4d07-b6f2-79fc6f82e488",
-      "name": "Tabitha Whitley",
-      "email": "tabithawhitley@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 2,
-      "Id": "fb22f16d-57a5-49bb-a5f5-a45476a7a1e5",
-      "name": "Erin Galloway",
-      "email": "eringalloway@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    },
-    {
-      "Dep_Id": 1,
-      "Id": "9cd746ad-1ee1-4281-bdbf-2b1897a86580",
-      "name": "Knight Osborn",
-      "email": "knightosborn@soprano.com",
-      "manager_id": 2,
-      "password": "password"
-    }
-  ]
+  {
+    "Dep_Id": 1,
+    "Id": "c2329231-ae30-44d7-8d56-83cdccb379d1",
+    "name": "Mihai Radauta",
+    "email": "mihairadauta@zensus.com",
+    "manager_id": "Vinerea Maria ",
+    "role": "manager",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 2,
+    "Id": "fbb886c6-13e4-4caf-bfb7-a84c43d16bd9",
+    "name": "Visan Octavian",
+    "email": "visanoctavian@zensus.com",
+    "manager_id": "Vinerea Maria",
+    "role": "manager",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 3,
+    "Id": "bc953587-645d-4203-9052-a601df12bd20",
+    "name": "Ortega Dillon",
+    "email": "ortegadillon@zensus.com",
+    "manager_id": "Vinerea Maria",
+    "role": "manager",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 4,
+    "Id": "54daafa9-b54c-434b-9f01-cca51c579e88",
+    "name": "Herman Barrett",
+    "email": "hermanbarrett@zensus.com",
+    "manager_id": "Vinerea Maria",
+    "role": "manager",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 1,
+    "Id": "52f1badd-2b63-4365-8ccc-acd71c3dec7d",
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "manager_id": "0",
+    "role": "admin",
+    "password": "admin"
+  },
+  {
+    "Dep_Id": 1,
+    "Id": "3ad4b8bb-c294-4cf5-af38-33d0edf1474d",
+    "name": "Isabel Newton",
+    "email": "isabelnewton@zensus.com",
+    "manager_id": "Mihai Radauta",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 1,
+    "Id": "4b178837-7029-4790-ad35-f3194490921a",
+    "name": "Camille Dale",
+    "email": "camilledale@zensus.com",
+    "manager_id": "Mihai Radauta",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 2,
+    "Id": "6bcca3dd-5167-4ffd-b5dd-76ed2c44b758",
+    "name": "Moses Koch",
+    "email": "moseskoch@zensus.com",
+    "manager_id": "Visan Octavian",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 2,
+    "Id": "3d241b9c-b007-461f-879d-3684d44bd3ab",
+    "name": "Kathie Moody",
+    "email": "kathiemoody@zensus.com",
+    "manager_id": "Visan Octavian",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 3,
+    "Id": "fc9546e1-893b-450a-8fe8-3fd765cbd432",
+    "name": "Munoz Walton",
+    "email": "munozwalton@zensus.com",
+    "manager_id": "Ortega Dillon",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 3,
+    "Id": "fad8f9b9-bfe8-40d3-af7d-397f4229a419",
+    "name": "Romero Schwartz",
+    "email": "romeroschwartz@zensus.com",
+    "manager_id": "Ortega Dillon",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 3,
+    "Id": "4ca022f0-ffa7-4a96-b2ef-a22af4b1a8c2",
+    "name": "Gretchen Deleon",
+    "email": "gretchendeleon@zensus.com",
+    "manager_id": "Ortega Dillon",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 4,
+    "Id": "df10739a-fa81-4ff8-a6b4-61877fae3703",
+    "name": "Dionne Burke",
+    "email": "dionneburke@zensus.com",
+    "manager_id": "Herman Barrett",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 4,
+    "Id": "14282400-a11b-4a6d-b9e3-77ee8fa4e2b9",
+    "name": "Maryellen Carroll",
+    "email": "maryellencarroll@zensus.com",
+    "manager_id": "Herman Barrett",
+    "role": "employee",
+    "password": "password"
+  },
+  {
+    "Dep_Id": 4,
+    "Id": "0f526e20-8d10-4fee-8aa2-dcd85c331cde",
+    "name": "Evelyn Leon",
+    "email": "evelynleon@zensus.com",
+    "manager_id": "Herman Barrett",
+    "role": "employee",
+    "password": "password"
+  }
+]

@@ -32,7 +32,8 @@ namespace FeedbackV1.Data
                 Id = user.Id,
                 Email = user.Email,
                 Name = user.Name,
-                Manager_ID = user.Manager_ID
+                Manager_ID = user.Manager_ID,
+                Role = user.Role,
 
 
                 
