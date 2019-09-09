@@ -11,13 +11,30 @@ import { User } from '../_models/user';
 })
 export class UserService {
   baseUrl = environment.apiUrl;
-
+  users: User[] = null;
+  loadingUsers: boolean = false;
+  userRequests: ((_:User[])=>void)[] = [];
 constructor(private http: HttpClient) { }
 
 getUsers(): Observable<User[]> {
   return this.http.get<User[]>(this.baseUrl + 'user');
 }
+  getUsersCached(func:(_:User[])=>void) {
+    if (this.loadingUsers == false) {
+      this.loadingUsers = true;
+      this.userRequests.push(func);
+      this.getUsers().subscribe(list => {
+        this.users = list;
+        this.userRequests.forEach(request => request(list));
+      });
+    }
+    else
+      if (this.users == null)
+        this.userRequests.push(func);
+    else
+      func(this.users);
 
+  }
 getUser(id): Observable<User> {
   return this.http.get<User>(this.baseUrl + 'user/' + id);
 }

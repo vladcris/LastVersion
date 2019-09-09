@@ -11,6 +11,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 })
 export class UpdateUserComponent implements OnInit {
   user: User;
+  users: User[];
   departments: any;
   constructor(private userService: UserService,
               private route: ActivatedRoute,
@@ -19,6 +20,16 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit() {
     this.loadUser();
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.userService.getUsers().subscribe((response: User[]) => {
+      this.users = response;
+      //console.log(this.users);
+    }, error => {
+      this.alertify.error(error);
+    });
   }
 
   loadUser() {
@@ -43,7 +54,10 @@ export class UpdateUserComponent implements OnInit {
       this.alertify.success('Update succesfull');
     }, error => {
       this.alertify.error('error');
-    });
+      });
+
+    //this.userService.deleteUser(this.user.id).subscribe(() => { });
+    
     console.log(this.user);
     this.router.navigate(['/all']);
   }

@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { UserService } from './../../_services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../../../app/_models/user';
 
 @Component({
   selector: 'app-section-adduser',
@@ -14,6 +15,7 @@ export class SectionAdduserComponent implements OnInit {
   departments: any;
   registerForm: FormGroup;
   user: any;
+  users: User[];
   constructor(private userService: UserService,
               private router: Router,
               private fb: FormBuilder,
@@ -23,6 +25,7 @@ export class SectionAdduserComponent implements OnInit {
   ngOnInit() {
     this.loadDepartments();
     this.createRegisterFrom();
+    this.loadUsers();
   }
 
   createRegisterFrom() {
@@ -31,10 +34,15 @@ export class SectionAdduserComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       manager_Id: ['', Validators.required],
       dep_Id: ['', Validators.required],
-      id: ['' ],
+      role: ['', Validators.required],
+      //this.registerForm.get("role").value
+      id: [''],
+      
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', Validators.required]
-    }, {validator: this.passwordMatchValidator});
+      
+    }, { validator: this.passwordMatchValidator });
+    
   }
 
   passwordMatchValidator(g: FormGroup) {
@@ -42,6 +50,14 @@ export class SectionAdduserComponent implements OnInit {
   }
 
 
+  loadUsers() {
+    this.userService.getUsers().subscribe((response: User[]) => {
+      this.users = response;
+      //console.log(this.users);
+    }, error => {
+      this.alertify.error(error);
+    });
+  }
 
   loadDepartments() {
     this.userService.getDepartments().subscribe(response => {
@@ -53,6 +69,7 @@ export class SectionAdduserComponent implements OnInit {
   register() {
     if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
+      console.log(this.user);
       this.authService.register(this.user).subscribe( () => {
         this.alertify.success('Registration succesfull');
       }, error => {

@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label >To: {{user.id}} </label>
+                    <label >To: {{user.name}} </label>
                     
                 </div>
             </div>
@@ -104,8 +104,8 @@
         </div>
         <div class="row">
                 <div class="col-md-12">
-                    <button  [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
-                    <button  type="button" class="btn btn-danger " [routerLink]="['/feedbacks']" >Cancel</button>
+                    <button  [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5" >Submit</button>
+                    <button  type="button" class="btn btn-danger " [routerLink]="['/all']" >Cancel</button>
                 </div>
         </div>
     </form>

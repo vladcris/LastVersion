@@ -6,6 +6,7 @@ export interface User {
     email: string;
     manager_ID: string;
     time?: string;
+    role?: string;
 
 
 }

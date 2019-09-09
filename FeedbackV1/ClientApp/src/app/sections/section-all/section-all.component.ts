@@ -12,10 +12,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./section-all.component.css'],
 })
 export class SectionAllComponent implements OnInit {
+  filter: string;
  users: User[];
  id: any;
  modalRef: BsModalRef;
- departamente = ['Nothing', 'Suport', 'Development', 'HR', 'Finance'];
+  departamente = ['Nothing', 'Suport', 'Development', 'HR', 'Finance'];
+  tableLoaded: boolean = false;
 
 giveFeedbackForm = new FormGroup({
   sender: new FormControl(),
@@ -36,11 +38,13 @@ giveFeedbackForm = new FormGroup({
              private modalService: BsModalService) { }
 
  ngOnInit() {
-    this.loadUsers();
+   this.loadUsers();
+   console.log(localStorage.getItem('token'));
+
  }
 
  onSend() {
-  console.log(this.giveFeedbackForm.value);
+   console.log(this.giveFeedbackForm.value);
  }
 
  openModal(template: TemplateRef<any>) {
@@ -50,21 +54,30 @@ giveFeedbackForm = new FormGroup({
  loadUsers() {
   this.userService.getUsers().subscribe((response: User[]) => {
     this.users = response;
+    this.tableLoaded = true;
+    
   }, error => {
     this.alertify.error(error);
   });
-
-
  }
 
- onDelete(id: any) {
+  onDelete(id: any) {
+    this.tableLoaded = false;
     this.userService.deleteUser(id).subscribe(() => {
-      console.log(id);
+      //console.log(id);
+
+      this.loadUsers();
       this.alertify.success('User deleted!');
     }, error => {
       this.alertify.error('Error deleting user!');
     });
- }
+  }
+  isEmployee() {
+    return localStorage.getItem('role') != 'employee';
+    
+    
+
+  }
 
 
 }

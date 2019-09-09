@@ -2,3 +2,8 @@ td>a{
     cursor: pointer;
     color: blue;
 }
+a.disabled{
+  pointer-events:none;
+  cursor:not-allowed;
+  color:lightgrey;
+}

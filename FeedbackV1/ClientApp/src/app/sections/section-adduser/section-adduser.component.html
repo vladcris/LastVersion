@@ -2,81 +2,104 @@
         <div class="col-sm-3"></div>
         <div class="container-fluid col-sm-6">
           <h2>Sign User</h2> <hr>
-          <form [formGroup]="registerForm" (ngSubmit)="register()">
+                             <form [formGroup]="registerForm" (ngSubmit)="register()">
 
-            <div class="form-group">
-              <label for="exampleInputEmail1">Name</label>
-              <input  type="text" class="form-control" 
-                      id="exampleInputEmail1"  
-                      placeholder="Name" 
-                      formControlName="name"
-                      [ngClass]="{'is-invalid': registerForm.get('name').errors && registerForm.get('name').touched}"
-                      >
-              <div class="invalid-feedback">Please choose a username</div>
-            </div>
+                               <div class="form-group">
+                                 <label for="exampleInputEmail1">Name</label>
+                                 <input type="text" class="form-control"
+                                        id="exampleInputEmail1"
+                                        placeholder="Name"
+                                        formControlName="name"
+                                        [ngClass]="{'is-invalid': registerForm.get('name').errors && registerForm.get('name').touched}">
+                                 <div class="invalid-feedback">Please choose a username</div>
+                               </div>
 
-            <div class="form-group ">
-              <label for="exampleInputEmail2">Email address</label>
-              <input type="email" 
-                     [ngClass]="{'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched
+                               <div class="form-group ">
+                                 <label for="exampleInputEmail2">Email address</label>
+                                 <input type="email"
+                                        [ngClass]="{'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched
                       || registerForm.get('email').touched && registerForm.get('email').errors }"
-                     class="form-control" 
-                     id="exampleInputEmail2" 
-                     placeholder="Email"
-                     formControlName="email">
-              <div class="invalid-feedback" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Email is required</div>
-              <div class="invalid-feedback" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('email')">Email is not valid</div>
-            </div>
+                                        class="form-control"
+                                        id="exampleInputEmail2"
+                                        placeholder="Email"
+                                        formControlName="email">
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Email is required</div>
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('email')">Email is not valid</div>
+                               </div>
 
-            <div class="form-group ">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" 
-                      id="password" 
-                      placeholder="Password" 
-                      formControlName="password"
-                      [ngClass]="{'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}"
-                      >
-                      <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">Password is required</div>
-                      <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">Password must be at leat 4 characters</div>
-                      <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">Password cannot exceed 8 characters</div>
-            </div>
+                               <div class="form-group ">
+                                 <label for="password">Password</label>
+                                 <input type="password" class="form-control"
+                                        id="password"
+                                        placeholder="Password"
+                                        formControlName="password"
+                                        [ngClass]="{'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}">
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">Password is required</div>
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">Password must be at leat 4 characters</div>
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">Password cannot exceed 8 characters</div>
+                               </div>
 
-            <div class="form-group ">
-              <input type="password" 
-                     class="form-control" 
-                     [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched
+                               <div class="form-group ">
+                                 <input type="password"
+                                        class="form-control"
+                                        [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched
                      || registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}"
-                     placeholder="Confirm Password" 
-                     formControlName="confirmPassword">
-                     <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">Password is required</div>
-                     <div class="invalid-feedback" *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched">Passwords must match</div>
-            </div>
+                                        placeholder="Confirm Password"
+                                        formControlName="confirmPassword">
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">Password is required</div>
+                                 <div class="invalid-feedback" *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched">Passwords must match</div>
+                               </div>
 
-            <div class="form-group">
-              <label for="manager">Manager</label>
-              <input type="text" 
-                     class="form-control" 
-                     [ngClass]="{'is-invalid': registerForm.get('manager_Id').errors && registerForm.get('manager_Id').touched}"
-                     formControlName="manager_Id"
-                     id="manager"  
-                   placeholder="Manager">
-              <div class="invalid-feedback" *ngIf="registerForm.get('manager_Id').hasError('required') && registerForm.get('manager_Id').touched">Manager required</div>
-            </div>
+                               <!--<div class="form-group">
+    <label for="manager">Manager</label>
+    <input type="text"
+           class="form-control"
+           [ngClass]="{'is-invalid': registerForm.get('manager_Id').errors && registerForm.get('manager_Id').touched}"
+           formControlName="manager_Id"
+           id="manager"
+           placeholder="Manager">
+    <div class="invalid-feedback" *ngIf="registerForm.get('manager_Id').hasError('required') && registerForm.get('manager_Id').touched">Manager required</div>
+  </div>-->
+                               <div class="form-group">
+                                 <label for="manager">Select Manager </label>
+                                 <select class="form-control"
+                                         id="manager"
+                                         [ngClass]="{'is-invalid': registerForm.get('manager_Id').errors && registerForm.get('manager_Id').touched}"
+                                         formControlName="manager_Id">
+                                   <option value=""></option>
+                                   <option *ngFor="let user of users" value="{{user.manager_ID}}">{{ user.manager_ID }}</option>
+                                 </select>
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('manager_Id').hasError('required') && registerForm.get('manager_Id').touched">Manager required</div>
+                               </div>
 
-            <div class="form-group">
-              <label for="employee">Select Department </label>
-              <select class="form-control" 
-                      id="employee"  
-                      [ngClass]="{'is-invalid': registerForm.get('dep_Id').errors && registerForm.get('dep_Id').touched}"
-                      formControlName="dep_Id">
-                  <option value=""></option>
-                  <option *ngFor="let department of departments" value="{{department.id}}">{{ department.name }}</option>
-              </select>
-              <div class="invalid-feedback" *ngIf="registerForm.get('dep_Id').hasError('required') && registerForm.get('dep_Id').touched">Department required</div>
-          </div>  
 
-            <button [disabled]="!registerForm.valid" type="submit" class="btn btn-lg submit col-sm-5">Submit</button>
-          </form>
+                               <div class="form-group">
+                                 <label for="role">Select Role </label>
+                                 <select class="form-control"
+                                         id="role"
+                                         [ngClass]="{'is-invalid': registerForm.get('role').errors && registerForm.get('role').touched}"
+                                         formControlName="role">
+                                   <option value=""></option>
+                                   <option value="manager">Manager</option>
+                                   <option value="employee">Employee</option>
+                                 </select>
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('role').hasError('required') && registerForm.get('role').touched">Role required</div>
+                               </div>
+
+                               <div class="form-group">
+                                 <label for="employee">Select Department </label>
+                                 <select class="form-control"
+                                         id="employee"
+                                         [ngClass]="{'is-invalid': registerForm.get('dep_Id').errors && registerForm.get('dep_Id').touched}"
+                                         formControlName="dep_Id">
+                                   <option value=""></option>
+                                   <option *ngFor="let department of departments" value="{{department.id}}">{{ department.name }}</option>
+                                 </select>
+                                 <div class="invalid-feedback" *ngIf="registerForm.get('dep_Id').hasError('required') && registerForm.get('dep_Id').touched">Department required</div>
+                               </div>
+
+                               <button [disabled]="!registerForm.valid" type="submit" class="btn btn-lg submit col-sm-5">Submit</button>
+                             </form>
         </div>
         <div class="col-sm-3"></div>
       </div>    

@@ -8,6 +8,9 @@ import { AlertifyService } from './_services/alertify.service';
 import { BsDropdownModule, ModalModule, ProgressbarModule, RatingModule } from 'ngx-bootstrap';
 import { UserService } from './_services/user.service';
 import { JwtModule } from '@auth0/angular-jwt';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
+import { Ng2OrderModule } from 'ng2-order-pipe'; //importing the module
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -72,7 +75,10 @@ export function tokenGetter() {
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule,
+       AppRoutingModule,
+       Ng2SearchPipeModule, //including into imports
+       Ng2OrderModule, // importing the sorting package here
+       NgxPaginationModule,
       ReactiveFormsModule,
       FormsModule,
       AppRoutingModule,
@@ -85,8 +91,8 @@ export function tokenGetter() {
          config: {
             // tslint:disable-next-line:object-literal-shorthand
             tokenGetter: tokenGetter,
-          whitelistedDomains: ['localhost:5000'],
-          blacklistedRoutes: ['localhost:5000/api/auth']
+          whitelistedDomains: ['localhost:44365'],
+          blacklistedRoutes: ['localhost:44365/api/auth']
 
          }
       })

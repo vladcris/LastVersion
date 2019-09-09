@@ -2,32 +2,37 @@
         <!-- <div class="container">
             <app-home *ngIf="!loggedIn()"></app-home>
         </div> -->
-        
-        
+          
+    
 
         <div *ngIf="loggedIn()" class="container-fluid">
         <div  class="row" id="mainContent">
             <app-sidebar 
                 class="col-sm-2 col-md-2 d-none d-sm-block sidebar "
                 id="Sidebar">
+
             </app-sidebar>
             <div class="col-sm-10 ml-sm-auto col-md-10  pt-3 " id="dashboard">
             <!-- <app-section-adduser></app-section-adduser> -->
             <router-outlet ></router-outlet>
             </div>
         </div> 
-    </div>
+        </div>
+       
+          
 
+        <div *ngIf="!loggedIn()" class="login">
+          <!--<img src="../../src/assets/logo.png" width="420" height="420">-->
+          <div class="container ">
 
-       <div *ngIf="!loggedIn()" class="login">
-           <div class="container ">
-                    <div class="jumbotron mt-5">
-                    <div class="container">
-                      <h1 class="display-4">Welcome!</h1>
-                      <p class="lead">You have to login to use this site!</p>
-                    </div>
-                  </div>
-           </div>
+            <div class="jumbotron mt-5">
+              <div class="container">
+                <h1 class="display-4">Welcome!</h1>
+                <p class="lead">You have to login to use this site!</p>
+
+              </div>
+            </div>
+          </div>
 
         </div>
     <!-- <div *ngIf="!loginMode" class="login" >

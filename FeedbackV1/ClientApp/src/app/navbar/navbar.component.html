@@ -24,7 +24,7 @@
  </nav>  -->
 
  <nav class="navbar navbar-expand-md fixed-top nav-color">
-      <span class="navbar-brand ml-5">ORTEC FeedbackApp</span>
+      <span class="navbar-brand ml-5"><i class="fas fa-plus-circle"></i> ORTEC FeedbackApp</span>
 
       <ul class="navbar-nav mr-auto">
         <!-- <li *ngIf="loggedIn()" class="nav-item">
@@ -34,7 +34,7 @@
 
       <div  *ngIf="loggedIn()" class="dropdown" dropdown>
         <a class="dropdown-toggle text-light mr-5" dropdownToggle >
-          Welcome {{authService.decodedToken.unique_name}}
+          <i class="fas fa-user"></i> Welcome {{authService.decodedToken.unique_name}}
         </a>
       
         <div class="dropdown-menu mt-3" *dropdownMenu>
@@ -53,4 +53,3 @@
       </form>
     
   </nav>
- 

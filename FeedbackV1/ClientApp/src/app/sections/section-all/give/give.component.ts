@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { Feedback } from '../../viewfeedback/feedback.module';
 import { AuthService } from 'src/app/_services/auth.service';
 
@@ -30,7 +30,8 @@ export class GiveComponent implements OnInit {
               private feedbackService: FeedbacksService,
               private alertify: AlertifyService,
               private authService: AuthService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -45,6 +46,7 @@ export class GiveComponent implements OnInit {
     this.feedback.id_receiver = this.user.id;
     this.feedbackService.giveFeedback(this.feedback).subscribe(() => {
       this.alertify.success('Feedback Sent!');
+      this.router.navigate(['/all']);
     }, error => {
         this.alertify.error('error');
       });
