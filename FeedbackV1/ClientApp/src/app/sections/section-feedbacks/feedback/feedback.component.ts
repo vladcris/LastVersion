@@ -13,7 +13,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./feedback.component.css'],
 })
 export class FeedbackComponent implements OnInit {
-  receiver: User=null;
+  receiver: User = null;
+  requester: User = null;
   @Input() feedbackInput: Feedback;
 
   constructor(private route: ActivatedRoute,
@@ -41,6 +42,8 @@ export class FeedbackComponent implements OnInit {
       users.forEach((user: User, index: number, array: User[]) => {
         if (user.id == this.feedbackInput.iD_receiver)
           this.receiver = user;
+        if (user.id == this.feedbackInput.iD_manager)
+          this.requester = user;
       });
     });
    

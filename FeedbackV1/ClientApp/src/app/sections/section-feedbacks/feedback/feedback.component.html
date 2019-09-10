@@ -1,5 +1,5 @@
 <div *ngIf = "!feedbackInput.pending" class="card block-status ">
-    <div class="card-body" >
+    <div class="card-body" style="font-size: 15px;" >
         <h5 class="card-title">For: {{receiver.name}}</h5>
         <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
         <p class="card-text">{{feedbackInput.timestamp | date: 'medium'}}</p>
@@ -8,8 +8,8 @@
 </div>
 
 <div  *ngIf = "feedbackInput.pending" class="card block-status1 ">
-        <div class="card-body" >
-            <h5 class="card-title" >Requested by: {{feedbackInput.iD_manager}}</h5>
+        <div class="card-body" style="font-size: 15px;">
+            <h5 class="card-title" >Requested by: {{requester.name}}</h5>
             <p class="card-text">For: {{receiver.name}}</p> 
             <!-- <p class="card-text">Date: {{feedbackInput.timestamp}}</p>  -->
             <!-- <p class="card-text">Tip: {{feedbackInput.comments}}</p> -->

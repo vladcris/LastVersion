@@ -262,7 +262,7 @@ namespace FeedbackV1.Repositories
             await userTable.CreateIfNotExistsAsync();
             var results = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).ToList<User>();
              List<User> people = results;
-             people = people.OrderBy(x => x.PartitionKey).ToList();
+             people = people.OrderByDescending(x => x.Name).ToList();
             if (people == null)
                 return null;
             return people;

@@ -1,6 +1,8 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { Feedback } from 'src/app/_models/feedback.model';
+import { User } from '../../../../_models/user';
+import { UserService } from '../../../../_services/user.service';
 
 
 
@@ -11,10 +13,17 @@ import { Feedback } from 'src/app/_models/feedback.model';
 })
 export class FeedbackItemComponent implements OnInit {
  @Input() feedback: Feedback;
- @Input() index: number;
+  @Input() index: number;
+  receiver: User = null;
 
-
+  constructor(private userService: UserService) {}
   ngOnInit() {
+    this.userService.getUsersCached(users => {
+      users.forEach((user: User, index: number, array: User[]) => {
+        if (user.id == this.feedback.id)
+          this.receiver = user;
+      });
+    });
   }
 
 }

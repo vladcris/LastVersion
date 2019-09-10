@@ -49,6 +49,10 @@ updateRequest(id: string, user: User) {
 
 deleteUser(id: string) {
   return this.http.delete(this.baseUrl + 'user/' + id);
-}
+  }
+
+  getTeam(id): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl + 'Manager/' + id);
+  }
 
 }

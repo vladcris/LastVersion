@@ -15,6 +15,8 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class GiveComponent implements OnInit {
   user: User;
+  y = 0;
+
   feedback: any = {
     id: '',
     feed_id: '',
@@ -25,6 +27,7 @@ export class GiveComponent implements OnInit {
     workquality: '',
     comments: ''
   };
+
   punct = ['Bad', 'Decent', 'Good', 'Very Good'];
   constructor(private userService: UserService,
               private feedbackService: FeedbacksService,
@@ -38,6 +41,7 @@ export class GiveComponent implements OnInit {
       // tslint:disable-next-line:no-string-literal
       this.user = data['user'];
     });
+    
   }
 
   submitRequest() {

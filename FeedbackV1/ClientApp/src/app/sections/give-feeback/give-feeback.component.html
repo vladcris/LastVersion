@@ -1,16 +1,16 @@
 <div class="row">
-        <div class="col-sm-8">
-                <div *ngIf="!feedback.pending">
-                        <div class="alert alert-info">
-                                <p><strong>Information: </strong>You have already completed that request!</p>
-                        </div>
-                        <hr>
-                        <button class="btn btn-primary" [routerLink]="['/feedbacks']" >Back</button>
-                </div>
-        </div>
+  <div class="col-sm-8">
+    <div *ngIf="!feedback.pending">
+      <div class="alert alert-info">
+        <p><strong>Information: </strong>You have already completed that request!</p>
+      </div>
+      <hr>
+      <button class="btn btn-primary" [routerLink]="['/feedbacks']">Back</button>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="feedback.pending" class="row">
+<!--<div *ngIf="feedback.pending" class="row">
     <div class="col-md-2"></div>
     <div class="col-md-6">
         <div class="card mt-2">
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label >To: {{feedback?.iD_receiver}} </label>
-                        
+
                     </div>
                     <div class="form-group">
                         <label  >Requested by: {{feedback?.iD_manager}} </label>
@@ -34,13 +34,13 @@
                                     <label for="">Punctuality</label>
                                     <div class="radio" *ngFor="let item of punct; let i=index">
                                         <label>
-                                                <input 
+                                                <input
                                                 type="radio"
                                                 name="punctuality"
                                                 [value]="i+1"
                                                 [(ngModel)]="feedback.punctuality"
                                                 required
-                                                > 
+                                                >
                                                 {{item}}
                                         </label>
                                     </div>
@@ -53,32 +53,32 @@
                                         <label for="">Productivity</label>
                                         <div class="radio" *ngFor="let item of punct; let i=index">
                                             <label>
-                                                    <input 
+                                                    <input
                                                     type="radio"
                                                     name="productivity"
                                                     [value]="i+1"
                                                     [(ngModel)]="feedback.productivity"
                                                     required
-                                                    > 
+                                                    >
                                                     {{item}}
                                             </label>
                                         </div>
                                 </div>
                         </div>
-                </div>          
+                </div>
                  <div class="row">
                                 <div class="col-md-12">
                                         <div class="form-group">
                                                 <label for="">Workquality</label>
                                                 <div class="radio" *ngFor="let item of punct; let i=index">
                                                     <label>
-                                                            <input 
+                                                            <input
                                                             type="radio"
                                                             name="workQuality"
                                                             [value]="i+1"
                                                             [(ngModel)]="feedback.workQuality"
                                                             required
-                                                            > 
+                                                            >
                                                             {{item}}
                                                     </label>
                                                 </div>
@@ -92,13 +92,13 @@
                                                  <label for="">Commskills</label>
                                                  <div class="radio" *ngFor="let item of punct; let i=index">
                                                         <label>
-                                                                <input 
+                                                                <input
                                                                 type="radio"
                                                                 name="commSkills"
                                                                 [value]="i+1"
                                                                 [(ngModel)]="feedback.commSkills"
                                                                 required
-                                                                > 
+                                                                >
                                                                 {{item}}
                                                         </label>
                                                 </div>
@@ -127,5 +127,91 @@
     <div class="col-md-4">
 
     </div>
+</div>-->
+
+
+<div class="row">
+
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
+    <div class="card mt-2">
+      <div class="card-body">
+        <form #requestForm="ngForm" (ngSubmit)="submitRequest()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label style="color: #F7A224;font-size: 26px;">To : {{receiver.name}} </label>
+                <label style="color: #F7A224;font-size: 26px;">Requested by : {{requester.name}} </label>
+
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="row form-container">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="">How would you rate your colleague <b>Punctuality</b>?</label>
+                <div>
+                  <rating [max]="4" [(ngModel)]="feedback.punctuality" name="punctuality" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="">How would you rate your colleague <b>Productivity</b>?</label>
+                <div>
+                  <rating [max]="4" [(ngModel)]="feedback.productivity" name="productivity" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="">How would you rate your colleague <b>Work Quality</b>?</label>
+                <div>
+                  <rating [max]="4" [(ngModel)]="feedback.workquality" name="workquality" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="">How would you rate your colleague <b>Communication Skills</b>?</label>
+                <div>
+                  <rating [max]="4" [(ngModel)]="feedback.commskills" name="commskills" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Comments: </label>
+                <textarea name="comments" [(ngModel)]="feedback.comments" rows="4" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
+              <button type="button" class="btn btn-danger " [routerLink]="['/all']">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+
+  </div>
 </div>
+
 

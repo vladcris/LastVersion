@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FeedbacksService } from 'src/app/_services/feedbacks.service';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router, Params, RouterLink } from '@angular/router';
 import {Feedback} from 'src/app/_models/feedback.model';
 import { NgForm } from '@angular/forms';
+import { User } from '../../_models/user';
+import { UserService } from '../../_services/user.service';
+import { AlertifyService } from '../../_services/alertify.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-give-feeback',
@@ -12,14 +16,20 @@ import { NgForm } from '@angular/forms';
 export class GiveFeebackComponent implements OnInit {
   @ViewChild('requestForm', {static: false}) requestForm: NgForm;
   feedback: Feedback;
+  receiver: User = null;
+  requester: User = null;
   punct = ['Bad', 'Decent', 'Good', 'Very Good'];
   constructor(private feedbackService: FeedbacksService,
               private route: ActivatedRoute,
-              private router: Router) { }
+    private router: Router,
+    private userService: UserService) { }
 
   ngOnInit() {
+
     this.loadFeedback();
-    this.submitRequest();
+ 
+
+
    }
 
   loadFeedback() {
@@ -27,6 +37,14 @@ export class GiveFeebackComponent implements OnInit {
     this.feedbackService.getFeedback(this.route.snapshot.params['feeD_ID'])
     .subscribe((feedback: Feedback) => {
       this.feedback = feedback;
+      this.userService.getUsersCached(users => {
+        users.forEach((user: User, index: number, array: User[]) => {
+          if (user.id == this.feedback.iD_receiver)
+            this.receiver = user;
+          if (user.id == this.feedback.iD_manager)
+            this.requester = user;
+        });
+      });
     });
 
   }

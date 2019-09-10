@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { GiveComponent } from './sections/section-all/give/give.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
+import { UsersTeamResolver } from './_resolvers/users-team.resolver';
 import { UpdateUserComponent } from './sections/section-all/update-user/update-user.component';
 
 
@@ -39,7 +40,11 @@ const appRoutes: Routes = [
          { path: 'feedbacks/:feeD_ID', component: MyfeedbackDetailComponent},
          { path: 'adduser', component: SectionAdduserComponent},
          { path: 'login', component: LoginComponent },
-         { path: 'view', component: ViewfeedbackComponent, children: [
+        {
+          path: 'view', component: ViewfeedbackComponent, resolve: {
+            users: UsersTeamResolver
+          },
+          children: [
             { path: '', component: ViewstartComponent},
            // { path: ':id', component: FeedbackListComponent},
             { path: ':id', component: FeedbackDetailComponent}

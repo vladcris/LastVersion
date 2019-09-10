@@ -27,14 +27,14 @@ export class SectionFeedbacksComponent implements OnInit {
     this.feedbackService.getFeedbacks().subscribe(feedbacks => {
       this.feedbacks = feedbacks;
       this.myfeedbacks();
-    //  console.log(this.feedbacks);
+      console.log(this.feedbacks);
     });
   }
 
   myfeedbacks() {
     this.myFeedbacks = this.feedbacks.filter(m => m.id === this.auth.decodedToken.nameid);
-  //  console.log(this.myFeedbacks);
-    console.log(this.auth.decodedToken.nameid);
+    console.log(this.myFeedbacks);
+   // console.log(this.auth.decodedToken.nameid);
   }
 
 

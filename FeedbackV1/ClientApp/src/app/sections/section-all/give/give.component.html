@@ -1,5 +1,4 @@
 
-
 <div  class="row">
 
 <div class="col-md-2"></div>
@@ -10,94 +9,110 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label >To: {{user.name}} </label>
+                    <label style="color: #F7A224;font-size: 26px;">To : {{ user.name}} </label>
                     
                 </div>
             </div>
         </div>
-
-        <div class="row">
+      <hr />
+        <div class="row form-container">
                 <div class="col-md-12">
-                        <div class="form-group">
-                                <label for="">Punctuality</label>
-                                <div class="radio" *ngFor="let item of punct; let i=index">
-                                    <label>
-                                            <input 
-                                            type="radio"
-                                            name="punctuality"
-                                            [value]="i+1"
-                                            [(ngModel)]="feedback.punctuality"
-                                            required
-                                            > 
-                                            {{item}}
-                                    </label>
-                                </div>
-                        </div>
+                  <div class="form-group">
+                    <label for="">How would you rate your colleague <b>Punctuality</b>?</label>
+                    <div>
+                      <rating [max]="4" [(ngModel)]="feedback.punctuality"  name="punctuality" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+                    </div>
+                    <!--<div  *ngFor="let item of punct; let i=index">
+
+                      <label class="radio-inline">
+
+                        <input type="radio"
+                               name="punctuality"
+                               [value]="i+1"
+                               [(ngModel)]="feedback.punctuality"
+                               required>
+                        {{item}}
+
+                      </label>
+
+                    </div>-->
+
+                  </div>
                 </div>
         </div>
         <div class="row">
                     <div class="col-md-12">
-                            <div class="form-group">
-                                    <label for="">Productivity</label>
-                                    <div class="radio" *ngFor="let item of punct; let i=index">
-                                        <label>
-                                                <input 
-                                                type="radio"
-                                                name="productivity"
-                                                [value]="i+1"
-                                                [(ngModel)]="feedback.productivity"
-                                                required
-                                                > 
-                                                {{item}}
-                                        </label>
-                                    </div>
-                            </div>
+                      <div class="form-group">
+                        <label for="">How would you rate your colleague <b>Productivity</b>?</label>
+                        <div>
+                          <rating [max]="4" [(ngModel)]="feedback.productivity"  name="productivity" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+                        </div>
+                        <!--<div class="radio" *ngFor="let item of punct; let i=index">
+      <label>
+              <input
+              type="radio"
+              name="productivity"
+              [value]="i+1"
+              [(ngModel)]="feedback.productivity"
+              required
+              >
+              {{item}}
+      </label>
+  </div>-->
+                      </div>
                     </div>
             </div>          
              <div class="row">
                             <div class="col-md-12">
-                                    <div class="form-group">
-                                            <label for="">Workquality</label>
-                                            <div class="radio" *ngFor="let item of punct; let i=index">
-                                                <label>
-                                                        <input 
-                                                        type="radio"
-                                                        name="workquality"
-                                                        [value]="i+1"
-                                                        [(ngModel)]="feedback.workquality"
-                                                        required
-                                                        > 
-                                                        {{item}}
-                                                </label>
-                                            </div>
-                                    </div>
+                              <div class="form-group">
+                                <label for="">How would you rate your colleague <b>Work Quality</b>?</label>
+                                <div>
+                                  <rating [max]="4" [(ngModel)]="feedback.workquality"  name="workquality" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+
+                                </div>
+                                <!--<div class="radio" *ngFor="let item of punct; let i=index">
+      <label>
+              <input
+              type="radio"
+              name="workquality"
+              [value]="i+1"
+              [(ngModel)]="feedback.workquality"
+              required
+              >
+              {{item}}
+      </label>
+  </div>-->
+                              </div>
                             </div>
                     </div>
 
             <div class="row">
                             <div class="col-md-12">
-                                    <div class="form-group">
-                                             <label for="">Commskills</label>
-                                             <div class="radio" *ngFor="let item of punct; let i=index">
-                                                    <label>
-                                                            <input 
-                                                            type="radio"
-                                                            name="commskills"
-                                                            [value]="i+1"
-                                                            [(ngModel)]="feedback.commskills"
-                                                            required
-                                                            > 
-                                                            {{item}}
-                                                    </label>
-                                            </div>
-                                    </div>
+                              <div class="form-group">
+                                <label for="">How would you rate your colleague <b>Communication Skills</b>?</label>
+                                <div>
+                                  <rating [max]="4" [(ngModel)]="feedback.commskills"  name="commskills" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+                                </div>
+                                <!--<div class="radio" *ngFor="let item of punct; let i=index">
+          <label>
+                  <input
+                  type="radio"
+                  name="commskills"
+                  [value]="i+1"
+                  [(ngModel)]="feedback.commskills"
+                  required
+                  >
+                  {{item}}
+          </label>
+  </div>-->
+                              </div>
                             </div>
                     </div>
 
         <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label >Comments</label>
+                        <label >Comments: </label>
                         <textarea name="comments" [(ngModel)]="feedback.comments" rows="4" class="form-control"></textarea>
                     </div>
                 </div>

@@ -35,6 +35,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { GiveComponent } from './sections/section-all/give/give.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UpdateUserComponent } from './sections/section-all/update-user/update-user.component';
+import { UsersTeamResolver } from './_resolvers/users-team.resolver';
 
 
 
@@ -104,7 +105,8 @@ export function tokenGetter() {
       AlertifyService,
       AuthGuard,
       UserService,
-      UserDetailResolver
+     UserDetailResolver,
+     UsersTeamResolver
    ],
    bootstrap: [
       AppComponent

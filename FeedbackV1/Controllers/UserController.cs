@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using FeedbackV1.Dtos;
@@ -29,6 +30,7 @@ namespace FeedbackV1.Controllers
         public async Task<IActionResult> GetUsers()
         {
             var repo = new TableStorageRepository();
+           // var ID = (User.FindFirst(ClaimTypes.NameIdentifier).Value);
             var users = await repo.GetUsers();
             var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(users); 
             if (!usersToReturn.Any())
