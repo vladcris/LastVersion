@@ -91,7 +91,22 @@ namespace FeedbackV1.Controllers
             
         }
 
-        
+
+        [HttpPost("{id}")]
+        public async Task<IActionResult> RequestFeedback(RequestFeedbackDto requestFeedbackDto, string id)
+        {
+            //validate
+            var repo = new TableStorageRepository();
+
+            var requestToCreate = _mapper.Map<Feedbacks>(requestFeedbackDto);
+
+            var createdRequest = await repo.RequestFeedback(requestToCreate, id);
+
+            return Ok(createdRequest);
+
+        }
+
+
         // [Route("{id}")]
         // [HttpGet]
         // public async Task<List<Employees>> GetEmployeesById(string id)

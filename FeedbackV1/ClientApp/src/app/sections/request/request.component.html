@@ -3,39 +3,65 @@
   <div class="col-lg-6">
 
     <form>
-      <h1>Fpr:</h1>
+      <h1>Request Feedback </h1>
+      <h1>{{user.name}}</h1>
       <div class="form-group">
-          <label for="choose">Choose the type of request</label>
-          <select id="choose" 
-                  class="form-control" 
-                  (change)="onSelect()"
-                  [(ngModel)]="choose.make"
-                  name="make">
-              <option value=""></option>
-              <option value="request1" >Cere feedback de la acest angajat pentru</option>
-              <option value="request2" >Cere feedback pentru acest angajat de la</option>
-          </select>
+        <label for="choose">Choose the type of request</label>
+        <select id="choose"
+                class="form-control"
+                (change)="onSelect()"
+                [(ngModel)]="choose.make"
+                name="make">
+          <option value=""></option>
+          <option value="request1">Feedback From this employee To</option>
+          <option value="request2">Feedback To this employee From</option>
+        </select>
       </div>
 
       <div class="form-group">
-          <label for="employee">Select Employee</label>
-          <select id="employee" class="form-control" name="id" [(ngModel)]="employee.id" >
-              <option value=""></option>
-              <option *ngFor="let user of employees" value="{{user.id}}">{{user.name}}</option>
-          </select>
-          <button class="btn btn-primary mt-2" name="user" (click)="onPush(employee.id)">Add</button>
+        <label for="departament">Select Department </label>
+        <select (change)="onSelectDepartament()"
+                id="departament"
+                class="form-control"
+                name="departament"
+                [(ngModel)]="depId.departament">
+          <option value=""></option>
+          <option *ngFor="let department of departmentsSelected" value="{{department.id}}">{{ department.name }}</option>
+        </select>
+        <!-- <div class="invalid-feedback" *ngIf="registerForm.get('dep_Id').hasError('required') && registerForm.get('dep_Id').touched">Department required</div> -->
+      </div>
+
+
+      <div class="form-group">
+        <label for="employee">Select Employee</label>
+        <select id="employee" class="form-control" name="id" [(ngModel)]="employee.id">
+          <option value=""></option>
+          <option *ngFor="let user of employees" value="{{user.id}}">{{user.name}}</option>
+
+        </select>
+        <button class="btn add-button mt-2" (click)="onPush(employee.id)">Add</button>
+
       </div>
 
       <div class="form-group">
         <label for="area">Selected Employees</label>
-        <!-- <textarea class="form-control"  id="area" *ngFor="let user of employee" rows="3">{{angajat}}</textarea> -->
-        <p>{{angajat}}</p>
+        <div *ngFor="let item of angajatName">
+          <div class="row">
+            <div class="col-lg-8">
+              <label class="form-control">{{item}}</label>
+            </div>
+            <div class="col-lg-4">
+              <button class="btn btn-primary form-control" (click)="onDelete(item)">Delete</button>
+             </div>
+           </div>
+
+          </div>
       </div>
 
-      <button class="btn btn-lg submit text-center" type="submit">Submit</button>
+      <button class="btn btn-lg submit text-center" type="submit" [routerLink]="['/all']" (click)=onSubmit()>Submit</button>
+      <button class="btn btn-lg btn-primary ml-4" type="button"  [routerLink]="['/all']">Back</button>
     </form>
 
   </div>
   <div class="col-lg-3"></div>
 </div>
-

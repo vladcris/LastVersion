@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mt-5">
   <div class="container">
     <div class="row">
       <nav class="navbar">
@@ -36,16 +36,17 @@
         </thead>
         <tbody>
 
-          <tr *ngFor="let user of users | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 8, currentPage: p }; let i = index" >
+          <tr *ngFor="let user of users | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
             <th scope="row">{{i+1}}</th>
             <td>{{departamente[user.deP_ID]}}</td>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td>{{user.manager_ID}}</td>
-            <td><a (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Delete</a></td>
+            <td><a [routerLink]="['/all/', user.id]" [class.disabled]="!tableLoaded">Offer feedback</a></td>
             <td><a [routerLink]="['/request/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Request</a></td>
             <td><a [routerLink]="['/all/update/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Update</a></td>
-            <td><a [routerLink]="['/all/', user.id]" [class.disabled]="!tableLoaded" >Offer feedback</a></td>
+            <td><a (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Delete</a></td>
+
           </tr>
         </tbody>
 

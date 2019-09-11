@@ -31,6 +31,14 @@ giveFeedback(form: any) {
   return this.http.post(this.baseUrl + 'feedbacks/', form) ;
 }
 
+ sendRequest1(form: any, id: string) {
+    return this.http.post(this.baseUrl + 'feedbacks/' + id, form);
+  }
+
+ sendRequest2(form: any, id: string) {
+    return this.http.post(this.baseUrl + 'myfeedbacks/' + id, form);
+  }
+
 
 }
 

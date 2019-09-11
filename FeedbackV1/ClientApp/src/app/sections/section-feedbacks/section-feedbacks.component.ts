@@ -27,7 +27,7 @@ export class SectionFeedbacksComponent implements OnInit {
     this.feedbackService.getFeedbacks().subscribe(feedbacks => {
       this.feedbacks = feedbacks;
       this.myfeedbacks();
-      console.log(this.feedbacks);
+     // console.log(this.feedbacks);
     });
   }
 
@@ -38,12 +38,5 @@ export class SectionFeedbacksComponent implements OnInit {
   }
 
 
-  // getValues() {
-  //   this.http.get('http://localhost:5000/api/Feedbacks').subscribe(response => {
-  //     this.employees = response;
-  //   }, error => {
-  //     console.log(error);
-  //   });
-  // }
 
 }

@@ -157,11 +157,22 @@ namespace FeedbackV1.Repositories
 
         }
 
+        public async Task<Feedbacks> RequestFeedback(Feedbacks feedback, string id)
+        {
+            feedback.RowKey = Guid.NewGuid().ToString();
+            feedback.PartitionKey = id;
+            await feedbacksTable.CreateIfNotExistsAsync();
+            TableOperation insertOperation = TableOperation.InsertOrReplace(feedback);
+            var result = await feedbacksTable.ExecuteAsync(insertOperation);
+            return (feedback);
+
+        }
 
 
-     
-     
-       //////User////
+
+
+
+        //////User////
         public async Task<User> Register(User user, string password)
         {
             byte[] passwordHash, passwordSalt;
@@ -294,6 +305,18 @@ namespace FeedbackV1.Repositories
         }
 
 
+        public async Task<List<User>> GetUsersByDepartment(string id)
+        {
+
+            await userTable.CreateIfNotExistsAsync();
+            var filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id);
+            TableQuery<User> query = new TableQuery<User>().Where(filter);
+            var result = await userTable.ExecuteQuerySegmentedAsync(query, null);
+            if (result == null)
+                return null;
+            var results = result.Results;
+            return results;
+        }
 
 
 
