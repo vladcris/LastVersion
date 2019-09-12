@@ -1,43 +1,47 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-                <!-- <p>Productivity: {{feedback.productivity}}</p>
-                <p>Punctuality: {{feedback.punctuality}}</p>
-                <p>CommSkils: {{feedback.commSkills}}</p>
-                <p>Comments: {{feedback.comments}}</p>
-                <p>Date: {{feedback.timestamp}}</p>
-                <button class="btn btn-primary" [routerLink]="['/feedbacks']" >Back</button> -->
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+      <!-- <p>Productivity: {{feedback.productivity}}</p>
+      <p>Punctuality: {{feedback.punctuality}}</p>
+      <p>CommSkils: {{feedback.commSkills}}</p>
+      <p>Comments: {{feedback.comments}}</p>
+      <p>Date: {{feedback.timestamp}}</p>
+      <button class="btn btn-primary" [routerLink]="['/feedbacks']" >Back</button> -->
 
-                <div class="card">
-                        <div class="card-body">
-                          <h3 class="card-title"><strong>Feedback Form</strong></h3>
-                          <p class="card-text"> <strong> For:</strong>   {{receiver.name}} </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item"><strong>Productivity:</strong><br>
-                            <rating [(ngModel)]="feedback.productivity" [max]="max" [readonly]="isReadonly"></rating>
-                            {{adjectives[feedback.productivity-1] | uppercase}}  </li>
-                          <li class="list-group-item"> <strong>Punctuality:</strong> <br>
-                            <rating [(ngModel)]="feedback.punctuality" [max]="max" [readonly]="isReadonly"></rating>
-                            {{adjectives[feedback.punctuality-1] | uppercase}} </li>
-                          <li class="list-group-item"> <strong>CommSkils:</strong>  <br>
-                            <rating [(ngModel)]="feedback.commSkills" [max]="max" [readonly]="isReadonly"></rating>
-                            {{adjectives[feedback.commSkills-1] | uppercase}} </li>
-                          <li class="list-group-item"> <strong>WorkQuality:</strong> <br>
-                            <rating [(ngModel)]="feedback.workQuality" [max]="max" [readonly]="isReadonly"></rating>
-                            {{adjectives[feedback.workQuality-1] | uppercase}} </li>
-                          <li class="list-group-item"> <strong>Comments:</strong>  {{feedback.comments}}</li>
-                          <li class="list-group-item"><strong> Date: </strong>{{feedback.timestamp | date:'medium'}}</li>
-                          
-                        </ul>
-                        <div class="card-body text-center">
-                            <button class="btn btn-lg btn-primary" [routerLink]="['/feedbacks']" >Back</button>
-                           <!-- <a href="#" class="card-link">Another link</a> -->
-                        </div>
-                      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title" style="color: #F67D2A;font-size: 26px;"><strong>Feedback Form</strong></h3>
+          <p class="card-text" style="color: #F67D2A;font-size: 26px;"> <strong> For:</strong>   {{receiver.name}} </p>
         </div>
-        <div class="col-lg-2">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Productivity:</strong><br>
+            <rating [(ngModel)]="feedback.productivity" [max]="max" [readonly]="isReadonly" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+          </li>
+          <li class="list-group-item">
+            <strong>Punctuality:</strong> <br>
+            <rating [(ngModel)]="feedback.punctuality" [max]="max" [readonly]="isReadonly" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+          </li>
+          <li class="list-group-item">
+            <strong>CommSkils:</strong>  <br>
+            <rating [(ngModel)]="feedback.commSkills" [max]="max" [readonly]="isReadonly" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+          </li>
+          <li class="list-group-item">
+            <strong>WorkQuality:</strong> <br>
+            <rating [(ngModel)]="feedback.workQuality" [max]="max" [readonly]="isReadonly" style="color: #0275d8;font-size: 26px;" [titles]="['Bad','Decent','Good','Very Good']"></rating>
+          </li>
+          <li class="list-group-item"> <strong>Comments:</strong>  {{feedback.comments}}</li>
+          <li class="list-group-item"><strong> Date: </strong>{{feedback.timestamp | date:'medium'}}</li>
+
+        </ul>
+        <div class="card-body text-center">
+          <button class="btn btn-lg btn-primary" [routerLink]="['/feedbacks']">Back</button>
+          <!-- <a href="#" class="card-link">Another link</a> -->
         </div>
+      </div>
     </div>
+    <div class="col-lg-2">
+    </div>
+  </div>
 </div>
