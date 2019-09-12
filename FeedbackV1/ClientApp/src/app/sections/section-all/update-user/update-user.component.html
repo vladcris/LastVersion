@@ -32,7 +32,7 @@
                   id="manager"
                   [(ngModel)]="user.manager_ID"
                   name="manager_ID">
-            <option *ngFor="let user of users" value="{{user.manager_ID}}">{{ user.manager_ID }}</option>
+            <option *ngFor="let user of managers" value="{{user.name}}">{{ user.name }}</option>
           </select>
         </div>
         <div class="form-group">

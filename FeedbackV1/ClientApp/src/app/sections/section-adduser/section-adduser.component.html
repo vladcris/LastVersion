@@ -67,7 +67,7 @@
                                          [ngClass]="{'is-invalid': registerForm.get('manager_Id').errors && registerForm.get('manager_Id').touched}"
                                          formControlName="manager_Id">
                                    <option value=""></option>
-                                   <option *ngFor="let user of users" value="{{user.manager_ID}}">{{ user.manager_ID }}</option>
+                                   <option *ngFor="let user of managers" value="{{user.name}}">{{ user.name }}</option>
                                  </select>
                                  <div class="invalid-feedback" *ngIf="registerForm.get('manager_Id').hasError('required') && registerForm.get('manager_Id').touched">Manager required</div>
                                </div>

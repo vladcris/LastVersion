@@ -16,6 +16,8 @@ export class SectionAdduserComponent implements OnInit {
   registerForm: FormGroup;
   user: any;
   users: User[];
+  managers = {};
+  userForManagers = {};
   constructor(private userService: UserService,
               private router: Router,
               private fb: FormBuilder,
@@ -53,10 +55,17 @@ export class SectionAdduserComponent implements OnInit {
   loadUsers() {
     this.userService.getUsers().subscribe((response: User[]) => {
       this.users = response;
+      this.loadManagers();
       //console.log(this.users);
     }, error => {
       this.alertify.error(error);
     });
+  }
+
+  loadManagers() {
+    this.managers = this.users.filter(m => m.role == 'manager');
+    // console.log(this.managers);
+    // console.log(this.auth.decodedToken.nameid);
   }
 
   loadDepartments() {
