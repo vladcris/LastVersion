@@ -1,9 +1,24 @@
-td>a{
-    cursor: pointer;
-    color: blue;
+
+.forPadding{
+  margin: 20px 50px;
 }
-a.disabled{
-  pointer-events:none;
-  cursor:not-allowed;
-  color:lightgrey;
+
+a, .delete{
+  color: #F67D2A!important;
 }
+
+.name {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+.filter {
+  background-color: #F67D2A;
+  color: #fff;
+}
+
+

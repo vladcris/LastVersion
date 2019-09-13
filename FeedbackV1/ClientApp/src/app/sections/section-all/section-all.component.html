@@ -1,9 +1,22 @@
 <div class="card mt-5">
-  <div class="container">
+  <div class="card-body forPadding">
     <div class="row">
       <nav class="navbar">
+        
         <input class="form-control" type="text" name="search" placeholder="Search..." [(ngModel)]="filter">
       </nav>
+      <div class="form-group">
+          <form class="form-inline mt-3" #form="ngForm" (ngSubmit)="loadUsers()" novalidate>
+
+              <div class="form-group px-2">
+                <button class="btn filter" type="submit" (click)="onClick()">Show only my Team</button>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button> -->
+              <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filters</button>
+            
+            </form>
+      </div>
+
       <table class="table table-hover">
         <thead>
           <tr>
@@ -11,21 +24,21 @@
             <th>
               Department
             </th>
-            <th (click)="sort('name')">
-              Name
-              <span class="fas fa-sort" *ngIf="key =='name'" [ngClass]="{' fa-sort-up':reverse,' fa-sort-down':!reverse}"></span>
+            <th style="cursor: pointer" (click)="onSort()">
+              Nume
+              <span class="fas fa-sort"  [ngClass]="{' fa-sort-up':reverse, 'fa-sort-down':!reverse}"></span>
             </th>
             <!--<th (click)="sort('genre')">
     ID
     <span class="fas fa-sort" *ngIf="key =='genre'" [ngClass]="{' fa-sort-up':reverse,' fa-sort-down':!reverse}"></span>
   </th>-->
-            <th (click)="sort('department')">
+            <th>
               Email
-              <span class="fas fa-sort" *ngIf="key =='department'" [ngClass]="{' fa-sort-up':reverse,' fa-sort-down':!reverse}"></span>
+              <!-- <span class="fas fa-sort"  [ngClass]="{' fa-sort-up':reverse,' fa-sort-down':!reverse}"></span> -->
             </th>
-            <th (click)="sort('role')">
+            <th>
               Manager
-              <span class="fas fa-sort" *ngIf="key =='role'" [ngClass]="{' fa-sort-up':reverse,' fa-sort-down':!reverse}"></span>
+              <!-- <span class="fas fa-sort"  [ngClass]="{' fa-sort-up':reverse,' fa-sort-down':!reverse}"></span> -->
             </th>
 
             <th></th>
@@ -36,24 +49,29 @@
         </thead>
         <tbody>
 
-          <tr *ngFor="let user of users | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+          <tr *ngFor="let user of users  | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
             <th scope="row">{{i+1}}</th>
             <td>{{departamente[user.deP_ID]}}</td>
-            <td>{{user.name}}</td>
+            <td >{{user.name}}</td>
             <td>{{user.email}}</td>
             <td>{{user.manager_ID}}</td>
             <td><a [routerLink]="['/all/', user.id]" [class.disabled]="!tableLoaded">Offer feedback</a></td>
-            <td><a [routerLink]="['/request/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Request</a></td>
-            <td><a [routerLink]="['/all/update/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Update</a></td>
-            <td><a (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Delete</a></td>
+            <td><a [routerLink]="['/request/', user.id]" [class.disabled]="!tableLoaded"  *ngIf="isManager(user.id)">Request</a></td>
+            <td><a [routerLink]="['/all/update/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isManager(user.id)" >Update</a></td>
+            <td><a style="cursor: pointer" class="delete" (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isManager(user.id)">Delete</a></td>
 
           </tr>
         </tbody>
 
       </table>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+ 
     </div>
   </div>
+    <div class="d-flex justify-content-center">
+        <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+    </div>
+  
 </div>
 
 <!--<div class="row mt-4">
@@ -100,3 +118,5 @@
 
   </div>
 </div>-->
+
+  

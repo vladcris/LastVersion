@@ -17,7 +17,7 @@ namespace FeedbackV1.Repositories
         void Add<T>(T entity) where T: class;
         void Delete<T>(T entity) where T: class;
         Task<bool> SaveAll();
-        Task<IEnumerable<User>> GetUsers();
+        Task<IEnumerable<User>> GetUsersForTeam();
         Task<User> GetUser(string id);
 
 

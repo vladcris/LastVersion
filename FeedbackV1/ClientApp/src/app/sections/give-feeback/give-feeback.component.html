@@ -1,14 +1,17 @@
-<div class="row">
-  <div class="col-sm-8">
-    <div *ngIf="!feedback.pending">
-      <div class="alert alert-info">
-        <p><strong>Information: </strong>You have already completed that request!</p>
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-md-10">
+          <div *ngIf="!feedback.pending">
+            <div class="alert alert-info">
+              <p><strong>Information: </strong>You have already completed that request!</p>
+            </div>
+            <hr>
+            <button class="btn btn-lg btn-primary" [routerLink]="['/myfeedbacks']">Back</button>
+          </div>
+        </div>
       </div>
-      <hr>
-      <button class="btn btn-primary" [routerLink]="['/feedbacks']">Back</button>
-    </div>
-  </div>
 </div>
+
 
 <!--<div *ngIf="feedback.pending" class="row">
     <div class="col-md-2"></div>
@@ -130,7 +133,7 @@
 </div>-->
 
 
-<div class="row">
+<div class="row" *ngIf="feedback.pending">
 
   <div class="col-md-2"></div>
   <div class="col-md-6">
@@ -140,9 +143,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label style="color: #F7A224;font-size: 26px;">To : {{receiver.name}} </label>
+                <label style="color: #F7A224;font-size: 26px;">To : {{feedback.iD_receiver}} </label>
                 <br />
-                <label style="color: #F7A224;font-size: 26px;">Requested by : {{requester.name}} </label>
+                <label style="color: #F7A224;font-size: 26px;">Requested by : {{feedback.iD_manager}} </label>
 
               </div>
             </div>
@@ -203,7 +206,7 @@
           <div class="row">
             <div class="col-md-12">
               <button [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
-              <button type="button" class="btn btn-danger " [routerLink]="['/all']">Cancel</button>
+              <button type="button" class="btn btn-danger " [routerLink]="['/myfeedbacks']">Cancel</button>
             </div>
           </div>
         </form>

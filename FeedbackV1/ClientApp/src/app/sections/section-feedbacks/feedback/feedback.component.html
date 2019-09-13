@@ -3,7 +3,7 @@
         <h5 class="card-title">For: {{receiver.name}}</h5>
         <!-- <p class="card-text">Date: {{feedbackInput.date}}</p> -->
         <p class="card-text">{{feedbackInput.timestamp | date: 'medium'}}</p>
-        <button class="btn-primary card-text" [routerLink]="['/feedbacks/', feedbackInput.feeD_ID]" >Go to</button>
+        <button class="btn-primary card-text" [routerLink]="['/myfeedbacks/', feedbackInput.feeD_ID]" >Go to</button>
     </div>
 </div>
 

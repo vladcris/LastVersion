@@ -12,19 +12,23 @@ import { UserService } from '../../../../_services/user.service';
   styleUrls: ['./feedback-item.component.css']
 })
 export class FeedbackItemComponent implements OnInit {
- @Input() feedback: Feedback;
-  @Input() index: number;
-  receiver: User = null;
-  requester: User = null;
+@Input() feedback: Feedback;
+@Input() index: number;
+  receiver: any = {};
+  requester: any = {};
 
   constructor(private userService: UserService) {}
+
   ngOnInit() {
+    console.log(this.feedback);
     this.userService.getUsersCached(users => {
       users.forEach((user: User, index: number, array: User[]) => {
-        if (user.id == this.feedback.id)
+        if (user.id === this.feedback.id) {
           this.receiver = user;
-        if (user.id == this.feedback.iD_manager && this.feedback.iD_manager != null)
+        }
+        if (user.id === this.feedback.iD_manager && this.feedback.iD_manager != null) {
           this.requester = user;
+        }
       });
     });
   }

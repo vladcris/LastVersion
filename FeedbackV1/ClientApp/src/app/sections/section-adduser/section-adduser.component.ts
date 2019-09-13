@@ -15,8 +15,7 @@ export class SectionAdduserComponent implements OnInit {
   departments: any;
   registerForm: FormGroup;
   user: any;
-  users: User[];
-  managers = {};
+  managers: any;
   userForManagers = {};
   constructor(private userService: UserService,
               private router: Router,
@@ -27,7 +26,8 @@ export class SectionAdduserComponent implements OnInit {
   ngOnInit() {
     this.loadDepartments();
     this.createRegisterFrom();
-    this.loadUsers();
+    // this.loadUsers();
+    this.loadManagers();
   }
 
   createRegisterFrom() {
@@ -37,14 +37,12 @@ export class SectionAdduserComponent implements OnInit {
       manager_Id: ['', Validators.required],
       dep_Id: ['', Validators.required],
       role: ['', Validators.required],
-      //this.registerForm.get("role").value
       id: [''],
-      
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', Validators.required]
-      
+
     }, { validator: this.passwordMatchValidator });
-    
+
   }
 
   passwordMatchValidator(g: FormGroup) {
@@ -52,33 +50,22 @@ export class SectionAdduserComponent implements OnInit {
   }
 
 
-  loadUsers() {
-    this.userService.getUsers().subscribe((response: User[]) => {
-      this.users = response;
-      this.loadManagers();
-      //console.log(this.users);
-    }, error => {
-      this.alertify.error(error);
-    });
-  }
-
   loadManagers() {
-    this.managers = this.users.filter(m => m.role == 'manager');
-    // console.log(this.managers);
-    // console.log(this.auth.decodedToken.nameid);
+    this.userService.GetManagers().subscribe((res: User[]) => {
+      this.managers = res;
+    });
   }
 
   loadDepartments() {
     this.userService.getDepartments().subscribe(response => {
       this.departments = response;
-     // console.log(this.departments);
+
     });
   }
 
   register() {
     if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
-      console.log(this.user);
       this.authService.register(this.user).subscribe( () => {
         this.alertify.success('Registration succesfull');
       }, error => {
@@ -86,7 +73,6 @@ export class SectionAdduserComponent implements OnInit {
       });
     }
     this.router.navigate(['/all']);
-    // console.log(this.registerForm.value);
   }
 
 }

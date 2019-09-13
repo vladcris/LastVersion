@@ -12,10 +12,10 @@ import { User } from '../../_models/user';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
-  user: User;
-  departments: any;
+  user: any = {};
+  departments: any = {};
   departmentsSelected: any;
-  users: any;
+  users: any = {};
   employees = [];
   employee: any = {};
   depId: any = {};
@@ -31,10 +31,10 @@ export class RequestComponent implements OnInit {
   angajat = [];
   angajatName = [];
   constructor(private userService: UserService,
-    private feedbacksService: FeedbacksService,
-    private authService: AuthService,
-    private alertify: AlertifyService,
-    private route: ActivatedRoute) { }
+              private feedbacksService: FeedbacksService,
+              private authService: AuthService,
+              private alertify: AlertifyService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadEmployeesByDepartament();
@@ -44,9 +44,10 @@ export class RequestComponent implements OnInit {
   }
 
   loadUser() {
+    // tslint:disable-next-line:no-string-literal
     this.userService.getUser(this.route.snapshot.params['id']).subscribe(res => {
       this.user = res;
-    })
+    });
   }
 
   loadDepartments() {
@@ -57,7 +58,7 @@ export class RequestComponent implements OnInit {
   }
 
   loadEmployeesByDepartament() {
-    this.userService.getUsers().subscribe(res => {
+    this.userService.getUsersForName().subscribe(res => {
       this.users = res;
     });
   }
@@ -69,7 +70,7 @@ export class RequestComponent implements OnInit {
   onSelectDepartament() {
 
     this.employees = this.choose.make ? this.users : [];
-   
+
   }
 
 
@@ -77,10 +78,10 @@ export class RequestComponent implements OnInit {
     // console.log(this.employee);
     this.angajat.push(employee);
     this.users.forEach(user => {
-      if (user.id == employee)
+      if (user.id === employee) {
         this.angajatName.push(user.name);
-       
-    })
+      }
+    });
     // console.log(this.angajatName);
     // console.log(this.angajat);
   }
@@ -95,7 +96,7 @@ export class RequestComponent implements OnInit {
 
   onSubmit() {
 
-    if (this.choose.make == 'request1') {
+    if (this.choose.make === 'request1') {
 
       this.angajat.forEach(user => {
         this.form.pending = true;
@@ -108,20 +109,20 @@ export class RequestComponent implements OnInit {
         }, error => {
           this.alertify.error('error');
         });
-      })
-    } else if (this.choose.make == 'request2') {
+      });
+    } else if (this.choose.make === 'request2') {
 
       this.angajat.forEach(user => {
         this.form.pending = true;
         this.form.id_manager = this.authService.decodedToken.nameid;
-        this.form.id_receiver = this.route.snapshot.params['id'];
+        this.form.id_receiver = this.route.snapshot.params.id;
         // console.log(this.form);
         this.feedbacksService.sendRequest2(this.form, user).subscribe(() => {
           this.alertify.success('Request Sent!');
         }, error => {
           this.alertify.error('error');
         });
-      })
+      });
     }
 
   }

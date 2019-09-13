@@ -22,20 +22,27 @@ export class FeedbackListComponent implements OnInit {
   constructor(private feedbackService: FeedbacksService,
               private authService: AuthService,
               private userService: UserService,
-    private route: Router,
-    private router: ActivatedRoute) { }
+              private route: Router,
+              private router: ActivatedRoute) { }
 
 
 
   ngOnInit() {
-    //this.loadEmployees();
-   
-    //this.loadTeam();
     this.router.data.subscribe(data => {
+      // tslint:disable-next-line:no-string-literal
       this.users = data['users'];
     });
     this.loadFeedbacks();
   }
+
+  // loadTeam() {
+  //   this.userService.getTeam(this.authService.decodedToken.unique_name).subscribe((res: User[]) => {
+  //     this.users = res;
+  //     console.log(name);
+  //     console.log(this.users);
+
+  //   });
+  // }
 
   loadFeedbacks() {
     this.feedbackService.getFeedbacks().subscribe((res: Feedback[]) => {
@@ -44,29 +51,19 @@ export class FeedbackListComponent implements OnInit {
     });
   }
 
-
-  //loadEmployees() {
-  //  this.userService.getUsers().subscribe((res: User[]) => {
-  //    this.users = res;
-  //    console.log(this.users);
-  //  });
-  //}
-
-  loadTeam() {
-    this.userService.getTeam(this.authService.decodedToken.unique_name).subscribe((res: User[]) => {
-      this.users = res;
-      console.log(name);
-      console.log(this.users);
-
-    });
-  }
-
   onChange() {
     this.userFeedbacks = this.feedbacks.filter(m => m.iD_receiver === this.user.user);
     this.loadFeed = true;
-    this.route.navigate(['/view/']);
+    // this.route.navigate(['/view/']);
     console.log(this.userFeedbacks);
 
   }
 
+
+  // loadEmployees() {
+  //  this.userService.getUsers().subscribe((res: User[]) => {
+  //    this.users = res;
+  //    console.log(this.users);
+  //  });
+  // }
 }
