@@ -28,6 +28,8 @@ export class SectionFeedbacksComponent implements OnInit {
       this.myFeedbacks = data['feedbacks'].result;
       // tslint:disable-next-line:no-string-literal
       this.pagination = data['feedbacks'].pagination;
+      // this.pagination.currentPage = 1;
+      // this.pagination.itemsPerPage = 6;
     });
   }
 

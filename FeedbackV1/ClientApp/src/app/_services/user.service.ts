@@ -18,11 +18,15 @@ export class UserService {
   userRequests: ((_: User[]) => void)[] = [];
 constructor(private http: HttpClient) { }
 
-getUsers(userParams?): Observable<PaginatedResult<User[]>> {
+getUsers(userParams?, page?, itemsPerPage?): Observable<PaginatedResult<User[]>> {
   const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
 
   let params = new HttpParams();
 
+  if (page !== null && itemsPerPage !== null) {
+    params = params.append('pageNumber', page);
+    params = params.append('pageSize', itemsPerPage);
+  }
 
   if (userParams !== null) {
 
@@ -47,21 +51,6 @@ getUsersForName(): Observable<User[]> {
   return this.http.get<User[]>(this.baseUrl + 'user');
 }
 
-getUsersCached(func: (_: User[]) => void) {
-    if (this.loadingUsers === false) {
-      this.loadingUsers = true;
-      this.userRequests.push(func);
-      this.getUsersForName().subscribe(list => {
-        this.users = list;
-        this.userRequests.forEach(request => request(list));
-      });
-    } else if (this.users == null) {
-        this.userRequests.push(func);
-    } else {
-      func(this.users);
- }
-
-  }
 getUser(id): Observable<User> {
   return this.http.get<User>(this.baseUrl + 'user/' + id);
 }

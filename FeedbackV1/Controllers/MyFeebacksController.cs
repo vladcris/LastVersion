@@ -31,6 +31,33 @@ namespace FeedbackV1.Controllers
             var cards = await repo.GetMyFeedbacks(userParams, id);
             var feedbackToReturn = _mapper.Map<IEnumerable<FeedbackListDto>>(cards);
 
+            //// adaugat in plus
+            var users = await repo.GetUsersWithoutParams(); 
+            foreach (var feedback in feedbackToReturn)
+            {
+                foreach (var user in users)
+                {
+                    
+                if (user.Id == feedback.ID)
+                {
+                    feedback.Sender = user.Name;
+                }
+
+                if (user.Id == feedback.ID_receiver)
+                {
+                    feedback.Receiver = user.Name;
+                }
+
+                if (user.Id == feedback.ID_manager)
+                {
+                    feedback.Manager = user.Name;
+                }
+
+                }
+            }
+            //// end
+            
+
             Response.AddPagination(cards.CurrentPage, cards.PageSize, cards.TotalCount, cards.TotalPages);
 
             return Ok(feedbackToReturn);

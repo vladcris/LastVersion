@@ -11,6 +11,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; // importing the module
 import { Ng2OrderModule } from 'ng2-order-pipe'; // importing the module
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -39,6 +41,7 @@ import { UsersTeamResolver } from './_resolvers/users-team.resolver';
 import { MyFeedbacksResolver } from './_resolvers/myFeedbacks.resolver';
 import { UsersResolver } from './_resolvers/users.resolver';
 import { GiveFeedbackResolver } from './_resolvers/give-feedback.resolver';
+import { ReceiverFeedbacksResolver } from './_resolvers/receiver-feedbacks.resolver';
 
 
 
@@ -85,8 +88,8 @@ export function tokenGetter() {
        NgxPaginationModule,
       ReactiveFormsModule,
       FormsModule,
-      AppRoutingModule,
       HttpClientModule,
+      TooltipModule.forRoot(),
       PaginationModule.forRoot(),
       BsDropdownModule.forRoot(),
       ModalModule.forRoot(),
@@ -113,7 +116,8 @@ export function tokenGetter() {
      UsersTeamResolver,
      MyFeedbacksResolver,
      UsersResolver,
-     GiveFeedbackResolver
+     GiveFeedbackResolver,
+     ReceiverFeedbacksResolver
    ],
    bootstrap: [
       AppComponent

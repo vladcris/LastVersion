@@ -23,16 +23,6 @@ export class FeedbackComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userService.getUsersCached(users => {
-      users.forEach((user: User, index: number, array: User[]) => {
-        if (user.id === this.feedbackInput.iD_receiver) {
-          this.receiver = user;
-        }
-        if (user.id === this.feedbackInput.iD_manager) {
-          this.requester = user;
-        }
-      });
-    });
   }
 
 }

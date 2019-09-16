@@ -38,7 +38,7 @@ export class RequestComponent implements OnInit {
 
   ngOnInit() {
     this.loadEmployeesByDepartament();
-    this.loadDepartments();
+    // this.loadDepartments();
     this.loadUser();
 
   }
@@ -50,12 +50,12 @@ export class RequestComponent implements OnInit {
     });
   }
 
-  loadDepartments() {
-    this.userService.getDepartments().subscribe(response => {
-      this.departments = response;
-      // console.log(this.departments);
-    });
-  }
+  // loadDepartments() {
+  //   this.userService.getDepartments().subscribe(response => {
+  //     this.departments = response;
+  //     // console.log(this.departments);
+  //   });
+  // }
 
   loadEmployeesByDepartament() {
     this.userService.getUsersForName().subscribe(res => {
@@ -63,13 +63,17 @@ export class RequestComponent implements OnInit {
     });
   }
 
+  // onSelect() {
+  //   this.departmentsSelected = this.choose.make ? this.departments : [];
+  //   console.log(this.choose.make);
+  // }
   onSelect() {
-    this.departmentsSelected = this.choose.make ? this.departments : [];
-    console.log(this.choose.make);
-  }
-  onSelectDepartament() {
 
     this.employees = this.choose.make ? this.users : [];
+    this.angajatName = [];
+    this.angajat = [];
+    // console.log(this.angajatName);
+    // console.log(this.angajat);
 
   }
 

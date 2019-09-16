@@ -103,9 +103,10 @@ namespace FeedbackV1.Controllers
                     Dep_Id = userFromRepo.Dep_Id,
                     Name = userFromRepo.Name,
                     Email = userFromRepo.Email,
-                    Manager_ID = userFromRepo.Manager_ID,
-                    Role = userFromRepo.Role
+                    Role = userFromRepo.Role,
+                    ranager_Id = userFromRepo.Manager_ID
                 
+
             });
 
         }

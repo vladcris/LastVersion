@@ -13,3 +13,12 @@
 .dropdown-toggle,.dropdown-item{
     cursor: pointer;
 }
+
+.fa-exclamation {
+    color: red;
+    size: 9px!important;
+}
+
+:host >>> .tooltip.inner{
+background-color: #fff; 
+}

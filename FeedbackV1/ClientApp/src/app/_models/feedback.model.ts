@@ -10,4 +10,7 @@ export interface Feedback {
     punctuality: number;
     workQuality: number;
     timestamp: Date;
+    sender?: string;
+    receiver?: string;
+    manager?: string;
 }

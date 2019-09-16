@@ -63,6 +63,30 @@ giveFeedback(form: any) {
     return this.http.post(this.baseUrl + 'myfeedbacks/' + id, form);
   }
 
+  getFeedbackReceiver(id, page?, itemsPerPage?): Observable<PaginatedResult<Feedback[]>> {
+    const paginatedResult: PaginatedResult<Feedback[]> = new PaginatedResult<Feedback[]>();
+
+    let params = new HttpParams();
+
+    if (page !== null && itemsPerPage !== null) {
+    params = params.append('pageNumber', page);
+    params = params.append('pageSize', itemsPerPage);
+  }
+
+    return this.http.get<Feedback[]>(this.baseUrl + 'receiver/' + id, {observe: 'response', params})
+  .pipe(
+    map(response => {
+      paginatedResult.result = response.body;
+      if (response.headers.get('Pagination') != null) {
+        paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+      }
+      return paginatedResult;
+    })
+  );
+}
 
 }
+
+
+
 

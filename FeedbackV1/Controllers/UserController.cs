@@ -41,11 +41,17 @@ namespace FeedbackV1.Controllers
             if(!string.IsNullOrEmpty(userLogged.Role) && userParams.Team) 
             {
                 userParams.Role = userLogged.Role;
-                userParams.Manager = userLogged.Manager_ID;
+                if (!string.IsNullOrEmpty(userLogged.Manager_ID)) {
+                    userParams.Manager = userLogged.Manager_ID;
+                }
+                
             }
             
             var users = await repo.GetUsers(userParams);
             var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(users); 
+
+            Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
+
             if (!usersToReturn.Any())
                 return NotFound();
             return Ok(usersToReturn);

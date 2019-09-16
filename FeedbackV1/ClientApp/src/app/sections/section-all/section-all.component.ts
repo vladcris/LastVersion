@@ -1,7 +1,6 @@
 import { Pagination, PaginatedResult } from './../../_models/pagination';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
@@ -17,7 +16,7 @@ export class SectionAllComponent implements OnInit {
 
   filter: string;
   users: User[];
-  userTeam: any = {};
+  userTeam: User[];
   id: any;
   modalRef: BsModalRef;
   departamente = ['Nothing', 'Suport', 'Development', 'HR', 'Finance'];
@@ -51,45 +50,56 @@ giveFeedbackForm = new FormGroup({
    this.route.data.subscribe(data => {
      // tslint:disable-next-line:no-string-literal
      this.users = data['users'].result;
-     this.tableLoaded = true;
+     // tslint:disable-next-line:no-string-literal
+     this.pagination = data['users'].pagination;
+     // this.tableLoaded = true;
    });
-   this.loadTeam();
 
-
+   if (localStorage.getItem('ranager_Id') !== undefined ) {
+     this.loadTeam();
+   }
 
    this.userParams.orderBy = 'asc';
    this.userParams.team = false;
    this.userParams.role = null;
+  //  this.pagination.currentPage = 1;
+  //  this.pagination.itemsPerPage = 10;
 
  }
 
 
 loadUsers() {
-  this.userService.getUsers(this.userParams)
+  this.userService.getUsers(this.userParams, this.pagination.currentPage, this.pagination.itemsPerPage)
                         .subscribe((res: PaginatedResult<User[]>) => {
                           this.users = res.result;
                           this.pagination = res.pagination;
                         }, error => {
-                          this.alertify.error(error);
+                          this.alertify.error('loadUser');
                         });
 }
 
 onClick() {
-  console.log('salut');
   if ( localStorage.getItem('role') === 'manager' ) {
     this.userParams.team = true;
     this.userParams.role = 'manager';
+    this.pagination.currentPage = 1;
   } else if (localStorage.getItem('role') === 'employee') {
     this.userParams.team = true;
     this.userParams.role = 'employee';
+    this.pagination.currentPage = 1;
   } else {
     this.userParams.team = false;
     this.userParams.role = null;
   }
 }
 
+pageChanged(event: any): void {
+  this.pagination.currentPage = event.page;
+  this.loadUsers();
+}
+
 isManager(userFromTable) {
-  if (  localStorage.getItem('role') === 'manager' ) {
+  if (  localStorage.getItem('role') === 'manager') {
 
     this.belongToTeam = false;
     this.userTeam.forEach(user => {
@@ -111,7 +121,6 @@ onSort() {
     this.userParams.orderBy = 'asc';
     this.reverse = true;
   }
- // this.userParams.team = false;
   this.loadUsers();
 }
 
@@ -124,11 +133,8 @@ onSort() {
  }
 
   onDelete(id: any) {
-    this.tableLoaded = false;
     this.userService.deleteUser(id).subscribe(() => {
-      // console.log(id);
 
-      // this.loadUsers();
       this.alertify.success('User deleted!');
     }, error => {
       this.alertify.error('Error deleting user!');
@@ -141,22 +147,29 @@ onSort() {
 
   loadTeam() {
     if ( localStorage.getItem('role') === 'manager' ) {
-      let params = {
-      team: true,
-      role: 'manager',
-      orderBy: 'asc'
-    };
-      this.userService.getUsers(params)
-                        .subscribe((res: PaginatedResult<User[]>) => {
-                          this.userTeam = res.result;
-                          this.pagination = res.pagination;
-                        }, error => {
-                          this.alertify.error(error);
-                        });
-      params = null;
+
+      this.userService.getTeam(localStorage.getItem('id')).subscribe((res: User[]) => {
+      this.userTeam = res;
+    }, error => {
+      this.alertify.error('LoadTeeam');
+    });
+
+
+    //   let params = {
+    //   team: true,
+    //   role: 'manager',
+    //   orderBy: 'asc'
+    // };
+    //   this.userService.getUsers(params, this.pagination.currentPage, this.pagination.itemsPerPage)
+    //                     .subscribe((res: PaginatedResult<User[]>) => {
+    //                       this.userTeam = res.result;
+    //                       // this.pagination = res.pagination;
+    //                     }, error => {
+    //                       this.alertify.error('LoadTeeam');
+    //                     });
+    //   params = null;
   }
 }
-
 
 
 }

@@ -18,7 +18,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="departament">Select Department </label>
         <select (change)="onSelectDepartament()"
                 id="departament"
@@ -28,8 +28,7 @@
           <option value=""></option>
           <option *ngFor="let department of departmentsSelected" value="{{department.id}}">{{ department.name }}</option>
         </select>
-        <!-- <div class="invalid-feedback" *ngIf="registerForm.get('dep_Id').hasError('required') && registerForm.get('dep_Id').touched">Department required</div> -->
-      </div>
+      </div> -->
 
 
       <div class="form-group">
@@ -42,6 +41,7 @@
         <button class="btn add-button mt-2" (click)="onPush(employee.id)">Add</button>
 
       </div>
+
 
       <div class="form-group">
         <label for="area">Selected Employees</label>

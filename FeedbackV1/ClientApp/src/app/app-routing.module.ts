@@ -22,6 +22,7 @@ import { UpdateUserComponent } from './sections/section-all/update-user/update-u
 import { MyFeedbacksResolver } from './_resolvers/myFeedbacks.resolver';
 import { UsersResolver } from './_resolvers/users.resolver';
 import { GiveFeedbackResolver } from './_resolvers/give-feedback.resolver';
+import { ReceiverFeedbacksResolver } from './_resolvers/receiver-feedbacks.resolver';
 
 
 
@@ -51,12 +52,14 @@ const appRoutes: Routes = [
          { path: 'login', component: LoginComponent },
         {
           path: 'view', component: ViewfeedbackComponent, resolve: {
-            users: UsersTeamResolver
+            users: UsersTeamResolver,
+            feedbacks: ReceiverFeedbacksResolver
           },
           children: [
             { path: '', component: ViewstartComponent},
            // { path: ':id', component: FeedbackListComponent},
-            { path: ':id', component: FeedbackDetailComponent}
+            { path: ':id', component: FeedbackDetailComponent
+            }
          ]},
          { path: 'give-feedback/:feeD_ID', component: GiveFeebackComponent, resolve: {
             feedback: GiveFeedbackResolver

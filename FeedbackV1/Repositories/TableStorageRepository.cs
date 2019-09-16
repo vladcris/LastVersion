@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Net;
 using FeedbackV1.Models;
 using System.Security.Claims;
+using FeedbackV1.Dtos;
 
 namespace FeedbackV1.Repositories
 {
@@ -146,7 +147,7 @@ namespace FeedbackV1.Repositories
             if (paginatedResult == null)
                 return null;
 
-            return paginatedResult;;
+            return paginatedResult;
 
         }
 
@@ -215,6 +216,59 @@ namespace FeedbackV1.Repositories
             return (feedback);
 
         }
+
+        public async Task<PagedList<Feedbacks>> GetFeedbacksByReceiver(UserParams userParams,string id)
+        {
+            await feedbacksTable.CreateIfNotExistsAsync();
+            var filter = TableQuery.GenerateFilterCondition("ID_receiver", QueryComparisons.Equal, id);
+            TableQuery<Feedbacks> query = new TableQuery<Feedbacks>().Where(filter);
+            var result = await feedbacksTable.ExecuteQuerySegmentedAsync(query, null);
+            if (result == null)
+                return null;
+            var results = result.Results.AsQueryable();
+            results = results.OrderByDescending(x => x.Pending).ThenByDescending(x => x.Timestamp);
+            
+            var paginatedResult = PagedList<Feedbacks>.Create(results, userParams.PageNumber, userParams.PageSize);
+
+            if (paginatedResult == null)
+                return null;
+
+            return paginatedResult;
+
+        }
+
+        
+
+        // public async Task<IEnumerable<PagedList<Feedbacks>>> GetFeedbacksWithName(PagedList<Feedbacks> feedbacks)
+        // {
+        //     var repo = new TableStorageRepository();
+        //     var users = await repo.GetUsersWithoutParams();
+            
+
+        //     foreach (var feedback in feedbacks)
+        //     {
+        //         foreach (var user in users)
+        //         {
+                    
+        //         if (user.Id == feedback.ID)
+        //         {
+        //             feedback.Sender = user.Name;
+        //         }
+
+        //         if (user.Id == feedback.ID_receiver)
+        //         {
+        //             feedback.Receiver = user.Name;
+        //         }
+
+        //         if (user.Id == feedback.ID_manager)
+        //         {
+        //             feedback.Manager = user.Name;
+        //         }
+
+        //         }
+        //     }
+        //     return feedbacks;
+        // }
 
 
         //////User////
@@ -325,7 +379,7 @@ namespace FeedbackV1.Repositories
         }
            
 
-        public async Task<IEnumerable<User>> GetUsers(UserParams userParams)
+        public async Task<PagedList<User>> GetUsers(UserParams userParams)
         {   
             var repo = new TableStorageRepository();
             await userTable.CreateIfNotExistsAsync();
@@ -373,7 +427,11 @@ namespace FeedbackV1.Repositories
             if (results == null)
                 return null;
 
-            return results;
+            var paginatedResult = PagedList<User>.Create(results, userParams.PageNumber, userParams.PageSize);
+
+            if (paginatedResult == null)
+                return null;
+            return paginatedResult;
         }
 
         public async Task<User> GetUser(string id)

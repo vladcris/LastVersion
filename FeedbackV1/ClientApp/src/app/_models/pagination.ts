@@ -4,7 +4,6 @@ export interface Pagination {
     itemsPerPage: number;
     totalItems: number;
     totalPages: number;
-    team?: boolean;
 
 }
 

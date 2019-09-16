@@ -12,12 +12,6 @@ export class ViewfeedbackComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  //   this.feedbackService.feedbackSelected
-  //   .subscribe(
-  //   (feedback: Feedback) => {
-  //     this.feedbackSelected = feedback;
-  // }
-  //   );
 
 }
 
