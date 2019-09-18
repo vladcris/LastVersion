@@ -20,11 +20,16 @@ export class NavbarComponent implements OnInit {
   constructor(public authService: AuthService,
               private alertify: AlertifyService,
               private feedbacksService: FeedbacksService,
-              private router: Router) { }
+              private router: Router) {}
+
 
   ngOnInit() {
-     this.loadPending();
-     this.checkPending();
+    this.feedbacksService.requestSend.subscribe( (pending: boolean) => {
+      this.pending = pending;
+    });
+
+    this.loadPending();
+    this.checkPending();
   }
 
   login(form: NgForm) {
@@ -56,7 +61,6 @@ export class NavbarComponent implements OnInit {
           this.feedbacksService.getMyFeedbacks(this.authService.decodedToken.nameid, 1, 10)
                           .subscribe((res: PaginatedResult<Feedback[]>) => {
                             this.feedbacks = res.result;
-                           // console.log(this.feedbacks);
                             if (this.feedbacks[0].pending === true) {
                             this.pending = true;
                           }
@@ -79,5 +83,7 @@ export class NavbarComponent implements OnInit {
     }
     return this.pending;
     }
+
+
   }
 

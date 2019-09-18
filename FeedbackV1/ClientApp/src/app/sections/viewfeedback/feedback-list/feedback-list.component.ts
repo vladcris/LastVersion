@@ -21,6 +21,7 @@ export class FeedbackListComponent implements OnInit {
   userFeedbacks: any = {};
   loadFeed = false;
   pagination: Pagination;
+  userParams: any = {};
 
 
   constructor(private feedbackService: FeedbacksService,
@@ -45,12 +46,13 @@ export class FeedbackListComponent implements OnInit {
       this.pagination.itemsPerPage = 6;
     });
     // this.loadFeedbacks();
+    this.userParams.pending = false;
 
   }
 
 
   loadFeedbacks() {
-    this.feedbackService.getFeedbackReceiver(this.user.user, this.pagination.currentPage, this.pagination.itemsPerPage)
+    this.feedbackService.getFeedbackReceiver(this.user.user, this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
                         .subscribe((res: PaginatedResult<Feedback[]>) => {
       this.feedbacks = res.result;
       this.pagination = res.pagination;
@@ -67,6 +69,23 @@ export class FeedbackListComponent implements OnInit {
   onChange() {
     this.loadFeedbacks();
     this.loadFeed = true;
+  }
+
+  onClick() {
+    this.pagination.currentPage = 1;
+    this.pagination.itemsPerPage = 10;
+  }
+
+  onHidePending() {
+    this.userParams.pending = true;
+    this.loadFeedbacks();
+  }
+
+  resetFilters() {
+    this.pagination.currentPage = 1;
+    this.pagination.itemsPerPage = 6;
+    this.userParams.pending = false;
+    this.loadFeedbacks();
   }
 
 

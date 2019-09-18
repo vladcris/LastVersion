@@ -27,6 +27,8 @@ export class MyfeedbackDetailComponent implements OnInit {
       this.feedback = data['feedback'];
     });
 
+    console.log(this.feedback);
+
   }
 
   // loadFeedback() {

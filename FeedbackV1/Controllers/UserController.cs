@@ -27,6 +27,41 @@ namespace FeedbackV1.Controllers
         }
 
 
+        [Route("allusers")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers([FromQuery]UserParams userParams)
+        {
+            var repo = new TableStorageRepository();
+
+            var users = await repo.GetUsersWithoutParams();
+
+            var CurrentUserId = (User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            var userLogged = await repo.GetUser(CurrentUserId);
+
+            if(userLogged.Role == "admin") {
+
+                var usersAdmin = await repo.GetUsersWithoutParamsForAdmin();
+
+                var usersForAdmin = _mapper.Map<IEnumerable<UserDto>>(usersAdmin);
+
+                return Ok(usersForAdmin);
+            }
+
+
+            if(!string.IsNullOrEmpty(userParams.UserId)) {
+                users = users.Where(x => x.RowKey != userParams.UserId).OrderBy(x => x.Name);
+            }
+
+            users = users.OrderBy(x => x.Name);
+
+            var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(users);
+            if (!usersToReturn.Any())
+                return NotFound();
+            return Ok(usersToReturn);
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
         {   
@@ -98,9 +133,15 @@ namespace FeedbackV1.Controllers
         
         public async Task<IActionResult> DeleteUser(string id)
         {
+            // var repo = new TableStorageRepository();
+            // var cards = await repo.GetUser(id);
+            // await repo.DeleteUser(cards);
+            // return Ok();
+
             var repo = new TableStorageRepository();
             var cards = await repo.GetUser(id);
-            await repo.DeleteUser(cards);
+            cards.IsDeleted = true;
+            await repo.PostEntityUser(cards) ;
             return Ok();
         }
 

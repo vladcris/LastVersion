@@ -1,8 +1,8 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Feedback } from 'src/app/_models/feedback.model';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
@@ -14,6 +14,9 @@ export class FeedbacksService {
 
 
 baseUrl = environment.apiUrl;
+
+  requestSend = new Subject<boolean>();
+  reloadMyFeedbacks = new Subject<void>();
 
 constructor(private http: HttpClient) {}
 
@@ -63,7 +66,7 @@ giveFeedback(form: any) {
     return this.http.post(this.baseUrl + 'myfeedbacks/' + id, form);
   }
 
-  getFeedbackReceiver(id, page?, itemsPerPage?): Observable<PaginatedResult<Feedback[]>> {
+  getFeedbackReceiver(id, page?, itemsPerPage?, userParams?): Observable<PaginatedResult<Feedback[]>> {
     const paginatedResult: PaginatedResult<Feedback[]> = new PaginatedResult<Feedback[]>();
 
     let params = new HttpParams();
@@ -71,6 +74,10 @@ giveFeedback(form: any) {
     if (page !== null && itemsPerPage !== null) {
     params = params.append('pageNumber', page);
     params = params.append('pageSize', itemsPerPage);
+  }
+
+    if (userParams !== null ) {
+      params = params.append('pending', userParams.pending);
   }
 
     return this.http.get<Feedback[]>(this.baseUrl + 'receiver/' + id, {observe: 'response', params})

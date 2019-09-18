@@ -7,7 +7,7 @@
     class="list-group-item list-group-item-action mb-2">
     <h6 >From: {{ feedback.sender }}</h6>
    <!-- <h6>Requestd By:{{ requester.name }}</h6> -->
-   <h6 class="card-text">{{feedback.timestamp | date: 'medium'}}</h6>
+   <h6 class="card-text">{{feedback.timestamp | timeAgo}}</h6>
     
 </a>
 
@@ -21,7 +21,7 @@
     <h6>Status: <strong>Not Completed!</strong></h6>
     <h6 >From: {{ feedback.sender}}</h6>
     <h6>Requestd By:{{ feedback.manager }}</h6>
-    <p class="card-text">{{feedback.timestamp | date: 'medium'}}</p>
+    <p class="card-text">{{feedback.timestamp | timeAgo}}</p>
     
 
 </a>

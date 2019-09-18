@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 import { PaginatedResult } from '../_models/pagination';
@@ -16,6 +16,7 @@ export class UserService {
   users: User[] = null;
   loadingUsers = false;
   userRequests: ((_: User[]) => void)[] = [];
+
 constructor(private http: HttpClient) { }
 
 getUsers(userParams?, page?, itemsPerPage?): Observable<PaginatedResult<User[]>> {
@@ -36,6 +37,30 @@ getUsers(userParams?, page?, itemsPerPage?): Observable<PaginatedResult<User[]>>
  }
 
   return this.http.get<User[]>(this.baseUrl + 'user', {observe: 'response', params})
+                  .pipe(
+                    map(response => {
+                      paginatedResult.result = response.body;
+                      if (response.headers.get('Pagination') != null) {
+                        paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+                      }
+                      return paginatedResult;
+                    })
+                  );
+}
+
+getAllUsers(userParams?): Observable<PaginatedResult<User[]>> {
+  const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
+
+  let params = new HttpParams();
+
+
+  if (userParams !== null) {
+
+      params = params.append('userId', userParams.userId);
+
+ }
+
+  return this.http.get<User[]>(this.baseUrl + 'user/' + 'allusers', {observe: 'response', params})
                   .pipe(
                     map(response => {
                       paginatedResult.result = response.body;
@@ -76,7 +101,28 @@ deleteUser(id: string) {
   }
 
 getTeam(id): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'Manager/' + id);
+    return this.http.get<User[]>(this.baseUrl + 'manager/' + id);
   }
+
+
+getTeam2(id, userParams?): Observable<User[]> {
+    let paginatedResult: User[];
+
+    let params = new HttpParams();
+
+
+    if (userParams !== null) {
+
+        params = params.append('userId', userParams.userId);
+
+   }
+
+    return this.http.get<User[]>(this.baseUrl + 'manager/' + id , {observe: 'response', params})
+                    .pipe(
+                      map(response => {
+                        paginatedResult = response.body;
+                        return paginatedResult;
+                      }));
+    }
 
 }

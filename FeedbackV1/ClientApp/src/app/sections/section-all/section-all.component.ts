@@ -25,7 +25,7 @@ export class SectionAllComponent implements OnInit {
   pagination: Pagination;
   reverse = true;
   belongToTeam: boolean;
-
+  isLoading = false;
 
 
 giveFeedbackForm = new FormGroup({
@@ -44,7 +44,7 @@ giveFeedbackForm = new FormGroup({
  constructor(private userService: UserService,
              private alertify: AlertifyService,
              private modalService: BsModalService,
-             private route: ActivatedRoute) { }
+             private route: ActivatedRoute) {}
 
  ngOnInit() {
    this.route.data.subscribe(data => {
@@ -52,12 +52,15 @@ giveFeedbackForm = new FormGroup({
      this.users = data['users'].result;
      // tslint:disable-next-line:no-string-literal
      this.pagination = data['users'].pagination;
+
      // this.tableLoaded = true;
    });
 
-   if (localStorage.getItem('ranager_Id') !== undefined ) {
-     this.loadTeam();
-   }
+   if (localStorage.getItem('Manager_Id') !== null ) {
+    this.loadTeam();
+  }
+
+   // this.isLoading = false;
 
    this.userParams.orderBy = 'asc';
    this.userParams.team = false;
@@ -69,14 +72,18 @@ giveFeedbackForm = new FormGroup({
 
 
 loadUsers() {
+  this.isLoading = true;
   this.userService.getUsers(this.userParams, this.pagination.currentPage, this.pagination.itemsPerPage)
                         .subscribe((res: PaginatedResult<User[]>) => {
                           this.users = res.result;
                           this.pagination = res.pagination;
+                          this.isLoading = false;
                         }, error => {
                           this.alertify.error('loadUser');
+                          this.isLoading = false;
                         });
 }
+
 
 onClick() {
   if ( localStorage.getItem('role') === 'manager' ) {
@@ -93,13 +100,14 @@ onClick() {
   }
 }
 
-pageChanged(event: any): void {
+ pageChanged(event: any): void {
   this.pagination.currentPage = event.page;
   this.loadUsers();
 }
 
+
 isManager(userFromTable) {
-  if (  localStorage.getItem('role') === 'manager') {
+  if (  localStorage.getItem('role') === 'manager' && localStorage.getItem('Manager_Id') !== null) {
 
     this.belongToTeam = false;
     this.userTeam.forEach(user => {
@@ -146,8 +154,7 @@ onSort() {
   // }
 
   loadTeam() {
-    if ( localStorage.getItem('role') === 'manager' ) {
-
+    if ( localStorage.getItem('role') === 'manager'  && localStorage.getItem('Manager_Id') !== null) {
       this.userService.getTeam(localStorage.getItem('id')).subscribe((res: User[]) => {
       this.userTeam = res;
     }, error => {

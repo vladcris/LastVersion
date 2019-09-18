@@ -31,6 +31,10 @@ export class SectionFeedbacksComponent implements OnInit {
       // this.pagination.currentPage = 1;
       // this.pagination.itemsPerPage = 6;
     });
+
+    this.feedbacksService.reloadMyFeedbacks.subscribe( () => {
+      this.loadMyFeedbacks();
+    });
   }
 
   pageChanged(event: any): void {
@@ -47,5 +51,25 @@ export class SectionFeedbacksComponent implements OnInit {
                             this.alertify.error(error);
                           });
   }
+
+
+  onClick5() {
+      this.pagination.currentPage = 1;
+      this.pagination.itemsPerPage = 5;
+  }
+
+  onClick8() {
+    this.pagination.currentPage = 1;
+    this.pagination.itemsPerPage = 8;
+    this.loadMyFeedbacks();
+}
+
+resetFilters() {
+  this.pagination.currentPage = 1;
+  this.pagination.itemsPerPage = 10;
+  this.loadMyFeedbacks();
+}
+
+
 
 }

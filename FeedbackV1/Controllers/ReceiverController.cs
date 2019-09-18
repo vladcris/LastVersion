@@ -31,8 +31,9 @@ namespace FeedbackV1.Controllers
         {
             var repo = new TableStorageRepository();
             var feedbacks = await repo.GetFeedbacksByReceiver(userParams, id);
-            var feedbacksToReturn = _mapper.Map<IEnumerable<FeedbackListDto>>(feedbacks);
 
+
+            var feedbacksToReturn = _mapper.Map<IEnumerable<FeedbackListDto>>(feedbacks);
             //// pentru nume
             var users = await repo.GetUsersWithoutParams(); 
             foreach (var feedback in feedbacksToReturn)

@@ -30,11 +30,15 @@ namespace FeedbackV1.Controllers
         [Route("{managerid}")]
         //[HttpGet("{managerid}", Name = "GetDescendants")]
         [HttpGet]
-        public async Task<IActionResult> GetDescendants(string managerid)
+        public async Task<IActionResult> GetDescendants(string managerid, [FromQuery]UserParams userParams)
         {
             var repo = new TableStorageRepository();
 
             var descendants = await repo.GetMyTeamAsManager(managerid);
+
+            if(!string.IsNullOrEmpty(userParams.UserId)) {
+                descendants = descendants.Where(x => x.RowKey != userParams.UserId).OrderBy(x => x.Name);
+            }
 
             var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(descendants);
             if (!usersToReturn.Any())

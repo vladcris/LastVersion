@@ -222,11 +222,16 @@ namespace FeedbackV1.Repositories
             await feedbacksTable.CreateIfNotExistsAsync();
             var filter = TableQuery.GenerateFilterCondition("ID_receiver", QueryComparisons.Equal, id);
             TableQuery<Feedbacks> query = new TableQuery<Feedbacks>().Where(filter);
+
             var result = await feedbacksTable.ExecuteQuerySegmentedAsync(query, null);
             if (result == null)
                 return null;
             var results = result.Results.AsQueryable();
             results = results.OrderByDescending(x => x.Pending).ThenByDescending(x => x.Timestamp);
+
+            if(userParams.Pending) {
+                results = results.Where(x => x.Pending == false);
+            }
             
             var paginatedResult = PagedList<Feedbacks>.Create(results, userParams.PageNumber, userParams.PageSize);
 
@@ -371,8 +376,20 @@ namespace FeedbackV1.Repositories
         public async Task<IEnumerable<User>> GetUsersWithoutParams()
         {
             await userTable.CreateIfNotExistsAsync();
+
             var users = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
-            users = users.OrderByDescending(x => x.Name);
+            users = users.Where(x => x.IsDeleted == false).OrderByDescending(x => x.Name);
+             if (users == null)
+                return null;
+            return users;
+        }
+
+        public async Task<IEnumerable<User>> GetUsersWithoutParamsForAdmin()
+        {
+            await userTable.CreateIfNotExistsAsync();
+            
+            var users = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
+            users = users.OrderByDescending(x => x.IsDeleted);
              if (users == null)
                 return null;
             return users;
@@ -386,7 +403,7 @@ namespace FeedbackV1.Repositories
 
             var results = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
             
-            results = results.Where(x => x.RowKey != userParams.UserId).OrderBy(x => x.Name);
+            results = results.Where(x => x.IsDeleted == false).Where(x => x.RowKey != userParams.UserId).OrderBy(x => x.Name);
 
             if ((!string.IsNullOrEmpty(userParams.Role) ) && userParams.Team)
             {
@@ -450,13 +467,21 @@ namespace FeedbackV1.Repositories
         {   
 
             await userTable.CreateIfNotExistsAsync();
-            var filter = TableQuery.GenerateFilterCondition("Manager_ID", QueryComparisons.Equal, name);
-            TableQuery<User> query = new TableQuery<User>().Where(filter);
+            var filter1 = TableQuery.GenerateFilterCondition("Manager_ID", QueryComparisons.Equal, name);
+            //var filter2 = TableQuery.GenerateFilterCondition("IsDeleted", QueryComparisons.Equal, "false");
+           // string combinedFilter = TableQuery.CombineFilters(filter1, TableOperators.And, filter2);
+
+            TableQuery<User> query = new TableQuery<User>().Where(filter1);
             var result = await userTable.ExecuteQuerySegmentedAsync(query, null);
+
             if (result == null)
                 return null;
             var results = result.Results;
-            return results;
+           
+            List<User> users = result.Results;
+            users = users.Where(x => x.IsDeleted == false).ToList();
+
+            return users;
         }
 
         
@@ -469,7 +494,9 @@ namespace FeedbackV1.Repositories
             if (result == null)
                 return null;
             var results = result.Results;
-            return results;
+            List<User> users = result.Results;
+            users = users.Where(x => x.IsDeleted == false).ToList();
+            return users;
         }
 
         public async Task<IEnumerable<User>> GetAllManagers()
@@ -478,7 +505,8 @@ namespace FeedbackV1.Repositories
 
             var users = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
 
-            var results = users.Where(x => x.Role == "manager").OrderBy(item => item.Name);       
+            var results = users.Where(x => x.Role == "manager").OrderBy(item => item.Name).Where(x => x.IsDeleted == false); 
+
             return results;
 
 
@@ -504,7 +532,7 @@ namespace FeedbackV1.Repositories
             var results = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).ToList<User>();
 
             List<User> people = results;
-            people = people.OrderByDescending(x => x.Name).ToList();
+            people = people.OrderByDescending(x => x.Name).Where(x => x.IsDeleted == false).ToList();
 
             if (people == null)
                 return null;  
@@ -549,7 +577,11 @@ namespace FeedbackV1.Repositories
                     }
                     descendantsFromManager.Remove(user.Name);
                 }
-            }
+            }   
+
+            
+        
+            // descendants = descendants.Where(x => x.IsDeleted == false).ToList();
 
             return descendants;
         }

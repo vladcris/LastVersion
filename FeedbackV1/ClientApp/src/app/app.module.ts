@@ -1,3 +1,4 @@
+import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,6 +43,11 @@ import { MyFeedbacksResolver } from './_resolvers/myFeedbacks.resolver';
 import { UsersResolver } from './_resolvers/users.resolver';
 import { GiveFeedbackResolver } from './_resolvers/give-feedback.resolver';
 import { ReceiverFeedbacksResolver } from './_resolvers/receiver-feedbacks.resolver';
+import { RequestResolver } from './_resolvers/request.resolver';
+import {TimeAgoPipe} from 'time-ago-pipe';
+import { LoadingSpinnerComponent } from './shared/loading-spinner';
+import { MaterialModule } from './material/material.module';
+
 
 
 
@@ -78,11 +84,15 @@ export function tokenGetter() {
       MyfeedbackDetailComponent,
       HomeComponent,
       GiveComponent,
-      UpdateUserComponent
+      UpdateUserComponent,
+      TimeAgoPipe,
+      LoadingSpinnerComponent,
+      AdminSectionComponent
    ],
    imports: [
       BrowserModule,
        AppRoutingModule,
+       MaterialModule,
        Ng2SearchPipeModule, // including into imports
        Ng2OrderModule, // importing the sorting package here
        NgxPaginationModule,
@@ -117,7 +127,8 @@ export function tokenGetter() {
      MyFeedbacksResolver,
      UsersResolver,
      GiveFeedbackResolver,
-     ReceiverFeedbacksResolver
+     ReceiverFeedbacksResolver,
+     RequestResolver
    ],
    bootstrap: [
       AppComponent

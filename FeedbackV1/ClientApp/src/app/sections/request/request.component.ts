@@ -15,7 +15,8 @@ export class RequestComponent implements OnInit {
   user: any = {};
   departments: any = {};
   departmentsSelected: any;
-  users: any = {};
+  users: User[];
+  usersFromTeam: User[];
   employees = [];
   employee: any = {};
   depId: any = {};
@@ -30,6 +31,7 @@ export class RequestComponent implements OnInit {
 
   angajat = [];
   angajatName = [];
+  userParams: any = {};
   constructor(private userService: UserService,
               private feedbacksService: FeedbacksService,
               private authService: AuthService,
@@ -37,9 +39,16 @@ export class RequestComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadEmployeesByDepartament();
-    // this.loadDepartments();
+    this.route.data.subscribe(data => {
+      // tslint:disable-next-line:no-string-literal
+      this.users = data['users'].result;
+    });
+
+
     this.loadUser();
+    // tslint:disable-next-line:no-string-literal
+    this.userParams.userId = this.route.snapshot.params['id'];
+    // this.loadEmployeesByManager();
 
   }
 
@@ -50,28 +59,36 @@ export class RequestComponent implements OnInit {
     });
   }
 
-  // loadDepartments() {
-  //   this.userService.getDepartments().subscribe(response => {
-  //     this.departments = response;
-  //     // console.log(this.departments);
-  //   });
-  // }
-
-  loadEmployeesByDepartament() {
-    this.userService.getUsersForName().subscribe(res => {
-      this.users = res;
+  loadAllUsers() {
+    this.userService.getAllUsers(this.userParams).subscribe(data => {
+      this.users = data.result;
+      // console.log(this.users);
     });
   }
 
-  // onSelect() {
-  //   this.departmentsSelected = this.choose.make ? this.departments : [];
-  //   console.log(this.choose.make);
-  // }
-  onSelect() {
+  loadEmployeesByManager() {
+    this.userService.getTeam2(this.authService.decodedToken.nameid, this.userParams).subscribe(res => {
+      this.usersFromTeam = res;
+      console.log(this.usersFromTeam);
+    });
+  }
 
-    this.employees = this.choose.make ? this.users : [];
-    this.angajatName = [];
-    this.angajat = [];
+
+  onSelect() {
+    if (this.choose.make === 'request1') {
+          this.employees = [];
+          this.loadEmployeesByManager();
+          this.employees = this.choose.make ? this.usersFromTeam : [];
+          this.angajatName = [];
+          this.angajat = [];
+    } else if (this.choose.make === 'request2') {
+          this.employees = [];
+          this.loadAllUsers();
+          this.employees = this.choose.make ? this.users : [];
+          this.angajatName = [];
+          this.angajat = [];
+    }
+
     // console.log(this.angajatName);
     // console.log(this.angajat);
 

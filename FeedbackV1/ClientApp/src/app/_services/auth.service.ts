@@ -26,7 +26,7 @@ login(form: any) {
         localStorage.setItem('dep_Id', user.dep_Id);
         localStorage.setItem('name', user.name);
         localStorage.setItem('email', user.email);
-        localStorage.setItem('ranager_Id', user.manager_ID);
+        localStorage.setItem('Manager_Id', user.manager_Id);
         localStorage.setItem('role', user.role);
         this.decodedToken = this.jwtHelper.decodeToken(user.token);
         console.log(this.decodedToken);

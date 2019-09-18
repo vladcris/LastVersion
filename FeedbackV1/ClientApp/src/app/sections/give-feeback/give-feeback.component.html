@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row mt-2">
         <div class="col-md-10">
           <div *ngIf="!feedback.pending">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-</div>
+</div> -->
 
 
 <!--<div *ngIf="feedback.pending" class="row">
@@ -205,7 +205,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <button [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" class="btn btn-primary mr-5">Submit</button>
+              <button [disabled]="!requestForm.valid || !requestForm.dirty" type="submit" (click)="onSendRequest()" class="btn btn-primary mr-5">Submit</button>
               <button type="button" class="btn btn-danger " [routerLink]="['/myfeedbacks']">Cancel</button>
             </div>
           </div>

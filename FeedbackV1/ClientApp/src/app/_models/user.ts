@@ -7,6 +7,7 @@ export interface User {
     manager_ID: string;
     time?: string;
     role?: string;
+    idDeleted?: boolean;
 
 
 }

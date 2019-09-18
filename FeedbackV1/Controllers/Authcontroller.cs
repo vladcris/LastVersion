@@ -104,7 +104,7 @@ namespace FeedbackV1.Controllers
                     Name = userFromRepo.Name,
                     Email = userFromRepo.Email,
                     Role = userFromRepo.Role,
-                    ranager_Id = userFromRepo.Manager_ID
+                    Manager_Id = userFromRepo.Manager_ID
                 
 
             });

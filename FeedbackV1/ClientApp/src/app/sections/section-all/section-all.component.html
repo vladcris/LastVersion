@@ -1,6 +1,6 @@
-<div class="card mt-5">
+<div *ngIf="!isLoading" class="card mt-5">
   <div class="card-body forPadding">
-    <div class="row">
+    <div  class="row">
       <nav class="navbar">
         
         <input class="form-control" type="text" name="search" placeholder="Search..." [(ngModel)]="filter">
@@ -17,6 +17,8 @@
             </form>
       </div>
 
+  
+      
       <table class="table table-hover">
         <thead>
           <tr>
@@ -59,7 +61,7 @@
             <td><a [routerLink]="['/all/', user.id]" [class.disabled]="!tableLoaded">Offer feedback</a></td>
             <td><a [routerLink]="['/request/', user.id]" [class.disabled]="!tableLoaded"  *ngIf="isManager(user.id)">Request</a></td>
             <td><a [routerLink]="['/all/update/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isManager(user.id)" >Update</a></td>
-            <td><a style="cursor: pointer" class="delete" (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isManager(user.id)">Delete</a></td>
+            <td><a style="cursor: pointer" class="delete" (click)="onDelete(user.id)" *ngIf="isManager(user.id)">Delete</a></td>
 
           </tr>
         </tbody>
@@ -69,24 +71,30 @@
  
     </div>
   </div>
-  
 
     <!-- <div class="d-flex justify-content-center">
         <pagination-controls  (pageChange)="p = $event"></pagination-controls>
     </div> -->
+
   
 </div>
 
-<div *ngIf="pagination.totalPages > 1" class="d-flex justify-content-center mt-3">
-  <pagination [boundaryLinks]="true" 
-              [totalItems]="pagination.totalItems"
-              [(ngModel)]="pagination.currentPage"
-              [itemsPerPage]="pagination.itemsPerPage"
-              (pageChanged)="pageChanged($event)"
-              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
-
-  </pagination>
+<div *ngIf="isLoading" class="d-flex justify-content-center  loading">
+    <app-loading-spinner></app-loading-spinner>
 </div>
+
+<div *ngIf="pagination.totalPages > 1" class="d-flex justify-content-center pagination mt-3">
+    <pagination [boundaryLinks]="true" 
+                [totalItems]="pagination.totalItems"
+                [(ngModel)]="pagination.currentPage"
+                [itemsPerPage]="pagination.itemsPerPage"
+                (pageChanged)="pageChanged($event)"
+                previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  
+    </pagination>
+  </div>
+
+
 
 <!--<div class="row mt-4">
 

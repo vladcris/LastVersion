@@ -16,6 +16,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class GiveComponent implements OnInit {
   user: User;
   y = 0;
+  isLoading = false;
 
   feedback: any = {
     id: '',
@@ -44,16 +45,20 @@ export class GiveComponent implements OnInit {
   }
 
   submitRequest() {
+    // this.isLoading = true;
     this.feedback.id = this.authService.decodedToken.nameid;
     this.feedback.feed_id = '';
     this.feedback.id_receiver = this.user.id;
     this.feedbackService.giveFeedback(this.feedback).subscribe(() => {
+      // this.isLoading = false;
       this.alertify.success('Feedback Sent!');
       this.router.navigate(['/all']);
     }, error => {
         this.alertify.error('error');
+        // this.isLoading = false;
+
       });
-    console.log(this.feedback);
+    // console.log(this.feedback);
   }
 
 

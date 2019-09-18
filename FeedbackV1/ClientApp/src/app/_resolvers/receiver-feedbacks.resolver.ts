@@ -10,13 +10,16 @@ import { Feedback } from '../_models/feedback.model';
 export class ReceiverFeedbacksResolver implements Resolve<Feedback[]> {
     pageNumber = 1;
     pageSize = 5;
+    userParams: any = {
+      pending: false
+    };
   constructor(private feedbacksService: FeedbacksService,
               private router: Router,
               private alertify: AlertifyService ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Feedback[]> {
     // tslint:disable-next-line:no-string-literal
-    return this.feedbacksService.getFeedbackReceiver(route.params['id'], this.pageNumber, this.pageSize).pipe(
+    return this.feedbacksService.getFeedbackReceiver(route.params['id'], this.pageNumber, this.pageSize, this.userParams).pipe(
       catchError(error => {
         this.alertify.error('Problem retreving data!');
         this.router.navigate(['/all']);
