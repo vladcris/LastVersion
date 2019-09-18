@@ -1,0 +1,58 @@
+<!-- <div class="search-div">
+    <button mat-raised-button>
+        <mat-icon>add</mat-icon>Create
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off"> 
+        <button mat-button matSuffix mat-icon-button aria-label="clear"></button>
+        <mat-icon>close</mat-icon>
+    </mat-form-field>
+</div> -->
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="listData" matSort>
+        <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef>Department</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.deP_ID}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="fullName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="manager">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Manager</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.manager_ID}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="role">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Role</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.role}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="deleted">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>IsDeleted</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.isDeleted}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button><mat-icon>launch</mat-icon></button>
+                <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+                Loading data...
+            </mat-footer-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayColumns;"></mat-row>
+        <mat-footer-row [ngClass]="{hide: listData!=null}" *matFooterRowDef="['loading']"></mat-footer-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10" showFirstLastButtons ></mat-paginator>
+</div>

@@ -12,10 +12,11 @@ import { User } from '../../_models/user';
   styleUrls: ['./request.component.css']
 })
 export class RequestComponent implements OnInit {
-  user: User;
-  departments: any;
+  user: any = {};
+  departments: any = {};
   departmentsSelected: any;
-  users: any;
+  users: User[];
+  usersFromTeam: User[];
   employees = [];
   employee: any = {};
   depId: any = {};
@@ -30,46 +31,67 @@ export class RequestComponent implements OnInit {
 
   angajat = [];
   angajatName = [];
+  userParams: any = {};
   constructor(private userService: UserService,
-    private feedbacksService: FeedbacksService,
-    private authService: AuthService,
-    private alertify: AlertifyService,
-    private route: ActivatedRoute) { }
+              private feedbacksService: FeedbacksService,
+              private authService: AuthService,
+              private alertify: AlertifyService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadEmployeesByDepartament();
-    this.loadDepartments();
+    this.route.data.subscribe(data => {
+      // tslint:disable-next-line:no-string-literal
+      this.users = data['users'].result;
+    });
+
+
     this.loadUser();
+    // tslint:disable-next-line:no-string-literal
+    this.userParams.userId = this.route.snapshot.params['id'];
+    // this.loadEmployeesByManager();
 
   }
 
   loadUser() {
+    // tslint:disable-next-line:no-string-literal
     this.userService.getUser(this.route.snapshot.params['id']).subscribe(res => {
       this.user = res;
-    })
-  }
-
-  loadDepartments() {
-    this.userService.getDepartments().subscribe(response => {
-      this.departments = response;
-      // console.log(this.departments);
     });
   }
 
-  loadEmployeesByDepartament() {
-    this.userService.getUsers().subscribe(res => {
-      this.users = res;
+  loadAllUsers() {
+    this.userService.getAllUsers(this.userParams).subscribe(data => {
+      this.users = data.result;
+      // console.log(this.users);
     });
   }
+
+  loadEmployeesByManager() {
+    this.userService.getTeam2(this.authService.decodedToken.nameid, this.userParams).subscribe(res => {
+      this.usersFromTeam = res;
+      console.log(this.usersFromTeam);
+    });
+  }
+
 
   onSelect() {
-    this.departmentsSelected = this.choose.make ? this.departments : [];
-    console.log(this.choose.make);
-  }
-  onSelectDepartament() {
+    if (this.choose.make === 'request1') {
+          this.employees = [];
+          this.loadEmployeesByManager();
+          this.employees = this.choose.make ? this.usersFromTeam : [];
+          this.angajatName = [];
+          this.angajat = [];
+    } else if (this.choose.make === 'request2') {
+          this.employees = [];
+          this.loadAllUsers();
+          this.employees = this.choose.make ? this.users : [];
+          this.angajatName = [];
+          this.angajat = [];
+    }
 
-    this.employees = this.choose.make ? this.users : [];
-   
+    // console.log(this.angajatName);
+    // console.log(this.angajat);
+
   }
 
 
@@ -77,10 +99,10 @@ export class RequestComponent implements OnInit {
     // console.log(this.employee);
     this.angajat.push(employee);
     this.users.forEach(user => {
-      if (user.id == employee)
+      if (user.id === employee) {
         this.angajatName.push(user.name);
-       
-    })
+      }
+    });
     // console.log(this.angajatName);
     // console.log(this.angajat);
   }
@@ -95,7 +117,7 @@ export class RequestComponent implements OnInit {
 
   onSubmit() {
 
-    if (this.choose.make == 'request1') {
+    if (this.choose.make === 'request1') {
 
       this.angajat.forEach(user => {
         this.form.pending = true;
@@ -108,20 +130,20 @@ export class RequestComponent implements OnInit {
         }, error => {
           this.alertify.error('error');
         });
-      })
-    } else if (this.choose.make == 'request2') {
+      });
+    } else if (this.choose.make === 'request2') {
 
       this.angajat.forEach(user => {
         this.form.pending = true;
         this.form.id_manager = this.authService.decodedToken.nameid;
-        this.form.id_receiver = this.route.snapshot.params['id'];
+        this.form.id_receiver = this.route.snapshot.params.id;
         // console.log(this.form);
         this.feedbacksService.sendRequest2(this.form, user).subscribe(() => {
           this.alertify.success('Request Sent!');
         }, error => {
           this.alertify.error('error');
         });
-      })
+      });
     }
 
   }

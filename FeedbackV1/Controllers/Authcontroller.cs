@@ -87,10 +87,26 @@ namespace FeedbackV1.Controllers
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
+            // var user = new UserDto {
+            //         ID = userFromRepo.Id,
+            //         DEP_ID = userFromRepo.Dep_Id,
+            //         Name = userFromRepo.Name,
+            //         Email = userFromRepo.Email,
+            //         Manager_ID = userFromRepo.Manager_ID,
+            //         Role = userFromRepo.Id
+
+            //     };
 
             return Ok(new {
                 token = tokenHandler.WriteToken(token),
-                role = userFromRepo.Role
+                    Id = userFromRepo.Id,
+                    Dep_Id = userFromRepo.Dep_Id,
+                    Name = userFromRepo.Name,
+                    Email = userFromRepo.Email,
+                    Role = userFromRepo.Role,
+                    Manager_Id = userFromRepo.Manager_ID
+                
+
             });
 
         }

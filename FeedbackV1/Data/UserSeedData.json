@@ -1,1307 +1,1317 @@
 ﻿[
   {
-    "Id": 6104,
-    "name": "Diana Chirita",
-    "manager_id": "Aida Popa",
-    "email": "email1@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6105,
-    "name": "Razvan Urse",
-    "manager_id": "Aida Popa",
-    "email": "email2@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5851,
-    "name": "Andrei Florin Birleanu",
-    "manager_id": "Alexandru Plesan",
-    "email": "email3@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 5962,
-    "name": "Adrian George Panait",
-    "manager_id": "Alexandru Plesan",
-    "email": "email4@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 5971,
-    "name": "Nicolae-Claudiu Marcoci",
-    "manager_id": "Alexandru Plesan",
-    "email": "email5@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 6130,
-    "name": "Andrei Bouros",
-    "manager_id": "Alexandru Plesan",
-    "email": "email6@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 5849,
-    "name": "Bogdan Constantin Niculescu",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email7@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5864,
-    "name": "Vlad Gabriel Popescu",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email8@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5942,
-    "name": "Mihai Bodnariu",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email9@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5988,
-    "name": "Beniamin Dincuta",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email10@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6094,
-    "name": "George Stoica",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email11@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6098,
-    "name": "Ema Enea",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email12@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6099,
-    "name": "Cristina Dolea",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email13@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6140,
-    "name": "Valentin Cerneanu",
-    "manager_id": "Alexandru Ştefan Popescu",
-    "email": "email14@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5715,
-    "name": "Adriana Bucur",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email15@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5728,
-    "name": "Tatiana Shabestari Zadeh",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email16@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5732,
-    "name": "Daniel Craciun",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email17@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5776,
-    "name": "Valentin Nosov",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email18@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5788,
-    "name": "Daniel Alexandru Duicu",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email19@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5938,
-    "name": "Gianina Voicu",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email20@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6136,
-    "name": "Andrea Bonyhai",
-    "manager_id": "Alina Laura Ionescu",
-    "email": "email21@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5822,
-    "name": "Diana Craciunescu",
-    "manager_id": "Andrea Bonyhai",
-    "email": "email22@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5871,
-    "name": "Egle Pacebutaite",
-    "manager_id": "Andrea Bonyhai",
-    "email": "email23@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5980,
-    "name": "Ivetta Imenokhoeva",
-    "manager_id": "Andrea Bonyhai",
-    "email": "email24@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6103,
-    "name": "Aida Popa",
-    "manager_id": "Bart Simons",
-    "email": "email25@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5743,
-    "name": "Alexandru Grecu",
-    "manager_id": "Berry Stolk",
-    "email": "email26@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5767,
-    "name": "Maxim Boret",
-    "manager_id": "Berry Stolk",
-    "email": "email27@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5763,
-    "name": "Nihal Ablachim",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email28@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5766,
-    "name": "Elena Salavastru (Martoiu)",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email29@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5779,
-    "name": "Anda Mihaela Radulescu",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email30@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5829,
-    "name": "Cosmin Matei Toma",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email31@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5872,
-    "name": "Luciana Pintilie",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email32@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6086,
-    "name": "Dan Dorian Dumitriu",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email33@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6139,
-    "name": "Alexandru Nichita",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email34@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6141,
-    "name": "Irina Hobeanu",
-    "manager_id": "Daniel Alexandru Duicu",
-    "email": "email35@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5791,
-    "name": "Alexandru Constantin Stiote",
-    "manager_id": "Daniel Barbuceanu",
-    "email": "email36@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5857,
-    "name": "Laurentiu Lazaroiu",
-    "manager_id": "Daniel Barbuceanu",
-    "email": "email37@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6106,
-    "name": "Richard Atkinson",
-    "manager_id": "Daniel Barbuceanu",
-    "email": "email38@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6126,
-    "name": "Cezar Lupu",
-    "manager_id": "Daniel Barbuceanu",
-    "email": "email39@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5819,
-    "name": "Ioana Ciobanu",
-    "manager_id": "Daniel Craciun",
-    "email": "email40@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5882,
-    "name": "Radu Gabriel Nastase",
-    "manager_id": "Daniel Craciun",
-    "email": "email41@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5886,
-    "name": "Daniela Popa",
-    "manager_id": "Daniel Craciun",
-    "email": "email42@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5955,
-    "name": "Alexandru Neagu",
-    "manager_id": "Daniel Craciun",
-    "email": "email43@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5968,
-    "name": "Isabela-Daniela Zuzu",
-    "manager_id": "Daniel Craciun",
-    "email": "email44@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5972,
-    "name": "Corina Tanase",
-    "manager_id": "Daniel Craciun",
-    "email": "email45@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5977,
-    "name": "Evghin Bari",
-    "manager_id": "Daniel Craciun",
-    "email": "email46@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6093,
-    "name": "Alina Constantin",
-    "manager_id": "Daniel Craciun",
-    "email": "email47@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6108,
-    "name": "Adriana Naumovici",
-    "manager_id": "Daniel Craciun",
-    "email": "email48@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6122,
-    "name": "Alexandru-Florin Ene",
-    "manager_id": "Daniel Craciun",
-    "email": "email49@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5810,
-    "name": "Ciprian-Marius Balasa",
-    "manager_id": "Dragos Oprisor",
-    "email": "email50@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5844,
-    "name": "Gabriela Patrascu",
-    "manager_id": "Dragos Oprisor",
-    "email": "email51@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5897,
-    "name": "Andrei Badea",
-    "manager_id": "Dragos Oprisor",
-    "email": "email52@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5964,
-    "name": "Ugur Yildirim",
-    "manager_id": "Dragos Oprisor",
-    "email": "email53@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6072,
-    "name": "Vlad Toma",
-    "manager_id": "Dragos Oprisor",
-    "email": "email54@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6107,
-    "name": "Ana-Maria Vasile",
-    "manager_id": "Dragos Oprisor",
-    "email": "email55@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6113,
-    "name": "Radu Ioan Rinzis",
-    "manager_id": "Dragos Oprisor",
-    "email": "email56@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6121,
-    "name": "Kerimberdi Agayev",
-    "manager_id": "Dragos Oprisor",
-    "email": "email57@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5719,
-    "name": "Serghei Radjabov",
-    "manager_id": "Erwin van Roon",
-    "email": "email58@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 8996,
-    "name": "Wim van Balen",
-    "manager_id": "Erwin van Roon",
-    "email": "email59@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5865,
-    "name": "Georgiana Stanciu",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email60@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5874,
-    "name": "Catalin Marian Georgescu",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email61@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5957,
-    "name": "George-Ciprian Grindeanu",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email62@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5983,
-    "name": "Andrei-Zoltan Bonyhai",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email63@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5999,
-    "name": "Catalin Cojocaru",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email64@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6068,
-    "name": "Alina Bratosin",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email65@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6101,
-    "name": "Lorena Bodea",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email66@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6137,
-    "name": "Adrian Antonescu",
-    "manager_id": "Flavia Gheorghe (Obreja)",
-    "email": "email67@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5756,
-    "name": "Alexandru Stir",
-    "manager_id": "Gabriel Adrian Gheorghe",
-    "email": "email68@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5790,
-    "name": "Adrian Buduianu",
-    "manager_id": "Gabriel Adrian Gheorghe",
-    "email": "email69@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5830,
-    "name": "Robert Mihail Untaru",
-    "manager_id": "George Vladu",
-    "email": "email70@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5842,
-    "name": "Mihail Prescura",
-    "manager_id": "George Vladu",
-    "email": "email71@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5868,
-    "name": "Alexandru Ionut Paris",
-    "manager_id": "George Vladu",
-    "email": "email72@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5888,
-    "name": "Georgiana-Madalina Davidoiu",
-    "manager_id": "George Vladu",
-    "email": "email73@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5931,
-    "name": "Alexandru-Nicusor Dumitru",
-    "manager_id": "George Vladu",
-    "email": "email74@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6150,
-    "name": "Cristina Stefan",
-    "manager_id": "George Vladu",
-    "email": "email75@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5700,
-    "name": "Szabolcs Balázs",
-    "manager_id": "Georgios Sarigiannidis",
-    "email": "email76@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5706,
-    "name": "Alina Laura Ionescu",
-    "manager_id": "Georgios Sarigiannidis",
-    "email": "email77@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5713,
-    "name": "Valentin Marica",
-    "manager_id": "Georgios Sarigiannidis",
-    "email": "email78@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5725,
-    "name": "Ina Maria Grecu",
-    "manager_id": "Gianina Voicu",
-    "email": "email79@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5760,
-    "name": "Andreea Deaconu",
-    "manager_id": "Gianina Voicu",
-    "email": "email80@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5946,
-    "name": "Elmira Menlivuap",
-    "manager_id": "Gianina Voicu",
-    "email": "email81@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5963,
-    "name": "Ionela Constandache",
-    "manager_id": "Gianina Voicu",
-    "email": "email82@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6091,
-    "name": "Ioana Dragusin",
-    "manager_id": "Gianina Voicu",
-    "email": "email83@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6128,
-    "name": "Sali Jamous",
-    "manager_id": "Gianina Voicu",
-    "email": "email84@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6145,
-    "name": "Bianca Nechita",
-    "manager_id": "Gianina Voicu",
-    "email": "email85@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5881,
-    "name": "Alexandru-Andrei Caliman",
-    "manager_id": "Igor Queiroz Feio",
-    "email": "email86@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 5948,
-    "name": "Mihai-Gabriel Rujenescu",
-    "manager_id": "Igor Queiroz Feio",
-    "email": "email87@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 6078,
-    "name": "Ogodai Titescu",
-    "manager_id": "Igor Queiroz Feio",
-    "email": "email88@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 6096,
-    "name": "Octavia Stan",
-    "manager_id": "Igor Queiroz Feio",
-    "email": "email89@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 6111,
-    "name": "Daniel Nicusor Penca",
-    "manager_id": "Igor Queiroz Feio",
-    "email": "email90@email.com",
-    "role": "employee",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 6077,
-    "name": "Mihai Dumitrescu",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email91@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6092,
-    "name": "Florin Tone",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email92@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6120,
-    "name": "Andreea Racu",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email93@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6125,
-    "name": "Andrei Nicu",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email94@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6127,
-    "name": "Adrian Tudorache",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email95@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6132,
-    "name": "Victor Matache",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email96@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6133,
-    "name": "Ioan Moraru",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email97@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6149,
-    "name": "Lucian Cosmin Fainis",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email98@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6151,
-    "name": "Andrei Calin Bosinceanu",
-    "manager_id": "Laurentiu Lazaroiu",
-    "email": "email99@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5816,
-    "name": "Alexandru Plesan",
-    "manager_id": "Mihai Adrian Manu",
-    "email": "email100@email.com",
-    "role": "manager",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 6135,
-    "name": "Igor Queiroz Feio",
-    "manager_id": "Mihai Adrian Manu",
-    "email": "email101@email.com",
-    "role": "manager",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 5704,
-    "name": "Roxana Talpalaru",
-    "manager_id": "Oana Nedelcu",
-    "email": "email102@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5800,
-    "name": "Mihai-Constantin Spatariu",
-    "manager_id": "Oana Nedelcu",
-    "email": "email103@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5875,
-    "name": "Adi Andrei Mihoci",
-    "manager_id": "Oana Nedelcu",
-    "email": "email104@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5894,
-    "name": "Armand-Adrian Colenati",
-    "manager_id": "Oana Nedelcu",
-    "email": "email105@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5934,
-    "name": "Mert-Kayhan Ablachim",
-    "manager_id": "Oana Nedelcu",
-    "email": "email105@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5941,
-    "name": "Liviu Constantinescu",
-    "manager_id": "Oana Nedelcu",
-    "email": "email106@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5987,
-    "name": "Alexandru Oarna",
-    "manager_id": "Oana Nedelcu",
-    "email": "email107@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5990,
-    "name": "Gabriela Bancila",
-    "manager_id": "Oana Nedelcu",
-    "email": "email108@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5992,
-    "name": "Rares Bogdan",
-    "manager_id": "Oana Nedelcu",
-    "email": "email109@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5994,
-    "name": "Valeria Bolboaca",
-    "manager_id": "Oana Nedelcu",
-    "email": "email110@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6074,
-    "name": "Razvan Alexandru Merdescu",
-    "manager_id": "Oana Nedelcu",
-    "email": "email111@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6084,
-    "name": "Razvan Tudor",
-    "manager_id": "Oana Nedelcu",
-    "email": "email112@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6118,
-    "name": "Marius Andrei Brinzaru",
-    "manager_id": "Oana Nedelcu",
-    "email": "email113@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6119,
-    "name": "Codrina-Maria Pintea",
-    "manager_id": "Oana Nedelcu",
-    "email": "email114@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6123,
-    "name": "Remus-George Dutulescu",
-    "manager_id": "Oana Nedelcu",
-    "email": "email115@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6142,
-    "name": "Cosmin Pavel",
-    "manager_id": "Oana Nedelcu",
-    "email": "email116@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6143,
-    "name": "Daniel Ene",
-    "manager_id": "Oana Nedelcu",
-    "email": "email117@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6144,
-    "name": "Irina Trentea",
-    "manager_id": "Oana Nedelcu",
-    "email": "email118@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5973,
-    "name": "Valentina Filip",
-    "manager_id": "Oana Romanasu",
-    "email": "email119@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6146,
-    "name": "Varvara Grigorievna Limanova",
-    "manager_id": "Oana Romanasu",
-    "email": "email120@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5774,
-    "name": "Tania Ion",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email121@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5781,
-    "name": "Daria Bagandova",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email122@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5793,
-    "name": "Aleksandr Kozlov",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email123@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5804,
-    "name": "Alexandru Gaiu",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email124@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5826,
-    "name": "Grygorii Sapozhkov",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email125@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5836,
-    "name": "Daniel George Barbu",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email126@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5847,
-    "name": "Sergei Kolobov",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email127@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5961,
-    "name": "Pavel Skorobogatov",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email128@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5985,
-    "name": "Oana Romanasu",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email129@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5995,
-    "name": "Andrei Pinte",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email130@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6148,
-    "name": "Anton Kuznetsov",
-    "manager_id": "Szabolcs Balázs",
-    "email": "email131@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5739,
-    "name": "Irina Surcel",
-    "manager_id": "Tania Ion",
-    "email": "email132@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5853,
-    "name": "Anamaria Dana Vasile",
-    "manager_id": "Tania Ion",
-    "email": "email134@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5854,
-    "name": "Florina Maria Dumitrescu",
-    "manager_id": "Tania Ion",
-    "email": "email135@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6090,
-    "name": "Alina Ionita",
-    "manager_id": "Tania Ion",
-    "email": "email136@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6109,
-    "name": "Mariana Constantin",
-    "manager_id": "Tania Ion",
-    "email": "email137@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5726,
-    "name": "Mihai Adrian Manu",
-    "manager_id": "Valentin Marica",
-    "email": "email138@email.com",
-    "role": "manager",
-    "Dep_Id": 1
-  },
-  {
-    "Id": 5731,
-    "name": "George Vladu",
-    "manager_id": "Valentin Marica",
-    "email": "email139@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5735,
-    "name": "Dragos Oprisor",
-    "manager_id": "Valentin Marica",
-    "email": "email140@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5737,
-    "name": "Gabriel Adrian Gheorghe",
-    "manager_id": "Valentin Marica",
-    "email": "email141@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5814,
-    "name": "Daniel Barbuceanu",
-    "manager_id": "Valentin Marica",
-    "email": "email142@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5859,
-    "name": "Dan Parcioaga-Ionita",
-    "manager_id": "Valentin Nosov",
-    "email": "email143@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5996,
-    "name": "Alexandru Valentin Neata",
-    "manager_id": "Valentin Nosov",
-    "email": "email144@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6085,
-    "name": "Andrei Suica",
-    "manager_id": "Valentin Nosov",
-    "email": "email145@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6100,
-    "name": "Alexandru Surubaru",
-    "manager_id": "Valentin Nosov",
-    "email": "email146@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6112,
-    "name": "Bogdan Alexandru Sandu",
-    "manager_id": "Valentin Nosov",
-    "email": "email147@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6138,
-    "name": "Gabriel Barbu",
-    "manager_id": "Valentin Nosov",
-    "email": "email148@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5703,
-    "name": "Oana Nedelcu",
-    "manager_id": "Wim van Balen",
-    "email": "email149@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5749,
-    "name": "Catalin Eraclide",
-    "manager_id": "Wim van Balen",
-    "email": "email150@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5750,
-    "name": "Ioana Bordea - Giorgi",
-    "manager_id": "Wim van Balen",
-    "email": "email151@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5751,
-    "name": "Oana Ioana",
-    "manager_id": "Wim van Balen",
-    "email": "email152@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5771,
-    "name": "Adriana Gâdei",
-    "manager_id": "Wim van Balen",
-    "email": "email153@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5795,
-    "name": "Alexandru Ştefan Popescu",
-    "manager_id": "Wim van Balen",
-    "email": "email154@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5848,
-    "name": "Roxana Elena Dina",
-    "manager_id": "Wim van Balen",
-    "email": "email155@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5878,
-    "name": "Flavia Gheorghe (Obreja)",
-    "manager_id": "Wim van Balen",
-    "email": "email156@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5932,
-    "name": "Radu-Ioan Stefan",
-    "manager_id": "Wim van Balen",
-    "email": "email157@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5960,
-    "name": "Elena-Sorina Hermann",
-    "manager_id": "Wim van Balen",
-    "email": "email158@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 5986,
-    "name": "Radu Mazilu",
-    "manager_id": "Wim van Balen",
-    "email": "email159@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6102,
-    "name": "Lazar Bucur",
-    "manager_id": "Wim van Balen",
-    "email": "email160@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6114,
-    "name": "Ana Maria Rau-Avram",
-    "manager_id": "Wim van Balen",
-    "email": "email161@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 6129,
-    "name": "Cristian Dumitru-Condurache",
-    "manager_id": "Wim van Balen",
-    "email": "email162@email.com",
-    "role": "employee",
-    "Dep_Id": 2
-  },
-  {
-    "Id": 1111,
-    "name": "Georgios Sariginannidis",
-    "manager_id": "",
-    "email": "email163@email.com",
-    "role": "manager",
-    "Dep_Id": 2
-
-  }
-]
+   "Id": 6104,
+   "Name": "Diana Chirita",
+   "Manager_ID": "Aida Popa",
+   "email": "email1@email.com",
+   "role": "employee",
+   "Dep_Id": 2
+  , "isDeleted": false },
+   {
+     "Id": 6105,
+     "Name": "Razvan Urse",
+     "Manager_ID": "Aida Popa",
+     "email": "email2@email.com",
+     "role": "employee",
+     "Dep_Id": 2
+      , "isDeleted": false },
+     {
+       "Id": 5851,
+       "Name": "Andrei Florin Birleanu",
+       "Manager_ID": "Alexandru Plesan",
+       "email": "email3@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 5962,
+       "Name": "Adrian George Panait",
+       "Manager_ID": "Alexandru Plesan",
+       "email": "email4@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 5971,
+       "Name": "Nicolae-Claudiu Marcoci",
+       "Manager_ID": "Alexandru Plesan",
+       "email": "email5@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 6130,
+       "Name": "Andrei Bouros",
+       "Manager_ID": "Alexandru Plesan",
+       "email": "email6@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 5849,
+       "Name": "Bogdan Constantin Niculescu",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email7@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5864,
+       "Name": "Vlad Gabriel Popescu",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email8@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5942,
+       "Name": "Mihai Bodnariu",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email9@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5988,
+       "Name": "Beniamin Dincuta",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email10@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6094,
+       "Name": "George Stoica",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email11@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6098,
+       "Name": "Ema Enea",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email12@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6099,
+       "Name": "Cristina Dolea",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email13@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6140,
+       "Name": "Valentin Cerneanu",
+       "Manager_ID": "Alexandru Ştefan Popescu",
+       "email": "email14@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5715,
+       "Name": "Adriana Bucur",
+       "Manager_ID": "Alina Laura Ionescu",
+       "email": "email15@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5728,
+       "Name": "Tatiana Shabestari Zadeh",
+       "Manager_ID": "Alina Laura Ionescu",
+       "email": "email16@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5732,
+     "Name": "Daniel Craciun",
+     "Manager_ID": "Alina Laura Ionescu",
+     "email": "email17@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 5776,
+     "Name": "Valentin Nosov",
+     "Manager_ID": "Alina Laura Ionescu",
+     "email": "email18@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5788,
+       "Name": "Daniel Alexandru Duicu",
+       "Manager_ID": "Alina Laura Ionescu",
+       "email": "email19@email.com",
+       "role": "manager",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5938,
+     "Name": "Gianina Voicu",
+     "Manager_ID": "Alina Laura Ionescu",
+     "email": "email20@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 6136,
+     "Name": "Andrea Bonyhai",
+     "Manager_ID": "Alina Laura Ionescu",
+     "email": "email21@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5822,
+       "Name": "Diana Craciunescu",
+       "Manager_ID": "Andrea Bonyhai",
+       "email": "email22@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5871,
+       "Name": "Egle Pacebutaite",
+       "Manager_ID": "Andrea Bonyhai",
+       "email": "email23@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5980,
+       "Name": "Ivetta Imenokhoeva",
+       "Manager_ID": "Andrea Bonyhai",
+       "email": "email24@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6103,
+       "Name": "Aida Popa",
+       "Manager_ID": "Bart Simons",
+       "email": "email25@email.com",
+       "role": "manager",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5743,
+       "Name": "Alexandru Grecu",
+       "Manager_ID": "Berry Stolk",
+       "email": "email26@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5767,
+       "Name": "Maxim Boret",
+       "Manager_ID": "Berry Stolk",
+       "email": "email27@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5763,
+       "Name": "Nihal Ablachim",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email28@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5766,
+       "Name": "Elena Salavastru (Martoiu)",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email29@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5779,
+       "Name": "Anda Mihaela Radulescu",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email30@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5829,
+       "Name": "Cosmin Matei Toma",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email31@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5872,
+       "Name": "Luciana Pintilie",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email32@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6086,
+       "Name": "Dan Dorian Dumitriu",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email33@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6139,
+       "Name": "Alexandru Nichita",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email34@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6141,
+       "Name": "Irina Hobeanu",
+       "Manager_ID": "Daniel Alexandru Duicu",
+       "email": "email35@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5791,
+       "Name": "Alexandru Constantin Stiote",
+       "Manager_ID": "Daniel Barbuceanu",
+       "email": "email36@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5857,
+     "Name": "Laurentiu Lazaroiu",
+     "Manager_ID": "Daniel Barbuceanu",
+     "email": "email37@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 6106,
+       "Name": "Richard Atkinson",
+       "Manager_ID": "Daniel Barbuceanu",
+       "email": "email38@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6126,
+       "Name": "Cezar Lupu",
+       "Manager_ID": "Daniel Barbuceanu",
+       "email": "email39@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5819,
+       "Name": "Ioana Ciobanu",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email40@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5882,
+       "Name": "Radu Gabriel Nastase",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email41@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5886,
+       "Name": "Daniela Popa",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email42@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5955,
+       "Name": "Alexandru Neagu",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email43@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5968,
+       "Name": "Isabela-Daniela Zuzu",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email44@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5972,
+       "Name": "Corina Tanase",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email45@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5977,
+       "Name": "Evghin Bari",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email46@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6093,
+       "Name": "Alina Constantin",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email47@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6108,
+       "Name": "Adriana Naumovici",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email48@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6122,
+       "Name": "Alexandru-Florin Ene",
+       "Manager_ID": "Daniel Craciun",
+       "email": "email49@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5810,
+       "Name": "Ciprian-Marius Balasa",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email50@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5844,
+       "Name": "Gabriela Patrascu",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email51@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5897,
+       "Name": "Andrei Badea",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email52@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5964,
+       "Name": "Ugur Yildirim",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email53@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6072,
+       "Name": "Vlad Toma",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email54@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6107,
+       "Name": "Ana-Maria Vasile",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email55@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6113,
+       "Name": "Radu Ioan Rinzis",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email56@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6121,
+       "Name": "Kerimberdi Agayev",
+       "Manager_ID": "Dragos Oprisor",
+       "email": "email57@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5719,
+       "Name": "Serghei Radjabov",
+       "Manager_ID": "Erwin van Roon",
+       "email": "email58@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 8996,
+     "Name": "Wim van Balen",
+     "Manager_ID": "Erwin van Roon",
+     "email": "email59@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5865,
+       "Name": "Georgiana Stanciu",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email60@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5874,
+       "Name": "Catalin Marian Georgescu",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email61@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5957,
+       "Name": "George-Ciprian Grindeanu",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email62@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5983,
+       "Name": "Andrei-Zoltan Bonyhai",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email63@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5999,
+       "Name": "Catalin Cojocaru",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email64@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6068,
+       "Name": "Alina Bratosin",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email65@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6101,
+       "Name": "Lorena Bodea",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email66@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6137,
+       "Name": "Adrian Antonescu",
+       "Manager_ID": "Flavia Gheorghe (Obreja)",
+       "email": "email67@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5756,
+       "Name": "Alexandru Stir",
+       "Manager_ID": "Gabriel Adrian Gheorghe",
+       "email": "email68@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5790,
+       "Name": "Adrian Buduianu",
+       "Manager_ID": "Gabriel Adrian Gheorghe",
+       "email": "email69@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5830,
+       "Name": "Robert Mihail Untaru",
+       "Manager_ID": "George Vladu",
+       "email": "email70@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5842,
+       "Name": "Mihail Prescura",
+       "Manager_ID": "George Vladu",
+       "email": "email71@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5868,
+       "Name": "Alexandru Ionut Paris",
+       "Manager_ID": "George Vladu",
+       "email": "email72@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5888,
+       "Name": "Georgiana-Madalina Davidoiu",
+       "Manager_ID": "George Vladu",
+       "email": "email73@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5931,
+       "Name": "Alexandru-Nicusor Dumitru",
+       "Manager_ID": "George Vladu",
+       "email": "email74@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6150,
+       "Name": "Cristina Stefan",
+       "Manager_ID": "George Vladu",
+       "email": "email75@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5700,
+     "Name": "Szabolcs Balázs",
+     "Manager_ID": "Georgios Sarigiannidis",
+     "email": "email76@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 5706,
+     "Name": "Alina Laura Ionescu",
+     "Manager_ID": "Georgios Sarigiannidis",
+     "email": "email77@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 5713,
+     "Name": "Valentin Marica",
+     "Manager_ID": "Georgios Sarigiannidis",
+     "email": "email78@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5725,
+       "Name": "Ina Maria Grecu",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email79@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5760,
+       "Name": "Andreea Deaconu",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email80@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5946,
+       "Name": "Elmira Menlivuap",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email81@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5963,
+       "Name": "Ionela Constandache",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email82@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6091,
+       "Name": "Ioana Dragusin",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email83@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6128,
+       "Name": "Sali Jamous",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email84@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6145,
+       "Name": "Bianca Nechita",
+       "Manager_ID": "Gianina Voicu",
+       "email": "email85@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5881,
+       "Name": "Alexandru-Andrei Caliman",
+       "Manager_ID": "Igor Queiroz Feio",
+       "email": "email86@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 5948,
+       "Name": "Mihai-Gabriel Rujenescu",
+       "Manager_ID": "Igor Queiroz Feio",
+       "email": "email87@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 6078,
+       "Name": "Ogodai Titescu",
+       "Manager_ID": "Igor Queiroz Feio",
+       "email": "email88@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 6096,
+       "Name": "Octavia Stan",
+       "Manager_ID": "Igor Queiroz Feio",
+       "email": "email89@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 6111,
+       "Name": "Daniel Nicusor Penca",
+       "Manager_ID": "Igor Queiroz Feio",
+       "email": "email90@email.com",
+       "role": "employee",
+       "Dep_Id": 1
+     , "isDeleted": false },
+     {
+       "Id": 6077,
+       "Name": "Mihai Dumitrescu",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email91@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6092,
+       "Name": "Florin Tone",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email92@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6120,
+       "Name": "Andreea Racu",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email93@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6125,
+       "Name": "Andrei Nicu",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email94@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6127,
+       "Name": "Adrian Tudorache",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email95@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6132,
+       "Name": "Victor Matache",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email96@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6133,
+       "Name": "Ioan Moraru",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email97@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6149,
+       "Name": "Lucian Cosmin Fainis",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email98@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6151,
+       "Name": "Andrei Calin Bosinceanu",
+       "Manager_ID": "Laurentiu Lazaroiu",
+       "email": "email99@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5816,
+     "Name": "Alexandru Plesan",
+     "Manager_ID": "Mihai Adrian Manu",
+     "email": "email100@email.com",
+     "role": "manager",
+     "Dep_Id": 1
+   , "isDeleted": false },
+   {
+     "Id": 6135,
+     "Name": "Igor Queiroz Feio",
+     "Manager_ID": "Mihai Adrian Manu",
+     "email": "email101@email.com",
+     "role": "manager",
+     "Dep_Id": 1
+   , "isDeleted": false },
+     {
+       "Id": 5704,
+       "Name": "Roxana Talpalaru",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email102@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5800,
+       "Name": "Mihai-Constantin Spatariu",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email103@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5875,
+       "Name": "Adi Andrei Mihoci",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email104@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5894,
+       "Name": "Armand-Adrian Colenati",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email105@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5934,
+       "Name": "Mert-Kayhan Ablachim",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email105@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5941,
+       "Name": "Liviu Constantinescu",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email106@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5987,
+       "Name": "Alexandru Oarna",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email107@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5990,
+       "Name": "Gabriela Bancila",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email108@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5992,
+       "Name": "Rares Bogdan",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email109@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5994,
+       "Name": "Valeria Bolboaca",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email110@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6074,
+       "Name": "Razvan Alexandru Merdescu",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email111@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6084,
+       "Name": "Razvan Tudor",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email112@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6118,
+       "Name": "Marius Andrei Brinzaru",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email113@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6119,
+       "Name": "Codrina-Maria Pintea",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email114@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6123,
+       "Name": "Remus-George Dutulescu",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email115@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6142,
+       "Name": "Cosmin Pavel",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email116@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6143,
+       "Name": "Daniel Ene",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email117@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6144,
+       "Name": "Irina Trentea",
+       "Manager_ID": "Oana Nedelcu",
+       "email": "email118@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5973,
+       "Name": "Valentina Filip",
+       "Manager_ID": "Oana Romanasu",
+       "email": "email119@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6146,
+       "Name": "Varvara Grigorievna Limanova",
+       "Manager_ID": "Oana Romanasu",
+       "email": "email120@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5774,
+     "Name": "Tania Ion",
+     "Manager_ID": "Szabolcs Balázs",
+     "email": "email121@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5781,
+       "Name": "Daria Bagandova",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email122@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5793,
+       "Name": "Aleksandr Kozlov",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email123@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5804,
+       "Name": "Alexandru Gaiu",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email124@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5826,
+       "Name": "Grygorii Sapozhkov",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email125@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5836,
+       "Name": "Daniel George Barbu",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email126@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5847,
+       "Name": "Sergei Kolobov",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email127@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5961,
+       "Name": "Pavel Skorobogatov",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email128@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5985,
+     "Name": "Oana Romanasu",
+     "Manager_ID": "Szabolcs Balázs",
+     "email": "email129@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5995,
+       "Name": "Andrei Pinte",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email130@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6148,
+       "Name": "Anton Kuznetsov",
+       "Manager_ID": "Szabolcs Balázs",
+       "email": "email131@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5739,
+       "Name": "Irina Surcel",
+       "Manager_ID": "Tania Ion",
+       "email": "email132@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5853,
+       "Name": "Anamaria Dana Vasile",
+       "Manager_ID": "Tania Ion",
+       "email": "email134@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5854,
+       "Name": "Florina Maria Dumitrescu",
+       "Manager_ID": "Tania Ion",
+       "email": "email135@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6090,
+       "Name": "Alina Ionita",
+       "Manager_ID": "Tania Ion",
+       "email": "email136@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6109,
+       "Name": "Mariana Constantin",
+       "Manager_ID": "Tania Ion",
+       "email": "email137@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5726,
+     "Name": "Mihai Adrian Manu",
+     "Manager_ID": "Valentin Marica",
+     "email": "email138@email.com",
+     "role": "manager",
+     "Dep_Id": 1
+   , "isDeleted": false },
+   {
+     "Id": 5731,
+     "Name": "George Vladu",
+     "Manager_ID": "Valentin Marica",
+     "email": "email139@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 5735,
+     "Name": "Dragos Oprisor",
+     "Manager_ID": "Valentin Marica",
+     "email": "email140@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 5737,
+     "Name": "Gabriel Adrian Gheorghe",
+     "Manager_ID": "Valentin Marica",
+     "email": "email141@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+   {
+     "Id": 5814,
+     "Name": "Daniel Barbuceanu",
+     "Manager_ID": "Valentin Marica",
+     "email": "email142@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5859,
+       "Name": "Dan Parcioaga-Ionita",
+       "Manager_ID": "Valentin Nosov",
+       "email": "email143@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5996,
+       "Name": "Alexandru Valentin Neata",
+       "Manager_ID": "Valentin Nosov",
+       "email": "email144@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6085,
+       "Name": "Andrei Suica",
+       "Manager_ID": "Valentin Nosov",
+       "email": "email145@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6100,
+       "Name": "Alexandru Surubaru",
+       "Manager_ID": "Valentin Nosov",
+       "email": "email146@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6112,
+       "Name": "Bogdan Alexandru Sandu",
+       "Manager_ID": "Valentin Nosov",
+       "email": "email147@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6138,
+       "Name": "Gabriel Barbu",
+       "Manager_ID": "Valentin Nosov",
+       "email": "email148@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5703,
+     "Name": "Oana Nedelcu",
+     "Manager_ID": "Wim van Balen",
+     "email": "email149@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5749,
+       "Name": "Catalin Eraclide",
+       "Manager_ID": "Wim van Balen",
+       "email": "email150@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5750,
+       "Name": "Ioana Bordea - Giorgi",
+       "Manager_ID": "Wim van Balen",
+       "email": "email151@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5751,
+       "Name": "Oana Ioana",
+       "Manager_ID": "Wim van Balen",
+       "email": "email152@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5771,
+       "Name": "Adriana Gâdei",
+       "Manager_ID": "Wim van Balen",
+       "email": "email153@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5795,
+     "Name": "Alexandru Ştefan Popescu",
+     "Manager_ID": "Wim van Balen",
+     "email": "email154@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5848,
+       "Name": "Roxana Elena Dina",
+       "Manager_ID": "Wim van Balen",
+       "email": "email155@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 5878,
+     "Name": "Flavia Gheorghe (Obreja)",
+     "Manager_ID": "Wim van Balen",
+     "email": "email156@email.com",
+     "role": "manager",
+     "Dep_Id": 2
+   , "isDeleted": false },
+     {
+       "Id": 5932,
+       "Name": "Radu-Ioan Stefan",
+       "Manager_ID": "Wim van Balen",
+       "email": "email157@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5960,
+       "Name": "Elena-Sorina Hermann",
+       "Manager_ID": "Wim van Balen",
+       "email": "email158@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 5986,
+       "Name": "Radu Mazilu",
+       "Manager_ID": "Wim van Balen",
+       "email": "email159@email.com",
+       "role": "employee",
+       "Dep_Id": 2, 
+       "isDeleted": false },
+     {
+       "Id": 6102,
+       "Name": "Lazar Bucur",
+       "Manager_ID": "Wim van Balen",
+       "email": "email160@email.com",
+       "role": "employee",
+       "Dep_Id": 2, 
+       "isDeleted": false },
+     {
+       "Id": 6114,
+       "Name": "Ana Maria Rau-Avram",
+       "Manager_ID": "Wim van Balen",
+       "email": "email161@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+     {
+       "Id": 6129,
+       "Name": "Cristian Dumitru-Condurache",
+       "Manager_ID": "Wim van Balen",
+       "email": "email162@email.com",
+       "role": "employee",
+       "Dep_Id": 2
+     , "isDeleted": false },
+   {
+     "Id": 1111,
+     "Name": "Georgios Sariginannidis",
+     "Manager_ID": "null",
+     "email": "email163@email.com",
+     "role": "manager",
+     "Dep_Id": 2,
+     "isDeleted": false
+ 
+   },
+   {
+    "Id": 111,
+    "Name": "admin",
+    "Manager_ID": "null",
+    "email": "admin@email.com",
+    "role": "admin",
+    "Dep_Id": 0,
+    "isDeleted": false
+   }
+ ]

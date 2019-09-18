@@ -21,7 +21,7 @@ namespace FeedbackV1.Data
 
         public void SeedUsers()
         {
-            var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
+            var userData = System.IO.File.ReadAllText("Helpers/Data/UserSeedData.json");
             var users = JsonConvert.DeserializeObject<List<User>>(userData);
             foreach (var user in users)
             {
@@ -34,6 +34,7 @@ namespace FeedbackV1.Data
                 Name = user.Name,
                 Manager_ID = user.Manager_ID,
                 Role = user.Role,
+                IsDeleted = user.IsDeleted
 
 
                 

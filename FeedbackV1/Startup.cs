@@ -70,7 +70,7 @@ namespace FeedbackV1
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseAuthentication();
-            //seeder.SeedUsers();
+            // seeder.SeedUsers();
 
             app.UseMvc(routes =>
             {

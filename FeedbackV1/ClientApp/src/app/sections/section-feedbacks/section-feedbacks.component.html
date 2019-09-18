@@ -1,21 +1,49 @@
 <div class="section-container">
-    <h2>Feedbacks From Robert</h2>
+    <h2 class="text-center">My Feedbacks</h2>
     <!-- <button class="btn btn-primary" (click)="myfeedbacks()">Load</button> -->
     
-    <div class="card-deck servers">
-        <div *ngFor="let feedback of myFeedbacks">
-            <app-feedback 
-            [feedbackInput] = "feedback"  
-            >
-            <button type="button" 
-                    class="btn btn-primary" 
-            >
-              </button>
-              
+    <div class="form-group">
+        <form class="form-inline mt-3" #form="ngForm" (ngSubmit)="loadMyFeedbacks()" novalidate>
+    
+            <div class="form-group px-2">
+              <button class="btn filter" type="submit" (click)="onClick5()">Show 5 on page!</button>
+            </div>
+            
+            
+            <div class="form-group px-2">
+                <button class="btn filter" type="button" (click)="onClick8()">Show 8 on page</button>
+            </div>
+    
+            <!-- <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button> -->
+            <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filters</button>
+          
+          </form>
+    </div>
 
-        </app-feedback>
+    <div class="card-deck servers mt-5">
+        <div *ngFor="let feedback of myFeedbacks">
+
+            <app-feedback 
+                [feedbackInput] = "feedback"  
+            >
+             <button type="button" 
+                    class="btn btn-primary" 
+                    >
+              </button>
+            </app-feedback>
         
         </div>
 
     </div>
+</div>
+
+<div *ngIf="pagination.totalPages > 1" class="d-flex justify-content-center">
+        <pagination [boundaryLinks]="true" 
+                    [totalItems]="pagination.totalItems"
+                    [(ngModel)]="pagination.currentPage"
+                    [itemsPerPage]="pagination.itemsPerPage"
+                    (pageChanged)="pageChanged($event)"
+                    previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+        </pagination>
 </div>

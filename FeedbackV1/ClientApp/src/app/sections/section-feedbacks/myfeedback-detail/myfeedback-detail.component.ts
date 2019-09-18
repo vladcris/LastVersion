@@ -25,6 +25,8 @@ export class MyfeedbackDetailComponent implements OnInit {
   ngOnInit() {
     this.loadFeedback();
 
+    console.log(this.feedback);
+
   }
 
   loadFeedback() {

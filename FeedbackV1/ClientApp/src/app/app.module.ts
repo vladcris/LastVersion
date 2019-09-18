@@ -1,3 +1,4 @@
+import { AdminSectionComponent } from './sections/admin-section/admin-section.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -5,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import {EmployeesService} from './/_services/employees.service';
 import { AuthService } from './_services/auth.service';
 import { AlertifyService } from './_services/alertify.service';
-import { BsDropdownModule, ModalModule, ProgressbarModule, RatingModule } from 'ngx-bootstrap';
+import { BsDropdownModule, ModalModule, ProgressbarModule, RatingModule, PaginationModule } from 'ngx-bootstrap';
 import { UserService } from './_services/user.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'; // importing the module
 import { Ng2OrderModule } from 'ng2-order-pipe'; // importing the module
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -36,6 +39,15 @@ import { GiveComponent } from './sections/section-all/give/give.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UpdateUserComponent } from './sections/section-all/update-user/update-user.component';
 import { UsersTeamResolver } from './_resolvers/users-team.resolver';
+import { MyFeedbacksResolver } from './_resolvers/myFeedbacks.resolver';
+import { UsersResolver } from './_resolvers/users.resolver';
+import { GiveFeedbackResolver } from './_resolvers/give-feedback.resolver';
+import { ReceiverFeedbacksResolver } from './_resolvers/receiver-feedbacks.resolver';
+import { RequestResolver } from './_resolvers/request.resolver';
+import {TimeAgoPipe} from 'time-ago-pipe';
+import { LoadingSpinnerComponent } from './shared/loading-spinner';
+import { MaterialModule } from './material/material.module';
+
 
 
 
@@ -72,18 +84,23 @@ export function tokenGetter() {
       MyfeedbackDetailComponent,
       HomeComponent,
       GiveComponent,
-      UpdateUserComponent
+      UpdateUserComponent,
+      TimeAgoPipe,
+      LoadingSpinnerComponent,
+      AdminSectionComponent
    ],
    imports: [
       BrowserModule,
        AppRoutingModule,
+       MaterialModule,
        Ng2SearchPipeModule, // including into imports
        Ng2OrderModule, // importing the sorting package here
        NgxPaginationModule,
       ReactiveFormsModule,
       FormsModule,
-      AppRoutingModule,
       HttpClientModule,
+      TooltipModule.forRoot(),
+      PaginationModule.forRoot(),
       BsDropdownModule.forRoot(),
       ModalModule.forRoot(),
       ProgressbarModule.forRoot(),
@@ -92,8 +109,8 @@ export function tokenGetter() {
          config: {
             // tslint:disable-next-line:object-literal-shorthand
             tokenGetter: tokenGetter,
-          whitelistedDomains: ['localhost:44365'],
-          blacklistedRoutes: ['localhost:44365/api/auth']
+          whitelistedDomains: ['localhost:5000'],
+          blacklistedRoutes: ['localhost:5000/api/auth']
 
          }
       })
@@ -106,7 +123,12 @@ export function tokenGetter() {
       AuthGuard,
       UserService,
      UserDetailResolver,
-     UsersTeamResolver
+     UsersTeamResolver,
+     MyFeedbacksResolver,
+     UsersResolver,
+     GiveFeedbackResolver,
+     ReceiverFeedbacksResolver,
+     RequestResolver
    ],
    bootstrap: [
       AppComponent

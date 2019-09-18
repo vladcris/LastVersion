@@ -30,6 +30,7 @@ namespace FeedbackV1.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
+        public Boolean IsDeleted { get; set; }
         public string Manager_ID { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
