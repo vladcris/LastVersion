@@ -10,9 +10,10 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
-  user: any = {};
+  user: User;
+  users: User[];
   departments: any;
-  managers: any;
+  managers = {};
   constructor(private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
@@ -20,29 +21,38 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit() {
     this.loadUser();
+    this.loadUsers();
   }
 
-  loadManagers() {
-    this.userService.GetManagers().subscribe((res: User[]) => {
-      this.managers = res;
+  loadUsers() {
+    this.userService.getUsers().subscribe((response: User[]) => {
+      this.users = response;
+      this.loadManagers();
+      //console.log(this.users);
+    }, error => {
+      this.alertify.error(error);
     });
   }
 
+  loadManagers() {
+    this.managers = this.users.filter(m => m.role == 'manager');
+    console.log(this.managers);
+    // console.log(this.auth.decodedToken.nameid);
+  }
 
   loadUser() {
     // tslint:disable-next-line:no-string-literal
     this.userService.getUser(this.route.snapshot.params['id']).subscribe(res => {
       this.user = res;
       this.loadDepartments();
-      this.loadManagers();
-     //  console.log(this.user);
+      console.log(this.user);
     });
   }
 
   loadDepartments() {
     this.userService.getDepartments().subscribe(res => {
       this.departments = res;
-      // console.log(this.departments);
+      console.log(this.departments);
     });
   }
 
@@ -53,6 +63,10 @@ export class UpdateUserComponent implements OnInit {
     }, error => {
       this.alertify.error('error');
       });
+
+    //this.userService.deleteUser(this.user.id).subscribe(() => { });
+    
+    console.log(this.user);
     this.router.navigate(['/all']);
   }
 

@@ -12,7 +12,7 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title" style="color: #F67D2A;font-size: 26px;"><strong>Feedback Form</strong></h3>
-          <p class="card-text" style="color: #F67D2A;font-size: 26px;"> <strong> For:</strong>   {{feedback.iD_receiver}} </p>
+          <p class="card-text" style="color: #F67D2A;font-size: 26px;"> <strong> For:</strong>   {{receiver.name}} </p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
@@ -36,7 +36,7 @@
 
         </ul>
         <div class="card-body text-center">
-          <button class="btn btn-lg btn-primary" [routerLink]="['/myfeedbacks']">Back</button>
+          <button class="btn btn-lg btn-primary" [routerLink]="['/feedbacks']">Back</button>
           <!-- <a href="#" class="card-link">Another link</a> -->
         </div>
       </div>

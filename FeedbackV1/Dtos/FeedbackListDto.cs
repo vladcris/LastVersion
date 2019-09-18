@@ -15,9 +15,5 @@ namespace FeedbackV1.Dtos
          public string Comments { get; set; }
         public Boolean Pending { get; set; }
         public DateTime Timestamp {get; set;}
-
-        public string Sender { get; set; }
-        public string Receiver { get; set; }
-        public string Manager { get; set; }
     }
 }

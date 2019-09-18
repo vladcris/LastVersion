@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
   isEmployee() {
-    return localStorage.getItem('role') !== 'employee';
+    return localStorage.getItem('role') != 'employee';
 
   }
 

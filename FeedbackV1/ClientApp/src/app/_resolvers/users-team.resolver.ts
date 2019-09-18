@@ -10,9 +10,9 @@ import { AuthService } from '../_services/auth.service';
 @Injectable()
 export class UsersTeamResolver implements Resolve<User> {
   constructor(private userService: UserService,
-              private router: Router,
-              private alertify: AlertifyService,
-              private authService: AuthService) { }
+    private router: Router,
+    private alertify: AlertifyService,
+    private authService: AuthService) { }
   resolve(route: ActivatedRouteSnapshot): Observable<User> {
     // tslint:disable-next-line:no-string-literal
     return this.userService.getTeam(this.authService.decodedToken.unique_name).pipe(

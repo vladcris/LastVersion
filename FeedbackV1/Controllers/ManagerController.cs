@@ -33,9 +33,42 @@ namespace FeedbackV1.Controllers
         public async Task<IActionResult> GetDescendants(string managerid)
         {
             var repo = new TableStorageRepository();
+            var users = await repo.GetUsers();
+            
+            Dictionary<string, List<Models.User>> descendantsFromManager = new Dictionary<string, List<Models.User>>();
+            Models.User manager = new Models.User();
+            manager.Id = managerid;
+            manager.Name = managerid;
+            foreach (var user in users)
+            {
+                if (!descendantsFromManager.ContainsKey(user.Manager_ID))
+                    descendantsFromManager[user.Manager_ID] = new List<Models.User>();
+                descendantsFromManager[user.Manager_ID].Add(user);
 
-            var descendants = await repo.GetMyTeamAsManager(managerid);
-
+                if (user.Name == managerid || user.Id == managerid)
+                    manager = user;
+               
+                
+            }
+            Queue<Models.User> queue = new Queue<Models.User>();
+            List<Models.User> descendants = new List<Models.User>();
+            
+            queue.Enqueue(manager);
+            while(queue.Count!=0)
+            {
+                var user = queue.Dequeue();
+                if (user.Name != managerid && user.Id != managerid)
+                    descendants.Add(user);
+                if(descendantsFromManager.ContainsKey(user.Name))
+                {
+                    foreach(var child in descendantsFromManager[user.Name])
+                    {
+                        queue.Enqueue(child);
+                       
+                    }
+                    descendantsFromManager.Remove(user.Name);
+                }
+            }
             var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(descendants);
             if (!usersToReturn.Any())
                 return NotFound();

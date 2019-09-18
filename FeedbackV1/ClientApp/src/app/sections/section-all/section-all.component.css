@@ -1,24 +1,9 @@
-
-.forPadding{
-  margin: 20px 50px;
+td>a{
+    cursor: pointer;
+    color: blue;
 }
-
-a, .delete{
-  color: #F67D2A!important;
+a.disabled{
+  pointer-events:none;
+  cursor:not-allowed;
+  color:lightgrey;
 }
-
-.name {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline:none;
-}
-
-.filter {
-  background-color: #F67D2A;
-  color: #fff;
-}
-
-

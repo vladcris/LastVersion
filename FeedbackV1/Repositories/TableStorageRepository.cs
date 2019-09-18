@@ -9,7 +9,6 @@ using System.Net.Http;
 using System.Net;
 using FeedbackV1.Models;
 using System.Security.Claims;
-using FeedbackV1.Dtos;
 
 namespace FeedbackV1.Repositories
 {
@@ -104,18 +103,25 @@ namespace FeedbackV1.Repositories
             return results;
         }
 
-         public async Task<List<Feedbacks>> GetAllFeedbacks()
+         public async Task<List<Feedbacks>> GetAllEntities1()
         {
             await feedbacksTable.CreateIfNotExistsAsync();
-            var results = (await feedbacksTable.ExecuteQuerySegmentedAsync(new TableQuery<Feedbacks>(), null)).ToList();
+            // string filter2 = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, ID);
+            // TableQuery<Feedbacks> query = new TableQuery<Feedbacks>().Where(filter2);
+            // var result = await feedbacksTable.ExecuteQuerySegmentedAsync(query,null);
+            var results = (await feedbacksTable.ExecuteQuerySegmentedAsync(new TableQuery<Feedbacks>(), null)).ToList<Feedbacks>();
             List<Feedbacks> feedbacks = results;
             feedbacks = feedbacks.OrderByDescending(x => x.Pending).ToList();
              if (feedbacks == null)
                 return null;
             return feedbacks;
+            // var results = (await feedbacksTable.ExecuteQuerySegmentedAsync(new TableQuery<Feedbacks>(), null)).ToList<Feedbacks>();
+            // if (results == null)
+            //     return null;
+            // return results;
         }
 
-        public async Task<Feedbacks> GetFeedByFeedId(string id)
+        public async Task<Feedbacks> GetFeedById(string id)
         {
             await feedbacksTable.CreateIfNotExistsAsync();
             var filter = TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, id);
@@ -127,63 +133,8 @@ namespace FeedbackV1.Repositories
             return result.FirstOrDefault();
         }
 
-        
-        public async Task<PagedList<Feedbacks>> GetMyFeedbacks(UserParams userParams, string id)
-        {
-            await feedbacksTable.CreateIfNotExistsAsync();
-            var filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id);
-            TableQuery<Feedbacks> query = new TableQuery<Feedbacks>().Where(filter);
-            var result = await feedbacksTable.ExecuteQuerySegmentedAsync(query, null);
 
-            List<Feedbacks> feedbacks = result.Results;
-            feedbacks = feedbacks.OrderByDescending(x => x.Pending).ThenByDescending(x => x.Timestamp).ToList();
-
-            var list = new List<Feedbacks>();
-            list = feedbacks;
-            var queryable = list.AsQueryable();
-
-            var paginatedResult = PagedList<Feedbacks>.Create(queryable, userParams.PageNumber, userParams.PageSize);
-
-            if (paginatedResult == null)
-                return null;
-
-            return paginatedResult;
-
-        }
-
-        public async Task<Feedbacks> GetNamesForFeedback(string id)
-        {   
-            var repo = new TableStorageRepository();
-
-            var feedback = await repo.GetFeedByFeedId(id);
-            var users = await repo.GetUsersWithoutParams();
-
-            var names = new Feedbacks {};
-
-            foreach (var user in users)
-            {
-                if (user.Id == feedback.ID)
-                {
-                    feedback.ID = user.Name;
-                }
-
-                if (user.Id == feedback.ID_receiver)
-                {
-                    feedback.ID_receiver = user.Name;
-                }
-
-                if (user.Id == feedback.ID_manager)
-                {
-                    feedback.ID_manager = user.Name;
-                }
-
-            }
-
-            return feedback;
-        }
-
-
-        public async Task<Feedbacks> GetFeedByFeedAndUserId(string id, string feed)
+        public async Task<Feedbacks> GetFeedByFeed(string id, string feed)
         {
             await feedbacksTable.CreateIfNotExistsAsync();
             var filter1 = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id);
@@ -201,7 +152,7 @@ namespace FeedbackV1.Repositories
             feedback.RowKey = Guid.NewGuid().ToString();
             await feedbacksTable.CreateIfNotExistsAsync();
             TableOperation insertOperation = TableOperation.InsertOrReplace(feedback);
-            var result = await feedbacksTable.ExecuteAsync(insertOperation);
+           var result = await feedbacksTable.ExecuteAsync(insertOperation);
             return(feedback);
 
         }
@@ -217,58 +168,8 @@ namespace FeedbackV1.Repositories
 
         }
 
-        public async Task<PagedList<Feedbacks>> GetFeedbacksByReceiver(UserParams userParams,string id)
-        {
-            await feedbacksTable.CreateIfNotExistsAsync();
-            var filter = TableQuery.GenerateFilterCondition("ID_receiver", QueryComparisons.Equal, id);
-            TableQuery<Feedbacks> query = new TableQuery<Feedbacks>().Where(filter);
-            var result = await feedbacksTable.ExecuteQuerySegmentedAsync(query, null);
-            if (result == null)
-                return null;
-            var results = result.Results.AsQueryable();
-            results = results.OrderByDescending(x => x.Pending).ThenByDescending(x => x.Timestamp);
-            
-            var paginatedResult = PagedList<Feedbacks>.Create(results, userParams.PageNumber, userParams.PageSize);
 
-            if (paginatedResult == null)
-                return null;
 
-            return paginatedResult;
-
-        }
-
-        
-
-        // public async Task<IEnumerable<PagedList<Feedbacks>>> GetFeedbacksWithName(PagedList<Feedbacks> feedbacks)
-        // {
-        //     var repo = new TableStorageRepository();
-        //     var users = await repo.GetUsersWithoutParams();
-            
-
-        //     foreach (var feedback in feedbacks)
-        //     {
-        //         foreach (var user in users)
-        //         {
-                    
-        //         if (user.Id == feedback.ID)
-        //         {
-        //             feedback.Sender = user.Name;
-        //         }
-
-        //         if (user.Id == feedback.ID_receiver)
-        //         {
-        //             feedback.Receiver = user.Name;
-        //         }
-
-        //         if (user.Id == feedback.ID_manager)
-        //         {
-        //             feedback.Manager = user.Name;
-        //         }
-
-        //         }
-        //     }
-        //     return feedbacks;
-        // }
 
 
         //////User////
@@ -367,71 +268,15 @@ namespace FeedbackV1.Repositories
             return await repo.SaveAll();
         }
 
-
-        public async Task<IEnumerable<User>> GetUsersWithoutParams()
+        public async Task<IEnumerable<User>> GetUsers()
         {
             await userTable.CreateIfNotExistsAsync();
-            var users = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
-            users = users.OrderByDescending(x => x.Name);
-             if (users == null)
+            var results = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).ToList<User>();
+             List<User> people = results;
+             people = people.OrderByDescending(x => x.Name).ToList();
+            if (people == null)
                 return null;
-            return users;
-        }
-           
-
-        public async Task<PagedList<User>> GetUsers(UserParams userParams)
-        {   
-            var repo = new TableStorageRepository();
-            await userTable.CreateIfNotExistsAsync();
-
-            var results = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
-            
-            results = results.Where(x => x.RowKey != userParams.UserId).OrderBy(x => x.Name);
-
-            if ((!string.IsNullOrEmpty(userParams.Role) ) && userParams.Team)
-            {
-                if(userParams.Role == "manager"){
-
-                    var newResults = await repo.GetMyTeamAsManager(userParams.UserId);
-                    results = newResults.AsQueryable().OrderByDescending(x => x.Name);
-                                                      
-                }else if (userParams.Role == "employee") 
-                {
-                    var newResults = await repo.GetMyTeamAsEmployee(userParams.Manager);
-                    results = newResults.AsQueryable().Where(x => x.RowKey != userParams.UserId).Union(results.AsQueryable()
-                                                      .Where(x => x.Name == userParams.Manager)).OrderByDescending(x => x.Name);
-                }else {
-                    userParams.Role = null;
-                }
-            }
-          
-
-            if (!string.IsNullOrEmpty(userParams.OrderBy))
-            {
-                switch(userParams.OrderBy)
-                {
-                    case "desc":
-                        results = results.OrderByDescending(u => u.Name);
-                        break;
-                    case "asc":
-                        results = results.OrderBy(u => u.Name);
-                        break;
-                    default:
-                        results = results.OrderBy(u => u.Name);
-                        break;
-
-                }
-            }
-
-            
-            if (results == null)
-                return null;
-
-            var paginatedResult = PagedList<User>.Create(results, userParams.PageNumber, userParams.PageSize);
-
-            if (paginatedResult == null)
-                return null;
-            return paginatedResult;
+            return people;
         }
 
         public async Task<User> GetUser(string id)
@@ -446,45 +291,6 @@ namespace FeedbackV1.Repositories
             return result.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<User>> GetMyTeamAsEmployee(string name)
-        {   
-
-            await userTable.CreateIfNotExistsAsync();
-            var filter = TableQuery.GenerateFilterCondition("Manager_ID", QueryComparisons.Equal, name);
-            TableQuery<User> query = new TableQuery<User>().Where(filter);
-            var result = await userTable.ExecuteQuerySegmentedAsync(query, null);
-            if (result == null)
-                return null;
-            var results = result.Results;
-            return results;
-        }
-
-        
-        public async Task<List<User>> GetUsersByDepartment(string id)
-        {
-            await userTable.CreateIfNotExistsAsync();
-            var filter =  TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id);
-            TableQuery<User> query = new TableQuery<User>().Where(filter);
-            var result = await userTable.ExecuteQuerySegmentedAsync(query, null);
-            if (result == null)
-                return null;
-            var results = result.Results;
-            return results;
-        }
-
-        public async Task<IEnumerable<User>> GetAllManagers()
-        {
-            await userTable.CreateIfNotExistsAsync();
-
-            var users = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).AsQueryable();
-
-            var results = users.Where(x => x.Role == "manager").OrderBy(item => item.Name);       
-            return results;
-
-
-        }
-
-
          public async Task DeleteUser(ITableEntity obj)
         {
             TableOperation insertOperation = TableOperation.Delete(obj);
@@ -498,60 +304,29 @@ namespace FeedbackV1.Repositories
             }
         }
 
-         public async Task<IEnumerable<User>> GetUsersForTeam()  
+
+        public async Task<List<User>> GetUsersByDepartment(string id)
         {
+
             await userTable.CreateIfNotExistsAsync();
-            var results = (await userTable.ExecuteQuerySegmentedAsync(new TableQuery<User>(), null)).ToList<User>();
-
-            List<User> people = results;
-            people = people.OrderByDescending(x => x.Name).ToList();
-
-            if (people == null)
-                return null;  
-            return people;
+            var filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id);
+            TableQuery<User> query = new TableQuery<User>().Where(filter);
+            var result = await userTable.ExecuteQuerySegmentedAsync(query, null);
+            if (result == null)
+                return null;
+            var results = result.Results;
+            return results;
         }
 
-        public async Task<IEnumerable<User>> GetMyTeamAsManager(string managerid)
-        {   
-            var repo = new TableStorageRepository();
-            var users = await repo.GetUsersForTeam();
 
-            Dictionary<string, List<Models.User>> descendantsFromManager = new Dictionary<string, List<Models.User>>();
-            Models.User manager = new Models.User();
-            manager.Id = managerid;
-            manager.Name = managerid;
-            foreach (var user in users)
-            {
-                if (!descendantsFromManager.ContainsKey(user.Manager_ID))
-                    descendantsFromManager[user.Manager_ID] = new List<Models.User>();
-                descendantsFromManager[user.Manager_ID].Add(user);
 
-                if (user.Name == managerid || user.Id == managerid)
-                    manager = user;
-               
-                
-            }
-            Queue<Models.User> queue = new Queue<Models.User>();
-            List<Models.User> descendants = new List<Models.User>();
-            
-            queue.Enqueue(manager);
-            while(queue.Count!=0)
-            {
-                var user = queue.Dequeue();
-                if (user.Name != managerid && user.Id != managerid)
-                    descendants.Add(user);
-                if(descendantsFromManager.ContainsKey(user.Name))
-                {
-                    foreach(var child in descendantsFromManager[user.Name])
-                    {
-                        queue.Enqueue(child);
-                       
-                    }
-                    descendantsFromManager.Remove(user.Name);
-                }
-            }
 
-            return descendants;
-        }
+        /*  public void DeleteEmployee(Employees entity)
+          {
+
+              TableOperation deleteOperation = TableOperation.Delete(entity);
+              TableResult result = cardsTable.Execute(deleteOperation);
+
+      */
     }
 }

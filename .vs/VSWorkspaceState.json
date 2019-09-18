@@ -6,11 +6,8 @@
     "\\FeedbackV1\\ClientApp\\src",
     "\\FeedbackV1\\ClientApp\\src\\app",
     "\\FeedbackV1\\ClientApp\\src\\app\\sections",
-    "\\FeedbackV1\\ClientApp\\src\\app\\sections\\section-all",
-    "\\FeedbackV1\\ClientApp\\src\\app\\sections\\section-feedbacks",
-    "\\FeedbackV1\\ClientApp\\src\\app\\sections\\section-feedbacks\\myfeedback-detail",
-    "\\FeedbackV1\\ClientApp\\src\\environments"
+    "\\FeedbackV1\\ClientApp\\src\\app\\sections\\request"
   ],
-  "SelectedNode": "\\FeedbackV1\\ClientApp\\src\\app\\sections\\section-all\\section-all.component.ts",
+  "SelectedNode": "\\FeedbackV1.sln",
   "PreviewInSolutionExplorer": false
 }

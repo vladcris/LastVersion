@@ -22,13 +22,13 @@ namespace FeedbackV1.Controllers
               _mapper = mapper;
         }
         [HttpGet]
-        public async Task<IActionResult> GetDepartaments()
+        public async Task<IActionResult> GetEmployees()
         {
             var repo = new TableStorageRepository();
-            var departaments = await repo.GetAllDepartments();
+            var cards = await repo.GetAllDepartments();
 
-            var departmentsToReturn = _mapper.Map<IEnumerable<DepartamentListDto>>(departaments);
-            if (!departaments.Any())
+            var departmentsToReturn = _mapper.Map<IEnumerable<DepartamentListDto>>(cards);
+            if (!cards.Any())
                 return NotFound();
             return Ok(departmentsToReturn);
         }

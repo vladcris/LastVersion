@@ -19,10 +19,6 @@ import { GiveComponent } from './sections/section-all/give/give.component';
 import { UserDetailResolver } from './_resolvers/user-detail.resolver';
 import { UsersTeamResolver } from './_resolvers/users-team.resolver';
 import { UpdateUserComponent } from './sections/section-all/update-user/update-user.component';
-import { MyFeedbacksResolver } from './_resolvers/myFeedbacks.resolver';
-import { UsersResolver } from './_resolvers/users.resolver';
-import { GiveFeedbackResolver } from './_resolvers/give-feedback.resolver';
-import { ReceiverFeedbacksResolver } from './_resolvers/receiver-feedbacks.resolver';
 
 
 
@@ -34,36 +30,26 @@ const appRoutes: Routes = [
       runGuardsAndResolvers: 'always',
       canActivate: [AuthGuard],
       children: [
-         { path: 'all', component: SectionAllComponent, resolve: {
-            users: UsersResolver
-         }},
+         { path: 'all', component: SectionAllComponent},
          { path: 'all/update/:id', component: UpdateUserComponent},
          {path: 'all/:id', component: GiveComponent, resolve: {
             user: UserDetailResolver
          }},
-         { path: 'myfeedbacks', component: SectionFeedbacksComponent, resolve: {
-            feedbacks: MyFeedbacksResolver
-         }},
+         { path: 'feedbacks', component: SectionFeedbacksComponent},
          { path: 'request/:id', component: RequestComponent},
-         { path: 'myfeedbacks/:feeD_ID', component: MyfeedbackDetailComponent, resolve: {
-            feedback: GiveFeedbackResolver
-         }},
+         { path: 'feedbacks/:feeD_ID', component: MyfeedbackDetailComponent},
          { path: 'adduser', component: SectionAdduserComponent},
          { path: 'login', component: LoginComponent },
         {
           path: 'view', component: ViewfeedbackComponent, resolve: {
-            users: UsersTeamResolver,
-            feedbacks: ReceiverFeedbacksResolver
+            users: UsersTeamResolver
           },
           children: [
             { path: '', component: ViewstartComponent},
            // { path: ':id', component: FeedbackListComponent},
-            { path: ':id', component: FeedbackDetailComponent
-            }
+            { path: ':id', component: FeedbackDetailComponent}
          ]},
-         { path: 'give-feedback/:feeD_ID', component: GiveFeebackComponent, resolve: {
-            feedback: GiveFeedbackResolver
-         }},
+         { path: 'give-feedback/:feeD_ID', component: GiveFeebackComponent},
          { path: 'import', component: ImportComponent},
 
       ]
