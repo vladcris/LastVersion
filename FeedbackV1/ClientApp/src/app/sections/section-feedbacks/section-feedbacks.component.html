@@ -1,21 +1,31 @@
 <div class="section-container">
-    <h2>Feedbacks From Robert</h2>
+    <h2>Feedbacks:</h2>
     <!-- <button class="btn btn-primary" (click)="myfeedbacks()">Load</button> -->
     
-    <div class="card-deck servers">
+    <div class="card-deck servers mt-5">
         <div *ngFor="let feedback of myFeedbacks">
-            <app-feedback 
-            [feedbackInput] = "feedback"  
-            >
-            <button type="button" 
-                    class="btn btn-primary" 
-            >
-              </button>
-              
 
-        </app-feedback>
+            <app-feedback 
+                [feedbackInput] = "feedback"  
+            >
+             <button type="button" 
+                    class="btn btn-primary" 
+                    >
+              </button>
+            </app-feedback>
         
         </div>
 
     </div>
+</div>
+
+<div *ngIf="pagination.totalPages > 1" class="d-flex justify-content-center">
+        <pagination [boundaryLinks]="true" 
+                    [totalItems]="pagination.totalItems"
+                    [(ngModel)]="pagination.currentPage"
+                    [itemsPerPage]="pagination.itemsPerPage"
+                    (pageChanged)="pageChanged($event)"
+                    previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+
+        </pagination>
 </div>

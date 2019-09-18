@@ -31,16 +31,26 @@
             <a class="nav-link">Home</a>
         </li> -->
       </ul>
-
+      <div *ngIf="pending">
+          <a [routerLink]="['/myfeedbacks']"><i class=" fas fa-exclamation fa-lg mr-3"
+            tooltip="YOU HAVE REQUESTS NOT COMPLETED! " 
+            style="cursor: pointer"
+            
+            placement="bottom"
+         ></i></a>
+      </div>
+      
       <div  *ngIf="loggedIn()" class="dropdown" dropdown>
+  
         <a class="dropdown-toggle text-light mr-5" dropdownToggle >
-          <i class="fas fa-user"></i> Welcome {{authService.decodedToken.unique_name}}
+          <i class="fas fa-user"></i>  Welcome {{authService.decodedToken.unique_name}} 
         </a>
+     
       
         <div class="dropdown-menu mt-3" *dropdownMenu>
-          <a class="dropdown-item" [routerLink]="['/feedbacks']"  > <i class="fa fa-user"></i> My Feedbacks</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" (click)="logout()"> <i class="fa fa-sign-out"></i>Logout</a>
+          <a class="dropdown-item" [routerLink]="['/myfeedbacks']"  > <i class="fa fa-user"></i> My Feedbacks 
+           <i *ngIf="pending" class=" ml-1 fas fa-exclamation fa-lg"></i></a>
+          <a class="dropdown-item" (click)="logout()"> <i class="fa fa-sign-out"></i>Logout</a> 
         </div>
       </div>
 

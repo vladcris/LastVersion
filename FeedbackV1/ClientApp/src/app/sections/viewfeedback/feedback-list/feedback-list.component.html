@@ -18,11 +18,24 @@
     <div class="col-md-12">
         <div class="list-group">
             <app-feedback-item 
-                *ngFor="let feedbackEl of userFeedbacks; let i= index"
+                *ngFor="let feedbackEl of feedbacks; let i= index"
                 [feedback] = "feedbackEl"
                 >
             </app-feedback-item>
         </div>
+
+        <div *ngIf="pagination.totalPages > 1" class="d-flex justify-content-center">
+                <pagination [boundaryLinks]="true" 
+                            [totalItems]="pagination.totalItems"
+                            [(ngModel)]="pagination.currentPage"
+                            [itemsPerPage]="pagination.itemsPerPage"
+                            (pageChanged)="pageChanged($event)"
+                            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+        
+                </pagination>
+        </div>
+
+
     </div>
 </div>
 

@@ -26,19 +26,38 @@ namespace FeedbackV1.Controllers
 
         }
 
+
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
-        {
+        public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
+        {   
             var repo = new TableStorageRepository();
-           // var ID = (User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            var users = await repo.GetUsers();
+
+            var CurrentUserId = (User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            userParams.UserId = CurrentUserId;
+
+            var userLogged = await repo.GetUser(CurrentUserId);
+
+            if(!string.IsNullOrEmpty(userLogged.Role) && userParams.Team) 
+            {
+                userParams.Role = userLogged.Role;
+                if (!string.IsNullOrEmpty(userLogged.Manager_ID)) {
+                    userParams.Manager = userLogged.Manager_ID;
+                }
+                
+            }
+            
+            var users = await repo.GetUsers(userParams);
             var usersToReturn = _mapper.Map<IEnumerable<UserDto>>(users); 
+
+            Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
+
             if (!usersToReturn.Any())
                 return NotFound();
             return Ok(usersToReturn);
         }
 
-        [HttpGet("{id}", Name = "GetUser")]
+        [HttpGet("{id:guid}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(string id)
         {
             var repo = new TableStorageRepository();
@@ -47,13 +66,26 @@ namespace FeedbackV1.Controllers
             if (userToReturn == null)
                 return NotFound();
             return Ok(userToReturn);
-
         }
+
+        [HttpGet("managers")]
+        public async Task<IActionResult> GetManagers()
+        {
+            var repo = new TableStorageRepository();
+            var managers = await repo.GetAllManagers();
+
+            var managersToReturn = _mapper.Map<IEnumerable<UserDto>>(managers);
+            
+            if (!managersToReturn.Any())
+                return NotFound();
+            return Ok(managersToReturn);
+            
+        }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(string id, UpdateUserDto  requestUpdate)
         {   
-            //TableStorageRepository test = new TableStorageRepository();
             var repo = new TableStorageRepository();
             var cards = await repo.GetUser(id);
             _mapper.Map(requestUpdate, cards);
@@ -68,9 +100,7 @@ namespace FeedbackV1.Controllers
         {
             var repo = new TableStorageRepository();
             var cards = await repo.GetUser(id);
-
             await repo.DeleteUser(cards);
-
             return Ok();
         }
 

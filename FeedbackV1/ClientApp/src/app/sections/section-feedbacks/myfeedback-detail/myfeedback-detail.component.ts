@@ -12,9 +12,7 @@ import { User } from '../../../_models/user';
 })
 export class MyfeedbackDetailComponent implements OnInit {
 
-  feedback: Feedback;
-  receiver: User = null;
-  
+  feedback: any = {};
   constructor(private feedbackService: FeedbacksService,
               private userService: UserService,
               private route: ActivatedRoute) { }
@@ -23,26 +21,21 @@ export class MyfeedbackDetailComponent implements OnInit {
   isReadonly = true;
 
   ngOnInit() {
-    this.loadFeedback();
-
-  }
-
-  loadFeedback() {
-    // tslint:disable-next-line:no-string-literal
-    this.feedbackService.getFeedback(this.route.snapshot.params['feeD_ID']).subscribe((feedback: Feedback) => {
-      this.feedback = feedback;
-      this.loadName();
-     // console.log(this.feedback);
+    // this.loadFeedback();
+    this.route.data.subscribe(data => {
+      // tslint:disable-next-line:no-string-literal
+      this.feedback = data['feedback'];
     });
+
   }
 
-  loadName() {
-    this.userService.getUsersCached(users => {
-      users.forEach((user: User, index: number, array: User[]) => {
-        if (user.id == this.feedback.iD_receiver)
-          this.receiver = user;
-      });
-    });
-  }
+  // loadFeedback() {
+  //   // tslint:disable-next-line:no-string-literal
+  //   this.feedbackService.getFeedback(this.route.snapshot.params['feeD_ID']).subscribe((feedback: Feedback) => {
+  //     this.feedback = feedback;
+  //    // console.log(this.feedback);
+  //   });
+  // }
+
 
 }
