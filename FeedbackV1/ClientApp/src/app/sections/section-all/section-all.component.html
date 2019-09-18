@@ -45,7 +45,7 @@
             <td><a [routerLink]="['/all/', user.id]" [class.disabled]="!tableLoaded">Offer feedback</a></td>
             <td><a [routerLink]="['/request/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Request</a></td>
             <td><a [routerLink]="['/all/update/', user.id]" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Update</a></td>
-            <td><a (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isEmployee()">Delete</a></td>
+            <td><button (click)="tableLoaded && onDelete(user.id)" [class.disabled]="!tableLoaded" *ngIf="isEmployee()" style="background-color:#DB0000">Delete</button></td>
 
           </tr>
         </tbody>
